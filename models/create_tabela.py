@@ -43,13 +43,7 @@ class CreateTable:
             logging.info("Tabela criada.")
 
             # Verifica se já há dados na tabela
-            cursor.execute("""
-                            SELECT COUNT(*) 
-                            FROM controle_emissao_certidoes
-                            WHERE status_processo = 'pendente';
-                        """)
-            row_count = cursor.fetchone()[0]
-
+            row_count = self.select_table.count_pendentes(conection)
             if row_count == 0:
                 status_insert = self.insert_table.insert(empresas, conection)
                 if not status_insert:
@@ -57,15 +51,8 @@ class CreateTable:
                     return []
             else:
                 logging.info("Dados já existentes na tabela. Inserção ignorada.")
-
             # Realiza o SELECT com nomes de colunas preservados
-            cursor.execute("SELECT * FROM controle_emissao_certidoes;")
-            colunas = [desc[0] for desc in cursor.description]
-            resultados = cursor.fetchall()
-            dados_com_colunas = [dict(zip(colunas, linha)) for linha in resultados]
-
-            return dados_com_colunas
-
+            return self.select_table.select_pendente(conection)
         except Exception as e:
             logging.error(f"Erro ao criar tabela ou inserir dados: {e}")
             return []

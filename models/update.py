@@ -4,12 +4,12 @@ class UpdateStatus:
     def __init__(self):
         self.db = DatabaseConnection()
 
-    def update(self, record_id, new_status, error_message=None):
+    def update(self, cnpj, status_processo, connection_sqlite):
         with self.db.connect() as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 UPDATE controle_emissao_certidoes
-                SET status = ?, error_message = ?
-                WHERE id = ?
-            ''', (new_status, error_message, record_id))
+                SET status_processo = ?
+                WHERE cnpj = ?
+            ''', (status_processo, cnpj))
             conn.commit()

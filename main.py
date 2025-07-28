@@ -24,3 +24,6 @@ if not lista_empresas:
 
 for empresa in lista_empresas:
     print(f"Empresa: {empresa['empresa']}, CNPJ: {empresa['cnpj']}, Status: {empresa['status']}")
+    status_emissao = True  
+    if status_emissao == True:
+        status_update = UpdateStatus().update(empresa['cnpj'], 'processando', connection_sqlite)

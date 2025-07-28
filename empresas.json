@@ -168,5 +168,22 @@
     "trabalhista": null,
     "status_processo": null,
     "data_ultima_atualizacao": null
+  },
+  {
+    "empresa": "joao e maria",
+    "cnpj": "81932363000167",
+    "simples_nacional": null,
+    "grupo": null,
+    "status": null,
+    "cidade": null,
+    "receita_federal": null,
+    "sefaz_inscricao": null,
+    "sefaz_certidao": null,
+    "municipal_inscricao": null,
+    "municipal_certidao": null,
+    "fgts": null,
+    "trabalhista": null,
+    "status_processo": null,
+    "data_ultima_atualizacao": null
   }
 ]
