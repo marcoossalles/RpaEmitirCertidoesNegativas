@@ -23,7 +23,7 @@ class InsertTable:
                     e.get("municipal_certidao"),
                     e.get("fgts"),
                     e.get("trabalhista"),
-                    e.get("status_processo"),
+                    "pendente",
                     e.get("data_ultima_atualizacao")
                 ) for e in empresas]
 
