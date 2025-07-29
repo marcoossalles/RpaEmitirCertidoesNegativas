@@ -4,7 +4,7 @@ from models.create_tabela import CreateTable
 from models.update import UpdateStatus
 from models.delete import DeleteTable
 from models.export import ExportToExcel
-from automation.certidao_trablhista import CertidaoTrabalhista
+from automation.certidao_trabalhista import CertidaoTrabalhista
 from automation.certidao_fgts import CertidaoFgts
 from automation.certidao_estadual import CertidaoEstadual
 from automation.certidao_municipal import CertidaoMunicipal

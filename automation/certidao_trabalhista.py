@@ -1,4 +1,5 @@
 import logging
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -18,7 +19,7 @@ class CertidaoTrabalhista:
 
     def acessar_site(self, cnpj):
         try:
-            url = "https://cndt-certidao.tst.jus.br/inicio.faces"
+            url = os.getenv('BASE_URL_CERTIDAO_TRABALHISTA')
             self.driver.get(url)
 
             botao_emitir = self.driver.find_element(By.XPATH, '//*[@id="corpo"]/div/div[2]/input[1]')

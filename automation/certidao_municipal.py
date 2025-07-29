@@ -1,4 +1,5 @@
 import logging
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -18,7 +19,7 @@ class CertidaoMunicipal:
 
     def acessar_site(self, cnpj):
         try:
-            url = "https://www.sefaz.go.gov.br/certidao/emissao/"
+            url = os.getenv('BASE_URL_CERTIDAO_MUNICIPAL')
             self.driver.get(url)
             
             botao_cnpj = self.driver.find_element(By.XPATH, '//*[@id="Certidao.TipoDocumentoCNPJ"]')

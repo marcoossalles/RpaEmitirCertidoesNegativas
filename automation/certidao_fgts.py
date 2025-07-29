@@ -1,4 +1,5 @@
 import logging
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -18,7 +19,7 @@ class CertidaoFgts:
 
     def acessar_site(self, cnpj):
         try:
-            url = "https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf"
+            url = os.getenv('BASE_URL_CERTIDAO_FGTS')
             self.driver.get(url)
             
             input_cnpj = self.driver.find_element(By.XPATH, '//*[@id="mainForm:txtInscricao1"]')
