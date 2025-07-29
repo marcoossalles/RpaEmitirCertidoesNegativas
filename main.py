@@ -3,6 +3,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 from models.create_tabela import CreateTable
 from models.update import UpdateStatus
 from models.delete import DeleteTable
+from models.export import ExportToExcel
+from automation.certidao_trablhista import CertidaoTrabalhista
+
 import json
 
 # Lê o arquivo JSON contendo as empresas
@@ -29,11 +32,13 @@ if not lista_empresas:
 
 # Itera sobre a lista de empresas e atualiza o status
 for empresa in lista_empresas:
-    print(f"Empresa: {empresa['empresa']}, CNPJ: {empresa['cnpj']}, Status: {empresa['status']}")
-    status_emissao = True  # Define o status de emissão como verdadeiro
-    if status_emissao == True:
-        # Atualiza o status da empresa para "processando"
-        status_update = UpdateStatus().update(empresa['cnpj'], 'processando', connection_sqlite)
+    CertidaoTrabalhista().acessar_site()
+
+
+    status_update = UpdateStatus().update(empresa['cnpj'], 'processando', connection_sqlite)
+
+# Exporta os dados para um arquivo Excel
+ExportToExcel().export_to_excel(lista_empresas, 'certidoes_negativas.xlsx')
 
 # Exclui a tabela do banco de dados após o processamento
 DeleteTable().delete(connection_sqlite)

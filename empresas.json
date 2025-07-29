@@ -2,17 +2,19 @@
   {
     "empresa": "Ação Consultoria e Assessoria Ltda",
     "cnpj": "19103270000156",
-    "simples_nacional": null,
-    "grupo": null,
+        "grupo": null,
     "status": null,
     "cidade": null,
-    "receita_federal": null,
-    "sefaz_inscricao": null,
-    "sefaz_certidao": null,
-    "municipal_inscricao": null,
-    "municipal_certidao": null,
-    "fgts": null,
-    "trabalhista": null,
+    "tipos":[
+      "simples_nacional",
+      "receita_federal",
+      "sefaz_inscricao",
+      "sefaz_certidao",
+      "municipal_inscricao",
+      "municipal_certidao",
+      "fgts",
+      "trabalhista"
+    ],
     "status_processo": null,
     "data_ultima_atualizacao": null
   },
