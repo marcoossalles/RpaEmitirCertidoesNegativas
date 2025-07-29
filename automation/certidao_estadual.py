@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-class CertidaoTrabalhista:
+class CertidaoEstadual:
     def __init__(self):
         chrome_options = Options()
         chrome_options.add_argument("--start-maximized")
@@ -18,19 +18,22 @@ class CertidaoTrabalhista:
 
     def acessar_site(self, cnpj):
         try:
-            url = "https://cndt-certidao.tst.jus.br/inicio.faces"
+            url = "https://www.sefaz.go.gov.br/certidao/emissao/"
             self.driver.get(url)
+            
+            botao_cnpj = self.driver.find_element(By.XPATH, '//*[@id="Certidao.TipoDocumentoCNPJ"]')
+            botao_cnpj.click()
 
-            botao_emitir = self.driver.find_element(By.XPATH, '//*[@id="corpo"]/div/div[2]/input[1]')
-            botao_emitir.click()
-
-            input_cnpj = self.driver.find_element(By.XPATH, '//*[@id="gerarCertidaoForm:cpfCnpj"]')
+            input_cnpj = self.driver.find_element(By.XPATH, '//*[@id="Certidao.NumeroDocumentoCNPJ"]')
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
-            
-            button_emitir_certidao = self.driver.find_element(By.XPATH,'//*[@id="gerarCertidaoForm:btnEmitirCertidao"]')
+
+            button_emitir_certidao = self.driver.find_element(By.XPATH,'/html/body/form/div/div[2]/input[1]')
             button_emitir_certidao.click()
             
+            button_salve = self.driver.find_element(By.XPATH,'//*[@id="icon"]')
+            button_salve.click()
+
             self.fechar()
             return True 
         except Exception as e:

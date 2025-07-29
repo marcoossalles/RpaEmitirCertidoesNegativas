@@ -5,7 +5,9 @@ from models.update import UpdateStatus
 from models.delete import DeleteTable
 from models.export import ExportToExcel
 from automation.certidao_trablhista import CertidaoTrabalhista
-
+from automation.certidao_fgts import CertidaoFgts
+from automation.certidao_estadual import CertidaoEstadual
+from automation.certidao_municipal import CertidaoMunicipal
 import json
 
 # Lê o arquivo JSON contendo as empresas
@@ -32,13 +34,10 @@ if not lista_empresas:
 
 # Itera sobre a lista de empresas e atualiza o status
 for empresa in lista_empresas:
-    CertidaoTrabalhista().acessar_site()
-
-
-    status_update = UpdateStatus().update(empresa['cnpj'], 'processando', connection_sqlite)
-
+    status_emissao = CertidaoTrabalhista().acessar_site()
+    status_emissao_fgts = CertidaoFgts().acessar_site(empresa['cnpj'])
+    status_emissao_estadual = CertidaoEstadual().acessar_site(empresa['cnpj'])
 # Exporta os dados para um arquivo Excel
 ExportToExcel().export_to_excel(lista_empresas, 'certidoes_negativas.xlsx')
-
 # Exclui a tabela do banco de dados após o processamento
 DeleteTable().delete(connection_sqlite)
