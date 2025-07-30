@@ -1,3 +1,4 @@
+from config import settings
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 from models.create_tabela import CreateTable
@@ -34,8 +35,8 @@ if not lista_empresas:
 
 # Itera sobre a lista de empresas e atualiza o status
 for empresa in lista_empresas:
-    status_emissao = CertidaoTrabalhista().acessar_site()
-    status_emissao_fgts = CertidaoFgts().acessar_site(empresa['cnpj'])
+    #tatus_emissao = CertidaoTrabalhista().acessar_site(empresa['cnpj'])
+    #status_emissao_fgts = CertidaoFgts().acessar_site(empresa['cnpj'])
     status_emissao_estadual = CertidaoEstadual().acessar_site(empresa['cnpj'])
 # Exporta os dados para um arquivo Excel
 ExportToExcel().export_to_excel(lista_empresas, 'certidoes_negativas.xlsx')
