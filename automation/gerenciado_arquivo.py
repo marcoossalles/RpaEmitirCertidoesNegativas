@@ -6,7 +6,7 @@ class GerenciadorDeArquivos:
     def __init__(self, pasta_base=os.getenv('PASTA_CERTIDOES')):
         self.pasta_base = pasta_base
 
-    def salvar_pdf(self, caminho_pdf_origem, cnpj):
+    def salvar_pdf(self, caminho_pdf_origem, cnpj, tipo):
         """Move o PDF para a pasta correta com nome formatado por CNPJ e hora"""
 
         # Limpa o CNPJ (só números)
@@ -23,7 +23,7 @@ class GerenciadorDeArquivos:
         os.makedirs(pasta_destino, exist_ok=True)
 
         # Nome do arquivo: <cnpj>_<hora>.pdf
-        nome_arquivo = f"{cnpj_limpo}_{hora_str}.pdf"
+        nome_arquivo = f"{cnpj_limpo}_{tipo}_{hora_str}.pdf"
         caminho_pdf_destino = os.path.join(pasta_destino, nome_arquivo)
 
         # Move o arquivo

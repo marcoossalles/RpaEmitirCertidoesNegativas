@@ -35,9 +35,15 @@ if not lista_empresas:
 
 # Itera sobre a lista de empresas e atualiza o status
 for empresa in lista_empresas:
-    #tatus_emissao = CertidaoTrabalhista().acessar_site(empresa['cnpj'])
-    #status_emissao_fgts = CertidaoFgts().acessar_site(empresa['cnpj'])
-    status_emissao_estadual = CertidaoEstadual().acessar_site(empresa['cnpj'])
+    cnpj = empresa['cnpj']
+    
+    status_emissao = CertidaoTrabalhista().acessar_site(cnpj)
+    status_emissao_fgts = CertidaoFgts().acessar_site(cnpj)
+    status_emissao_estadual = CertidaoEstadual().acessar_site(cnpj)
+
+    if not all([status_emissao, status_emissao_fgts, status_emissao_estadual]):
+        # Pelo menos um deles é False → faz o UPDATE
+        UpdateStatus().update((cnpj, status_emissao, status_emissao_fgts, status_emissao_estadual))
 # Exporta os dados para um arquivo Excel
 ExportToExcel().export_to_excel(lista_empresas, 'certidoes_negativas.xlsx')
 # Exclui a tabela do banco de dados após o processamento

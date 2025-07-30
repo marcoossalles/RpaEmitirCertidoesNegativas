@@ -33,6 +33,7 @@ class CertidaoEstadual:
         )
 
     def acessar_site(self, cnpj):
+        tipo = 'ESTADUAL'
         try:
             url = "https://www.sefaz.go.gov.br/certidao/emissao/"
             self.driver.get(url)
@@ -58,13 +59,13 @@ class CertidaoEstadual:
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.asp'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, f"{cnpj}.pdf")
+                    caminho_pdf = os.path.join(self.download_dir, f"{cnpj}_ESTADUAL.pdf")
 
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
                     # Chama o método para salvar na pasta final
-                    destino_final = GerenciadorDeArquivos().salvar_pdf(caminho_pdf, cnpj)
+                    destino_final = GerenciadorDeArquivos().salvar_pdf(caminho_pdf, cnpj, tipo)
                     logging.info(f"PDF movido para: {destino_final}")
 
             self.fechar()

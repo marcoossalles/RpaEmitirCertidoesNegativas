@@ -1,16 +1,31 @@
 import logging
 import os
+import time
+from automation.gerenciado_arquivo import GerenciadorDeArquivos
+from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 
 class CertidaoFgts:
     def __init__(self):
+        self.download_dir = os.path.join(os.getcwd(), "downloads")
+        os.makedirs(self.download_dir, exist_ok=True)
+
         chrome_options = Options()
         chrome_options.add_argument("--start-maximized")
-        # chrome_options.add_argument("--headless")  # Ative se quiser rodar sem abrir o navegador
+        chrome_options.add_experimental_option("prefs", {
+            "download.default_directory": self.download_dir,
+            "plugins.always_open_pdf_externally": True,
+            "download.prompt_for_download": False,
+            "download.directory_upgrade": True,
+            "safebrowsing.enabled": True,
+            "safebrowsing.disable_download_protection": True
+        })
 
         self.driver = webdriver.Chrome(
             service=ChromeService(ChromeDriverManager().install()),
@@ -18,36 +33,62 @@ class CertidaoFgts:
         )
 
     def acessar_site(self, cnpj):
+        tipo = 'FGTS'
         try:
             url = os.getenv('BASE_URL_CERTIDAO_FGTS')
             self.driver.get(url)
-            
-            input_cnpj = self.driver.find_element(By.XPATH, '//*[@id="mainForm:txtInscricao1"]')
+
+            wait = WebDriverWait(self.driver, 20)
+
+            input_cnpj = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="mainForm:txtInscricao1"]')))
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
 
-            button_consultar = self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnConsultar"]')
-            button_consultar.click()
+            self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnConsultar"]').click()
+            time.sleep(2)
 
-            button_obtenha_certificado = self.driver.find_element(By.XPATH, '//*[@id="mainForm:j_id51"]')
-            button_obtenha_certificado.click()
+            self.driver.find_element(By.XPATH, '//*[@id="mainForm:j_id51"]').click()
+            time.sleep(2)
 
-            button_vizualizar = self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnVisualizar"]')
-            button_vizualizar.click()
+            self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnVisualizar"]').click()
+            time.sleep(3)
 
-            button_imprimir = self.driver.find_element(By.XPATH, '//*[@id="mainForm:btImprimir4"]')
-            button_imprimir.click()
+            # Troca para a aba da certidão
+            self.driver.switch_to.window(self.driver.window_handles[-1])
+            time.sleep(2)
 
-            button_save = self.driver.find_element(By.XPATH, '//*[@id="sidebar"]//print-preview-button-strip//cr-button[1]//*[@id="sidebar"]//print-preview-button-strip//cr-button[1]"]')
-            button_save.click()
+            # Tira o screenshot
+            caminho_png = os.path.join(self.download_dir, f"{cnpj}_certidao_fgts.png")
+            self.driver.save_screenshot(caminho_png)
 
-            logging.info(f"Certidão FGTS emitida com sucesso para o CNPJ: {cnpj}")
+            # Converte o screenshot para PDF
+            imagem = Image.open(caminho_png)
+            caminho_pdf = os.path.join(self.download_dir, f"{cnpj}_certidao_fgts.pdf")
+            imagem.convert("RGB").save(caminho_pdf)
+
+            # Remove o PNG original
+            os.remove(caminho_png)
+
+            # Renomeia arquivos .asp para .pdf
+            for nome_arquivo in os.listdir(self.download_dir):
+                if nome_arquivo.endswith('.pdf'):
+                    caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
+                    caminho_pdf = os.path.join(self.download_dir, f"{cnpj}_FGTS.pdf")
+
+                    os.rename(caminho_antigo, caminho_pdf)
+                    logging.info(f"Renomeado: {nome_arquivo} -> {cnpj}.pdf")
+
+                    # Chama o método para salvar na pasta final
+                    destino_final = GerenciadorDeArquivos().salvar_pdf(caminho_pdf, cnpj, tipo)
+                    logging.info(f"PDF movido para: {destino_final}")
 
             self.fechar()
-            return True 
+            return True
+
         except Exception as e:
-            logging.error(f"Erro ao emitir certidão trabalhista para o seguinte CNPJ:{cnpj}: {e}")
+            logging.error(f"Erro ao emitir certidão FGTS para o CNPJ {cnpj}: {e}")
             self.fechar()
             return False
+
     def fechar(self):
         self.driver.quit()
