@@ -1,7 +1,7 @@
 import os
 import time
 import logging
-from automation.gerenciado_arquivo import GerenciadorDeArquivos
+from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -32,7 +32,7 @@ class CertidaoEstadual:
             options=chrome_options
         )
 
-    def acessar_site(self, cnpj):
+    def acessar_site(self, cnpj, nome_empresa):
         tipo = 'ESTADUAL'
         try:
             url = "https://www.sefaz.go.gov.br/certidao/emissao/"
@@ -59,13 +59,13 @@ class CertidaoEstadual:
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.asp'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, f"{cnpj}_ESTADUAL.pdf")
+                    caminho_pdf = os.path.join(self.download_dir, nome_empresa)
 
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
                     # Chama o método para salvar na pasta final
-                    destino_final = GerenciadorDeArquivos().salvar_pdf(caminho_pdf, cnpj, tipo)
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo)
                     logging.info(f"PDF movido para: {destino_final}")
 
             self.fechar()

@@ -1,6 +1,6 @@
 import logging
 import os
-from automation.gerenciado_arquivo import GerenciadorDeArquivos
+from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.captch import CaptchaCapture
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -26,7 +26,8 @@ class CertidaoTrabalhista:
             options=chrome_options
         )
 
-    def acessar_site(self, cnpj):
+    def acessar_site(self, cnpj, nome_empresa):
+        tipo = 'TRABALHISTA'
         try:
             url = os.getenv('BASE_URL_CERTIDAO_TRABALHISTA')
             tipo = 'TRABALHISTA'
@@ -44,17 +45,16 @@ class CertidaoTrabalhista:
             button_emitir_certidao = self.driver.find_element(By.XPATH,'//*[@id="gerarCertidaoForm:btnEmitirCertidao"]')
             button_emitir_certidao.click()
 
-            # Renomeia arquivos .asp para .pdf
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.pdf'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, f"{cnpj}.pdf")
+                    caminho_pdf = os.path.join(self.download_dir, nome_empresa)
 
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
                     # Chama o método para salvar na pasta final
-                    destino_final = GerenciadorDeArquivos().salvar_pdf(caminho_pdf, cnpj, tipo)
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo)
                     logging.info(f"PDF movido para: {destino_final}")
             
             self.fechar()

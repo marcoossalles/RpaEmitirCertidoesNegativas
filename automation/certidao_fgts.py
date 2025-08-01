@@ -1,7 +1,7 @@
 import logging
 import os
 import time
-from automation.gerenciado_arquivo import GerenciadorDeArquivos
+from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -32,7 +32,7 @@ class CertidaoFgts:
             options=chrome_options
         )
 
-    def acessar_site(self, cnpj):
+    def acessar_site(self, cnpj, nome_empresa):
         tipo = 'FGTS'
         try:
             url = os.getenv('BASE_URL_CERTIDAO_FGTS')
@@ -44,8 +44,11 @@ class CertidaoFgts:
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
 
+            logging.info(f"Emitindo certidão FGTS para o CNPJ: {cnpj}")
+            
             self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnConsultar"]').click()
             time.sleep(2)
+
 
             self.driver.find_element(By.XPATH, '//*[@id="mainForm:j_id51"]').click()
             time.sleep(2)
@@ -69,17 +72,16 @@ class CertidaoFgts:
             # Remove o PNG original
             os.remove(caminho_png)
 
-            # Renomeia arquivos .asp para .pdf
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.pdf'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, f"{cnpj}_FGTS.pdf")
+                    caminho_pdf = os.path.join(self.download_dir, nome_empresa)
 
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
                     # Chama o método para salvar na pasta final
-                    destino_final = GerenciadorDeArquivos().salvar_pdf(caminho_pdf, cnpj, tipo)
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo)
                     logging.info(f"PDF movido para: {destino_final}")
 
             self.fechar()
