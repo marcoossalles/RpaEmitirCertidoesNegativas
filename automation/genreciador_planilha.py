@@ -3,6 +3,10 @@ from openpyxl.utils import get_column_letter
 from datetime import datetime, timedelta
 import calendar
 import locale
+import logging
+
+# Configura logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Define locale para português (ajusta os nomes dos meses)
 try:
@@ -12,21 +16,32 @@ except:
 
 class PlanilhaMensalDuplicador:
     def __init__(self, caminho_arquivo='C:\\empresas\\PLANILHA CONTROLE\\Controle de Certidões - 2025.xlsx'):
-        self.caminho_arquivo = caminho_arquivo
-        self.wb = load_workbook(caminho_arquivo)
+        """
+        Inicializa a classe com o caminho do arquivo Excel e carrega a planilha.
+        """
+        try:
+            logging.info(f"Carregando planilha: {caminho_arquivo}")
+            self.caminho_arquivo = caminho_arquivo
+            self.wb = load_workbook(caminho_arquivo)
+            logging.info(f"Planilha carregada: {caminho_arquivo}")
+        except Exception as e:
+            logging.error(f"Erro ao carregar a planilha: {e}")
+            exit()
 
     def duplicar_aba_mensal(self, 
                             colunas_para_limpar=("EMPRESAS", "CNPJ", "Simples Nacional", "Grupo", "Status", 
                                                 "Inscrição", "Certidão", "FGTS", "TRABALHISTA", "Status Procesamento"),
                             linha_titulo=8, 
                             linha_dados=9):
-        # Define o locale para português (Brasil)
+        """
+        Duplica a aba do mês atual para o próximo mês, limpando colunas específicas.
+        """
         locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
         hoje = datetime.today()
 
-        # Mês atual e próximo com nome por extenso
-        mes_atual_nome = hoje.strftime('%B').capitalize()  # Ex: "Julho"
+        # Define nomes das abas de origem e destino
+        mes_atual_nome = hoje.strftime('%B').capitalize()
         ano_atual = hoje.year
         aba_origem = f"{mes_atual_nome} {ano_atual}"
 
@@ -37,72 +52,91 @@ class PlanilhaMensalDuplicador:
         aba_destino = f"{mes_proximo_nome} {ano_proximo}"
 
         if aba_destino in self.wb.sheetnames:
-            print(f"Aba '{aba_destino}' já existe. Nenhuma ação foi realizada.")
+            logging.info(f"Aba '{aba_destino}' já existe. Nenhuma duplicação foi feita.")
             return
 
         if aba_origem not in self.wb.sheetnames:
+            logging.error(f"Aba de origem '{aba_origem}' não encontrada.")
             raise ValueError(f"Aba de origem '{aba_origem}' não encontrada.")
+
+        logging.info(f"Duplicando aba '{aba_origem}' para '{aba_destino}'.")
 
         aba_original = self.wb[aba_origem]
         nova_aba = self.wb.copy_worksheet(aba_original)
         nova_aba.title = aba_destino
 
-        # Padroniza colunas a limpar
+        # Prepara as colunas que devem ser limpas
         colunas_para_limpar = [col.strip().upper() for col in colunas_para_limpar]
 
-        # Identifica índices das colunas a limpar
+        # Encontra índices das colunas a limpar
         titulos = [str(cell.value).strip().upper() for cell in aba_original[linha_titulo]]
         indices_para_limpar = [i + 1 for i, titulo in enumerate(titulos) if titulo in colunas_para_limpar]
 
-        # Limpa os dados das colunas específicas
+        # Limpa os valores das colunas especificadas, a partir da linha de dados
         for row in nova_aba.iter_rows(min_row=linha_dados, max_row=nova_aba.max_row):
             for cell in row:
                 if cell.column in indices_para_limpar:
                     cell.value = None
 
         self.wb.save(self.caminho_arquivo)
-        print(f"Aba '{aba_destino}' criada com sucesso com base na aba '{aba_origem}'.")
+        logging.info(f"Aba '{aba_destino}' criada com sucesso com base na aba '{aba_origem}'.")
 
     def ler_aba_mes_atual(self, linha_titulo=8, linha_dados=9):
+        """
+        Lê os dados da aba do mês atual e retorna uma lista de dicionários com os dados.
+        """
         hoje = datetime.today()
         mes_nome = hoje.strftime('%B').capitalize()
         ano = hoje.year
         nome_aba = f"{mes_nome} {ano}"
 
         if nome_aba not in self.wb.sheetnames:
+            logging.error(f"Aba '{nome_aba}' não encontrada na planilha.")
             raise ValueError(f"Aba '{nome_aba}' não encontrada na planilha.")
+
+        logging.info(f"Lendo dados da aba '{nome_aba}'.")
 
         aba = self.wb[nome_aba]
 
-        # Lê os nomes das colunas
+        # Coleta os nomes das colunas
         colunas = [cell.value for cell in aba[linha_titulo]]
 
-        # Lê os dados
         dados = []
+        # Lê os dados a partir da linha de dados
         for row in aba.iter_rows(min_row=linha_dados, max_row=aba.max_row, values_only=True):
-            if any(row):  # ignora linhas vazias
+            if any(row):  # ignora linhas totalmente vazias
                 linha_dict = {colunas[i]: row[i] for i in range(len(colunas)) if i < len(row)}
                 dados.append(linha_dict)
 
+        logging.info(f"{len(dados)} linhas de dados carregadas da aba '{nome_aba}'.")
         return dados
     
     def escrever_status_linha(self, nome_aba, linha, dicionario_status, linha_titulo=8):
+        """
+        Escreve os valores do dicionário de status nas colunas correspondentes da linha informada.
+        """
         if nome_aba not in self.wb.sheetnames:
+            logging.error(f"Aba '{nome_aba}' não encontrada no arquivo.")
             raise ValueError(f"Aba '{nome_aba}' não encontrada no arquivo.")
+
+        logging.info(f"Escrevendo status na linha {linha} da aba '{nome_aba}'.")
+
         aba = self.wb[nome_aba]
 
-        # Mapeia os nomes das colunas para seus índices
+        # Cria mapeamento entre nome da coluna e índice
         mapa_colunas = {}
         for cell in aba[linha_titulo]:
             if cell.value:
                 nome_coluna = str(cell.value).strip()
                 mapa_colunas[nome_coluna.lower()] = cell.column
 
-        # Escreve os status diretamente conforme o dicionário passado
+        # Escreve os valores nas colunas correspondentes
         for nome_coluna, valor in dicionario_status.items():
             col = mapa_colunas.get(nome_coluna.lower())
             if col is None:
+                logging.error(f"Coluna '{nome_coluna}' não encontrada na aba '{nome_aba}'.")
                 raise ValueError(f"Coluna '{nome_coluna}' não encontrada na aba '{nome_aba}'.")
             aba.cell(row=linha, column=col, value=valor)
 
         self.wb.save(self.caminho_arquivo)
+        logging.info(f"Status atualizado na linha {linha} da aba '{nome_aba}'.")

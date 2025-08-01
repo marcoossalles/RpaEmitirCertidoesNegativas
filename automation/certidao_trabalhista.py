@@ -8,60 +8,87 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
+# Configuração básica do logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 class CertidaoTrabalhista:
     def __init__(self):
+        """
+        Inicializa o navegador Chrome com configurações específicas,
+        incluindo o diretório onde os arquivos PDF serão baixados.
+        """
         self.download_dir = os.path.join(os.getcwd(), "downloads")
         os.makedirs(self.download_dir, exist_ok=True)
+        logging.info(f"Diretório de downloads configurado em: {self.download_dir}")
 
         chrome_options = Options()
         chrome_options.add_argument("--start-maximized")
-        # chrome_options.add_argument("--headless")  # Ative se quiser rodar sem abrir o navegador
+        # chrome_options.add_argument("--headless")  # Descomente se quiser executar em segundo plano
 
+        # Define o diretório padrão de downloads no navegador
         chrome_options.add_experimental_option("prefs", {
             "download.default_directory": self.download_dir
         })
 
+        # Inicializa o driver com as opções definidas
         self.driver = webdriver.Chrome(
             service=ChromeService(ChromeDriverManager().install()),
             options=chrome_options
         )
+        logging.info("Driver do Chrome iniciado com sucesso.")
 
     def acessar_site(self, cnpj, nome_empresa):
+        """
+        Acessa o site da certidão trabalhista, emite o documento e move o PDF baixado
+        para a estrutura de pastas correta com nome personalizado.
+        """
         tipo = 'TRABALHISTA'
         try:
             url = os.getenv('BASE_URL_CERTIDAO_TRABALHISTA')
-            tipo = 'TRABALHISTA'
             self.driver.get(url)
+            logging.info(f"Acessado o site: {url}")
 
+            # Localiza e clica no botão para emitir a certidão
             botao_emitir = self.driver.find_element(By.XPATH, '//*[@id="corpo"]/div/div[2]/input[1]')
             botao_emitir.click()
+            logging.info("Botão 'Emitir' clicado com sucesso.")
 
+            # Preenche o campo de CNPJ
             input_cnpj = self.driver.find_element(By.XPATH, '//*[@id="gerarCertidaoForm:cpfCnpj"]')
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
-            
-            logging.info(f"pausa")
+            logging.info(f"CNPJ informado no campo: {cnpj}")
 
-            button_emitir_certidao = self.driver.find_element(By.XPATH,'//*[@id="gerarCertidaoForm:btnEmitirCertidao"]')
+            # Clica para gerar a certidão
+            button_emitir_certidao = self.driver.find_element(By.XPATH, '//*[@id="gerarCertidaoForm:btnEmitirCertidao"]')
             button_emitir_certidao.click()
+            logging.info("Requisição para emissão da certidão enviada.")
 
+            # Verifica se um arquivo PDF foi baixado
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.pdf'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
                     caminho_pdf = os.path.join(self.download_dir, nome_empresa)
 
+                    # Renomeia o PDF com o nome da empresa
                     os.rename(caminho_antigo, caminho_pdf)
-                    logging.info(f"Renomeado: {nome_arquivo} -> {cnpj}.pdf")
+                    logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
 
-                    # Chama o método para salvar na pasta final
+                    # Move o PDF para a pasta organizada
                     destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo)
-                    logging.info(f"PDF movido para: {destino_final}")
-            
+                    logging.info(f"PDF movido com sucesso para: {destino_final}")
+
             self.fechar()
-            return True 
+            return True
+
         except Exception as e:
-            logging.error(f"Erro ao emitir certidão trabalhista para o seguinte CNPJ:{cnpj}: {e}")
+            logging.error(f"Erro ao emitir certidão para CNPJ {cnpj}: {e}")
             self.fechar()
             return False
+
     def fechar(self):
+        """
+        Encerra a sessão do navegador e libera os recursos.
+        """
         self.driver.quit()
+        logging.info("Sessão do navegador encerrada.")
