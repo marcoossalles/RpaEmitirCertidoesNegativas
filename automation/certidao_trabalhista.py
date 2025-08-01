@@ -1,4 +1,6 @@
 import logging
+import fitz
+import re
 import os
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.captch import CaptchaCapture
@@ -68,15 +70,13 @@ class CertidaoTrabalhista:
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.pdf'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, nome_empresa)
+                    caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
 
                     # Renomeia o PDF com o nome da empresa
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
 
-                    # Move o PDF para a pasta organizada
-                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo)
-                    logging.info(f"PDF movido com sucesso para: {destino_final}")
+                    self.ler_certidao_trabalhista(caminho_pdf, cnpj, tipo)
 
             self.fechar()
             return True
@@ -85,6 +85,39 @@ class CertidaoTrabalhista:
             logging.error(f"Erro ao emitir certidão para CNPJ {cnpj}: {e}")
             self.fechar()
             return False
+
+
+    def ler_certidao_trabalhista(self, caminho_pdf, cnpj, tipo):
+        """
+        Lê o conteúdo de uma certidão trabalhista em PDF e verifica o tipo de certidão com base no título.
+        Parâmetros:
+            caminho_pdf (str): Caminho para o arquivo PDF da certidão.
+        """
+        negativa = None
+        try:
+            with fitz.open(caminho_pdf) as pdf:
+                texto = ""
+                for pagina in pdf:
+                    texto += pagina.get_text()
+
+            # Expressão para capturar a primeira linha da certidão com o título
+            padrao = r'^(CERTIDÃO .*?TRABALHISTAS)$'
+            resultado = re.search(padrao, texto, re.IGNORECASE | re.MULTILINE)
+
+            if resultado:
+                titulo = resultado.group(1).strip().upper()
+
+                if "NEGATIVA" in titulo:
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa=True)
+                    logging.info(f"PDF movido com sucesso para: {destino_final}")
+                else:
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa=False)
+                    logging.info(f"PDF movido com sucesso para: {destino_final}")
+            else:
+                print("Título da certidão não encontrado")
+
+        except Exception as e:
+            print(f"Erro ao ler o PDF: {e}")
 
     def fechar(self):
         """

@@ -38,7 +38,7 @@ class CertidaoEstadual:
         tipo = 'ESTADUAL'
         try:
             logging.info(f"Iniciando emissão da certidão estadual para o CNPJ: {cnpj}")
-            url = "https://www.sefaz.go.gov.br/certidao/emissao/"
+            url = os.getenv('BASE_URL_CERTIDAO_ESTADUAL')
             self.driver.get(url)
             time.sleep(3)
 
@@ -67,7 +67,7 @@ class CertidaoEstadual:
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.asp'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, nome_empresa)
+                    caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
 
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")

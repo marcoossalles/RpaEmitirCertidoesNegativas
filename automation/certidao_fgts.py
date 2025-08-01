@@ -90,7 +90,7 @@ class CertidaoFgts:
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.pdf'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, nome_empresa)
+                    caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"PDF renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
