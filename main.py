@@ -6,7 +6,6 @@ from automation.certidao_trabalhista import CertidaoTrabalhista
 from automation.certidao_fgts import CertidaoFgts
 from automation.certidao_estadual import CertidaoEstadual
 from automation.certidao_municipal import CertidaoMunicipal
-import json
 
 #Configuração do logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -43,16 +42,16 @@ for idx, item in enumerate(lista_empresas):
                 if item[campo] is None:
                     if campo == 'TRABALHISTA':
                         logging.info("Emitindo certidão TRABALHISTA.")
-                        status_resultados[campo] = CertidaoTrabalhista().acessar_site(item['CNPJ'], item['Empresas'])
+                        status_resultados[campo] = True #CertidaoTrabalhista().acessar_site(item['CNPJ'], item['Empresas']) OK
                     elif campo == 'Certidão Mun.':
                         logging.info("Emitindo certidão MUNICIPAL.")
-                        status_resultados[campo] = CertidaoMunicipal().acessar_site(item['Inscrição Mun.'], item['Empresas'])
+                        status_resultados[campo] = True#CertidaoMunicipal().acessar_site(item['Inscrição Mun.'], item['Empresas'])
                     elif campo == 'FGTS':
                         logging.info("Emitindo certidão FGTS.")
                         status_resultados[campo] = CertidaoFgts().acessar_site(item['CNPJ'], item['Empresas'])
                     elif campo == 'Certidão Sefaz':
                         logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
-                        status_resultados[campo] = CertidaoEstadual().acessar_site(item['CNPJ'], item['Empresas'])
+                        status_resultados[campo] = True#CertidaoEstadual().acessar_site(item['CNPJ'], item['Empresas']) OK
                     elif campo == 'Status Processamento':
                         logging.info("Marcando como processado.")
                         status_resultados[campo] = True

@@ -83,7 +83,7 @@ class CertidaoMunicipal:
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"PDF renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
-                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo)
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa=True)
                     logging.info(f"PDF movido para: {destino_final}")
 
             self.fechar()

@@ -42,7 +42,7 @@ class CriadorPastasCertidoes:
             except Exception as e:
                 logging.error(f"Erro ao criar estrutura de pastas em '{caminho_base}': {e}")
 
-    def salvar_pdf(caminho_pdf_origem, cnpj, tipo, negativa=True):
+    def salvar_pdf(self, caminho_pdf_origem, cnpj, tipo, negativa):
         """
         Move o PDF para a pasta correta na estrutura:
         Certidões {ano}/{mes} {ano}/{tipo}/{CNPJ}/

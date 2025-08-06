@@ -1,7 +1,10 @@
 import os
+import fitz
+import re
 import time
 import logging
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
+from automation.ler_pdf import LerCertidoes
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -68,12 +71,20 @@ class CertidaoEstadual:
                 if nome_arquivo.endswith('.asp'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
                     caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
-
+                    
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
+                    
+                    texto_total = ""
+                    with fitz.open(caminho_pdf) as pdf:
+                        for pagina in pdf:
+                            texto_total += pagina.get_text()
+                            
+                    negativa = LerCertidoes().leitura_certidao_estadual(texto_total)
+
 
                     # Salva o PDF na pasta final organizada
-                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo)
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa)
                     logging.info(f"Certidão estadual salva em: {destino_final}")
 
             self.fechar()

@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.common.exceptions import TimeoutException
 
 class CertidaoFgts:
     def __init__(self):
@@ -44,6 +45,7 @@ class CertidaoFgts:
         de emissão da certidão FGTS em PDF.
         """
         tipo = 'FGTS'
+        wait = WebDriverWait(self.driver, 20)
         try:
             url = os.getenv('BASE_URL_CERTIDAO_FGTS')
             self.driver.get(url)
@@ -60,6 +62,17 @@ class CertidaoFgts:
             # Inicia o processo de emissão
             self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnConsultar"]').click()
             time.sleep(2)
+            
+            try:
+                mensagem = wait.until(
+                    EC.presence_of_element_located((By.XPATH, '//*[@id="mainForm"]/div[1]/div[1]/div/span'))
+                )
+                if mensagem.is_displayed():
+                    logging.warning("Mensagem de erro encontrada, interrompendo emissão.")
+                    return False
+            except TimeoutException:
+                # A mensagem não apareceu → segue o processo
+                pass
 
             self.driver.find_element(By.XPATH, '//*[@id="mainForm:j_id51"]').click()
             time.sleep(2)
@@ -89,12 +102,13 @@ class CertidaoFgts:
             # Renomeia e move o arquivo PDF final
             for nome_arquivo in os.listdir(self.download_dir):
                 if nome_arquivo.endswith('.pdf'):
+                    negativa = True
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
                     caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"PDF renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
-                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo)
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa)
                     logging.info(f"PDF movido para: {destino_final}")
 
             self.fechar()
