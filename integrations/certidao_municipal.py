@@ -4,17 +4,17 @@ import os
 
 
 class ApiCertidaoMunicipalGoiania:
-    def __init__(self, token_api):
-        self.token_api = token_api
+    def __init__(self):
+        self.token_api = os.getenv('TOKEN_API_INFOSIMPLES')
         self.url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv("INFOSIMPLES_CERTIDAO_MUNICIPAL")
 
-    def emitir_certidao_municipal(self, cpf=None, cnpj=None):
+    def emitir_certidao_municipal(self, cnpj):
+        timeout = 300
         try:
             args = {
-                "cpf": cpf,
                 "cnpj": cnpj,
                 "token": self.token_api,
-                "timeout": 300
+                "timeout": timeout
             }
 
             logging.info(f"Enviando requisição para {self.url}")

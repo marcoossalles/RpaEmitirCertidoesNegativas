@@ -4,10 +4,9 @@ import os
 
 
 class ApiCertidaoFgts:
-    def __init__(self, base_url=None, token=None):
-        self.base_url = base_url or os.getenv('BASE_URL_INFOSIMPLES')
-        self.endpoint = os.getenv('CAIXA_REGULARIDADE', '')
-        self.token = token or os.getenv('TOKEN_API_INFO_SIMPLES')
+    def __init__(self):
+        self.base_url = os.getenv('BASE_URL_INFOSIMPLES')+os.getenv('INFOSIMPLES_CAIXA_REGULARIDADE')
+        self.token = os.getenv('TOKEN_API_INFOSIMPLES')
 
     def emitir_certidao_fgts(self, cnpj):
         timeout=300

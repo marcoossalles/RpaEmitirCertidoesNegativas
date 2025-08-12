@@ -4,11 +4,11 @@ import os
 
 
 class ApiCertidaoEstadual:
-    def __init__(self, token_api_info_simples: str):
-        self.token_api_info_simples = token_api_info_simples
-        self.base_url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv("CERTIDAO_ESTADUAL")
+    def __init__(self):
+        self.token = os.getenv('TOKEN_API_INFOSIMPLES')
+        self.base_url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv("INFOSIMPLES_CERTIDAO_ESTADUAL")
 
-    def emitir_certidao_estadual(self, cnpj: str):
+    def emitir_certidao_estadual(self, cnpj):
         timeout = 300
         try:
             args = {

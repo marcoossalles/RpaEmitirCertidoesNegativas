@@ -1,21 +1,21 @@
 import requests
 import logging
+import os
 
 
 class ApiCertidaoPgfn:
-    def __init__(self, token_api):
-        self.token_api = token_api
-        self.url = "https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn"
+    def __init__(self):
+        self.token_api = os.getenv('TOKEN_API_INFOSIMPLES')
+        self.url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv("INFOSIMPLES_CERTIDAO_RECEITA_FEDERAL")
 
-    def emitir_certidao_pgfn(self, cnpj=None, cpf=None, preferencia_emissao=None, birthdate=None):
+    def emitir_certidao_pgfn(self, cnpj):
+        timeout = 300
         try:
             args = {
                 "cnpj": cnpj,
-                "cpf": cpf,
-                "preferencia_emissao": preferencia_emissao,
-                "birthdate": birthdate,
+                "preferencia_emissao": 'nova',
                 "token": self.token_api,
-                "timeout": 300
+                "timeout": timeout
             }
 
             logging.info(f"Enviando requisição para {self.url}")
@@ -33,11 +33,7 @@ class ApiCertidaoPgfn:
                 }
 
             elif 600 <= response_json.get("code", 0) <= 799:
-                mensagem = (
-                    f"Resultado sem sucesso.\n"
-                    f"Código: {response_json.get('code')} ({response_json.get('code_message')})\n"
-                    + "; ".join(response_json.get("errors", []))
-                )
+                mensagem = (f"Resultado sem sucesso." f"Código: {response_json.get('code')} ({response_json.get('code_message')})"+"; ".join(response_json.get("errors", [])))
                 logging.warning(mensagem)
                 return {"status": "erro", "mensagem": mensagem}
 
