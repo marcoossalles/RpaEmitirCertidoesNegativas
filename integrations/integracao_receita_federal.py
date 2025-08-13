@@ -27,7 +27,7 @@ class ApiCertidaoPgfn:
             # Log informando a URL de destino
             logging.info(f"Enviando requisição para {self.url}")
             # Envia a requisição POST para a API
-            response = requests.post(self.url, json=args, timeout=30)
+            response = requests.post(self.url, json=args, timeout=timeout)
             # Lança exceção se o status HTTP indicar erro (>= 400)
             response.raise_for_status()
             # Converte o retorno da API em formato JSON
@@ -47,7 +47,7 @@ class ApiCertidaoPgfn:
                     f"Código: {response_json.get('code')} ({response_json.get('code_message')})"
                     + "; ".join(response_json.get("errors", []))
                 )
-                logging.warning(mensagem)
+                logging.error(mensagem)
                 return False
 
         # Captura erros relacionados à requisição HTTP

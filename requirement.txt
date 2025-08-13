@@ -1,0 +1,8 @@
+openai
+twocaptcha
+selenium
+webdriver-manager
+openpyxl
+PyMuPDF
+dotenv
+requests

@@ -45,7 +45,7 @@ class ApiCertidaoFgts:
                     f"Código: {response_json.get('code')} ({response_json.get('code_message')})"
                     + "; ".join(response_json.get("errors", []))
                 )
-                logging.warning(mensagem)
+                logging.error(mensagem)
                 return False
 
         except requests.exceptions.RequestException as e:

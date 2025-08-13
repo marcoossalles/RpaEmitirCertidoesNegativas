@@ -1,54 +1,59 @@
-# import requests
-# import os
-# import logging
-# import base64
-# import aes256  # precisa ter a biblioteca AES que você está usando
+import requests
+import os
+import logging
 
-# class ApiCertidaoTrabalhista:
-#     def __init__(self, token_api, chave_cripto):
-#         self.token_api = token_api
-#         self.chave_cripto = chave_cripto
-#         self.url = self.base_url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv("INFOSIMPLES_CERTIDAO_TRABALHISTA")
+from integrations.baixar_pdf_certidao_api import BaixarCertidaoViaApi
 
-#     def emitir_certidao_trabalhista(self, cnpj=None, cpf=None, login_cpf=None, login_senha=None, certificado_path=None, senha_certificado=None):
-#         try:
-#             Leitura e criptografia do certificado
-#             with open(certificado_path, "rb") as f:
-#                 certificado_base64 = base64.b64encode(f.read()).decode()
+class ApiCertidaoTrabalhista:
+    def __init__(self):
+        # Monta a URL base da API a partir das variáveis de ambiente
+        self.base_url = os.getenv('BASE_URL_INFOSIMPLES') + os.getenv('INFOSIMPLES_CERTIDAO_TRABALHISTA')
+        # Token de autenticação obtido do ambiente
+        self.token = os.getenv('TOKEN_API_INFOSIMPLES')
 
-#             certificado_cript = aes256.encrypt(certificado_base64, self.chave_cripto).replace("+", "-").replace("/", "_").rstrip("=")
-#             senha_cript = aes256.encrypt(senha_certificado, self.chave_cripto).replace("+", "-").replace("/", "_").rstrip("=")
+    def emitir_certidao_trabalhista(self, cnpj, nome_empresa):
+        timeout = 300
+        tipo = 'TRABALHISTA' 
+        try:
+            args = {
+                "cnpj": cnpj,
+                "login_cpf": '70181650169',
+                "login_senha": 'Jump00jet@1',
+                "token": self.token,
+                "timeout": 300
+            }
 
-#             args = {
-#                 "cnpj": cnpj,
-#                 "cpf": cpf,
-#                 "login_cpf": login_cpf,
-#                 "login_senha": login_senha,
-#                 "pkcs12_cert": certificado_cript,
-#                 "pkcs12_pass": senha_cript,
-#                 "token": self.token_api,
-#                 "timeout": 300
-#             }
+            # Envia requisição POST para a API
+            logging.info(f"Enviando requisição para {self.base_url}")
+            response = requests.post(self.base_url, json=args, timeout=timeout)
+            response.raise_for_status()
 
-#             logging.info(f"Enviando requisição para {self.url}")
-#             response = requests.post(self.url, json=args, timeout=30)
-#             response.raise_for_status()
-#             response_json = response.json()
+            # Converte resposta para JSON
+            response_json = response.json()
 
-#             if response_json.get("code") == 200:
-#                 logging.info("Retorno com sucesso.")
-#                 return response_json.get("data")
-#             elif 600 <= response_json.get("code", 0) <= 799:
-#                 mensagem = (
-#                     f"Resultado sem sucesso.\nCódigo: {response_json.get('code')} ({response_json.get('code_message')})\n"
-#                     + "; ".join(response_json.get("errors", []))
-#                 )
-#                 logging.warning(mensagem)
-#                 return mensagem
+            # Verifica se a API retornou sucesso
+            if response_json.get('code') == 200:
+                logging.info(f"Dados da empresa {nome_empresa} encontrado.")
+                # Baixa o arquivo PDF retornado pela API
+                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo)
+                return status_baixa_certidao
 
-#             return response_json
+            # Caso a API retorne erro
+            else:
+                mensagem = (
+                    f"Resultado sem sucesso. "
+                    f"Código: {response_json.get('code')} ({response_json.get('code_message')})"
+                    + "; ".join(response_json.get("errors", []))
+                )
+                logging.error(mensagem)
+                return False
 
-#         except requests.exceptions.RequestException as e:
-#             logging.error(f"Erro na requisição: {e}")
-#         except Exception as e:
-#             logging.error(f"Erro inesperado: {e}")
+        except requests.exceptions.RequestException as e:
+            logging.error("Erro de requisição: %s", e)
+            return False
+        except ValueError as e:
+            logging.error("Erro de configuração: %s", e)
+            return False
+        except Exception as e:
+            logging.exception("Erro inesperado: %s", e)
+            return False

@@ -1,6 +1,4 @@
 import logging
-import re
-import fitz
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -10,10 +8,7 @@ from selenium.webdriver.common.by import By
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.ler_pdf import LerCertidoes
-#from integrations.certidao_trabalhista import ApiCertidaoTrabalhista
-
-# Configuração básica do logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+from integrations.integracao_certidao_trabalhista import ApiCertidaoTrabalhista
 
 class CertidaoTrabalhista:
     def __init__(self):
@@ -90,7 +85,7 @@ class CertidaoTrabalhista:
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
             logging.info(f"Vamos utilizar API para emitir a certidão")
-            #status_emissao_certidao = ApiCertidaoTrabalhista.emitir_certidao_trabalhista(cnpj, nome_empresa)
+            status_emissao_certidao = ApiCertidaoTrabalhista.emitir_certidao_trabalhista(cnpj, nome_empresa)
             self.fechar()
             return status_emissao_certidao
         
