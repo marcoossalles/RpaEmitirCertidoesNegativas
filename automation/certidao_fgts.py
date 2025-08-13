@@ -12,7 +12,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import TimeoutException
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
-from integrations.certidao_fgts import ApiCertidaoFgts
+from integrations.integracao_certidao_fgts import ApiCertidaoFgts
+from automation.captch import Captch
 
 class CertidaoFgts:
     def __init__(self):
@@ -56,11 +57,15 @@ class CertidaoFgts:
 
             wait = WebDriverWait(self.driver, 20)
 
+            logging.info(f"Emitindo certidão FGTS para o CNPJ: {cnpj}")
+
             # Preenche o CNPJ
             input_cnpj = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="mainForm:txtInscricao1"]')))
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
-            logging.info(f"Emitindo certidão FGTS para o CNPJ: {cnpj}")
+
+            # Localiza o elemento da imagem do captcha
+            captcha = self.driver.find_element(By.XPATH, '//*[@id="captchaImg_N2"]')
 
             # Inicia o processo de emissão
             self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnConsultar"]').click()

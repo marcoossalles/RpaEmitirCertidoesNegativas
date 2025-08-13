@@ -2,3 +2,379 @@
 2025-08-13 11:47:39,233 - INFO - Criando estrutura de pastas para certidões.
 2025-08-13 11:48:11,242 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
 2025-08-13 11:48:16,793 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:21:02,326 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 15:21:02,375 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 15:21:04,449 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 15:21:04,452 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 15:21:04,453 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:21:04,453 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:21:06,320 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:21:06,320 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 15:21:06,321 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 15:21:06,321 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 15:21:06,321 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 15:21:06,326 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 15:21:06,327 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 15:21:06,327 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 15:21:06,327 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 15:21:06,327 - INFO - Emitindo certidão FGTS.
+2025-08-13 15:21:06,329 - INFO - ====== WebDriver manager ======
+2025-08-13 15:21:09,542 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:21:10,073 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:21:10,397 - INFO - There is no [win64] chromedriver "139.0.7258.68" for browser google-chrome "139.0.7258" in cache
+2025-08-13 15:21:10,398 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:21:11,048 - INFO - WebDriver version 139.0.7258.68 selected
+2025-08-13 15:21:11,053 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/139.0.7258.68/win32/chromedriver-win32.zip
+2025-08-13 15:21:11,053 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/139.0.7258.68/win32/chromedriver-win32.zip
+2025-08-13 15:21:11,432 - INFO - Driver downloading response is 200
+2025-08-13 15:21:12,202 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:21:13,332 - INFO - Driver has been saved in cache [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68]
+2025-08-13 15:21:16,610 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 15:21:56,247 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 15:21:56,268 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 15:21:57,562 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 15:21:57,563 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 15:21:57,564 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:21:57,565 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:21:59,314 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:21:59,314 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 15:21:59,315 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 15:21:59,315 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 15:21:59,316 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 15:21:59,321 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 15:21:59,321 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 15:21:59,322 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 15:21:59,322 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 15:21:59,322 - INFO - Emitindo certidão FGTS.
+2025-08-13 15:21:59,323 - INFO - ====== WebDriver manager ======
+2025-08-13 15:22:02,037 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:22:02,456 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:22:02,804 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 15:22:03,960 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 15:22:05,048 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 15:22:55,725 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 15:44:44,794 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 15:44:44,815 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 15:44:46,283 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 15:44:46,284 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 15:44:46,285 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:44:46,286 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:44:48,570 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:44:48,571 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 15:44:48,571 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 15:44:48,571 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 15:44:48,572 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 15:44:48,578 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 15:44:48,578 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 15:44:48,578 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 15:44:48,578 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 15:44:48,579 - INFO - Emitindo certidão FGTS.
+2025-08-13 15:44:48,581 - INFO - ====== WebDriver manager ======
+2025-08-13 15:44:52,418 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:44:52,897 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:44:53,222 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 15:44:54,677 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 15:44:55,807 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 15:44:55,808 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 15:52:48,236 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 15:52:48,261 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 15:52:49,753 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 15:52:49,754 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 15:52:49,755 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:52:49,755 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:52:51,904 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:52:51,904 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 15:52:51,904 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 15:52:51,904 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 15:52:51,905 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 15:52:51,913 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 15:52:51,913 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 15:52:51,914 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 15:52:51,914 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 15:52:51,914 - INFO - Emitindo certidão FGTS.
+2025-08-13 15:52:51,916 - INFO - ====== WebDriver manager ======
+2025-08-13 15:52:55,118 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:52:55,618 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:52:55,989 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 15:52:57,499 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 15:52:58,724 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 15:52:58,725 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 15:55:31,523 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 15:55:31,544 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 15:55:33,058 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 15:55:33,060 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 15:55:33,061 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:55:33,062 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:55:35,263 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:55:35,263 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 15:55:35,264 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 15:55:35,264 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 15:55:35,265 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 15:55:35,270 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 15:55:35,270 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 15:55:35,270 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 15:55:35,270 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 15:55:35,271 - INFO - Emitindo certidão FGTS.
+2025-08-13 15:55:35,272 - INFO - ====== WebDriver manager ======
+2025-08-13 15:55:38,730 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:55:39,151 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:55:39,496 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 15:55:40,861 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 15:55:41,835 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 15:55:41,835 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 15:56:10,331 - ERROR - Erro ao emitir certidão estadual via Web para o CNPJ 10262895000196: 'WebElement' object is not subscriptable
+2025-08-13 15:56:11,362 - INFO - Vamos utilizar API para emitir a certidão
+2025-08-13 15:56:17,347 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 15:56:17,369 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 15:56:18,787 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 15:56:18,788 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 15:56:18,790 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:56:18,790 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:56:20,929 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:56:20,930 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 15:56:20,930 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 15:56:20,930 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 15:56:20,930 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 15:56:20,940 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 15:56:20,941 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 15:56:20,941 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 15:56:20,941 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 15:56:20,941 - INFO - Emitindo certidão FGTS.
+2025-08-13 15:56:20,942 - INFO - ====== WebDriver manager ======
+2025-08-13 15:56:24,516 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:56:24,946 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:56:25,306 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 15:56:26,662 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 15:56:28,101 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 15:56:28,102 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 15:57:06,684 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 15:57:06,711 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 15:57:08,398 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 15:57:08,399 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 15:57:08,400 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:57:08,400 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:57:10,740 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:57:10,741 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 15:57:10,742 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 15:57:10,742 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 15:57:10,742 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 15:57:10,747 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 15:57:10,747 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 15:57:10,748 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 15:57:10,748 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 15:57:10,748 - INFO - Emitindo certidão FGTS.
+2025-08-13 15:57:10,750 - INFO - ====== WebDriver manager ======
+2025-08-13 15:57:14,323 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:57:14,806 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:57:15,148 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 15:57:16,448 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 15:57:17,163 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 15:57:17,164 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 15:57:53,474 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 15:57:53,495 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 15:57:54,999 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 15:57:55,000 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 15:57:55,001 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 15:57:55,002 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:57:56,968 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 15:57:56,968 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 15:57:56,969 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 15:57:56,969 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 15:57:56,969 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 15:57:56,974 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 15:57:56,975 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 15:57:56,975 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 15:57:56,975 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 15:57:56,976 - INFO - Emitindo certidão FGTS.
+2025-08-13 15:57:56,977 - INFO - ====== WebDriver manager ======
+2025-08-13 15:58:00,773 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:58:01,404 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 15:58:01,837 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 15:58:03,257 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 15:58:05,072 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 15:58:05,072 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 16:00:23,285 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 16:00:23,309 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 16:00:25,021 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 16:00:25,022 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 16:00:25,023 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 16:00:25,024 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 16:00:27,386 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 16:00:27,387 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 16:00:27,387 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 16:00:27,387 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 16:00:27,387 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 16:00:27,396 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 16:00:27,397 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 16:00:27,397 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 16:00:27,397 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 16:00:27,397 - INFO - Emitindo certidão FGTS.
+2025-08-13 16:00:27,399 - INFO - ====== WebDriver manager ======
+2025-08-13 16:00:30,995 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 16:00:31,467 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 16:00:31,879 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 16:00:33,261 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 16:00:34,090 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 16:00:34,091 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 17:48:27,300 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 17:48:27,320 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 17:48:32,343 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 17:48:32,345 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 17:48:32,346 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 17:48:32,347 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:48:34,255 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:48:34,256 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 17:48:34,256 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 17:48:34,257 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 17:48:34,257 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 17:48:34,261 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 17:48:34,262 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 17:48:34,262 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 17:48:34,263 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 17:48:34,263 - INFO - Emitindo certidão FGTS.
+2025-08-13 17:48:34,264 - INFO - ====== WebDriver manager ======
+2025-08-13 17:48:37,520 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:48:38,089 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:48:38,427 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 17:48:40,496 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 17:48:41,662 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 17:48:41,663 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 17:49:14,346 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-13 17:51:17,700 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 17:51:17,718 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 17:51:21,468 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 17:51:21,469 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 17:51:21,470 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 17:51:21,471 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:51:23,486 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:51:23,486 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 17:51:23,487 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 17:51:23,487 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 17:51:23,487 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 17:51:23,492 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 17:51:23,492 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 17:51:23,492 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 17:51:23,492 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 17:51:23,493 - INFO - Emitindo certidão FGTS.
+2025-08-13 17:51:23,494 - INFO - ====== WebDriver manager ======
+2025-08-13 17:51:26,865 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:51:27,269 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:51:27,625 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 17:51:28,981 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 17:52:14,769 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 17:52:14,786 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 17:52:18,571 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 17:52:18,573 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 17:52:18,574 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 17:52:18,574 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:52:20,444 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:52:20,445 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 17:52:20,445 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 17:52:20,446 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 17:52:20,446 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 17:52:20,451 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 17:52:20,452 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 17:52:20,452 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 17:52:20,452 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 17:52:20,453 - INFO - Emitindo certidão FGTS.
+2025-08-13 17:52:20,454 - INFO - ====== WebDriver manager ======
+2025-08-13 17:52:23,191 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:52:23,526 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:52:23,903 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 17:52:25,112 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 17:52:25,799 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 17:52:25,799 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 17:52:50,305 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 17:52:50,327 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 17:52:54,664 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 17:52:54,665 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 17:52:54,667 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 17:52:54,667 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:52:56,859 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:52:56,859 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 17:52:56,860 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 17:52:56,860 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 17:52:56,861 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 17:52:56,866 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 17:52:56,866 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 17:52:56,867 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 17:52:56,867 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 17:52:56,867 - INFO - Emitindo certidão FGTS.
+2025-08-13 17:52:56,869 - INFO - ====== WebDriver manager ======
+2025-08-13 17:53:00,140 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:53:00,480 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:53:00,782 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 17:53:02,077 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 17:53:02,797 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 17:53:02,798 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 17:53:31,435 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-13 17:57:13,089 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 17:57:13,107 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 17:57:17,042 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 17:57:17,043 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 17:57:17,044 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 17:57:17,044 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:57:19,000 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:57:19,001 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 17:57:19,001 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 17:57:19,001 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 17:57:19,002 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 17:57:19,007 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 17:57:19,007 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 17:57:19,008 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 17:57:19,008 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 17:57:19,008 - INFO - Emitindo certidão FGTS.
+2025-08-13 17:57:19,010 - INFO - ====== WebDriver manager ======
+2025-08-13 17:57:21,898 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:57:22,274 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:57:22,622 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 17:57:24,229 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 17:57:45,064 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 17:57:45,064 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 17:57:51,438 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 17:57:51,458 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 17:57:55,229 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 17:57:55,229 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 17:57:55,231 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 17:57:55,231 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:57:58,141 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 17:57:58,142 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 17:57:58,142 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 17:57:58,142 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 17:57:58,143 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 17:57:58,150 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 17:57:58,150 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 17:57:58,151 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 17:57:58,151 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 17:57:58,151 - INFO - Emitindo certidão FGTS.
+2025-08-13 17:57:58,153 - INFO - ====== WebDriver manager ======
+2025-08-13 17:58:01,405 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:58:01,990 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 17:58:02,413 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 17:58:03,706 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 17:58:04,502 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 17:58:04,502 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 18:03:12,314 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 18:03:12,336 - INFO - .env carregado com sucesso de env\.env
+2025-08-13 18:03:16,166 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 18:03:16,169 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 18:03:16,170 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-13 18:03:16,171 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 18:03:18,088 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-13 18:03:18,088 - INFO - Verificando e duplicando aba mensal.
+2025-08-13 18:03:18,089 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-13 18:03:18,089 - INFO - Lendo dados da aba do mês atual.
+2025-08-13 18:03:18,089 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-13 18:03:18,095 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-13 18:03:18,095 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-13 18:03:18,095 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-13 18:03:18,096 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-13 18:03:18,096 - INFO - Emitindo certidão FGTS.
+2025-08-13 18:03:18,097 - INFO - ====== WebDriver manager ======
+2025-08-13 18:03:21,008 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 18:03:21,357 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-13 18:03:21,683 - INFO - Driver [C:\Users\marcos.santos\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-13 18:03:22,930 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-13 18:03:24,212 - INFO - Site FGTS acessado com sucesso.
+2025-08-13 18:03:24,212 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-13 18:04:05,619 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"

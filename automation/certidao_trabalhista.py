@@ -79,14 +79,10 @@ class CertidaoTrabalhista:
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
                     
-                    texto_total = ""
-                    with fitz.open(caminho_pdf) as pdf:
-                        for pagina in pdf:
-                            texto_total += pagina.get_text()
-
-                    negativa = LerCertidoes().leitura_certidao_trabalhista(texto_total)
+                    negativa = LerCertidoes().leitura_certidao_trabalhista(caminho_pdf)
                     
                     destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa)
+                    logging.info(f"Certidão estadual salva em: {destino_final}")
 
             self.fechar()
             return True

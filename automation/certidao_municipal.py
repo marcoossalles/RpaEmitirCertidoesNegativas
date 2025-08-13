@@ -11,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
-from integrations.certidao_municipal import ApiCertidaoMunicipalGoiania
+from integrations.integracao_certidao_municipal import ApiCertidaoMunicipalGoiania
 
 class CertidaoMunicipal:
     def __init__(self):

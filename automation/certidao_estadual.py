@@ -1,6 +1,4 @@
 import os
-import fitz
-import re
 import time
 import logging
 from selenium import webdriver
@@ -13,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.ler_pdf import LerCertidoes
-from integrations.certidao_estadual import ApiCertidaoEstadual
+from integrations.integracao_certidao_estadual import ApiCertidaoEstadual
 
 class CertidaoEstadual:
     def __init__(self):
@@ -77,14 +75,7 @@ class CertidaoEstadual:
                     
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
-                    
-                    texto_total = ""
-                    with fitz.open(caminho_pdf) as pdf:
-                        for pagina in pdf:
-                            texto_total += pagina.get_text()
-                            
-                    negativa = LerCertidoes().leitura_certidao_estadual(texto_total)
-
+                    negativa = LerCertidoes().leitura_certidao_estadual(caminho_pdf)
 
                     # Salva o PDF na pasta final organizada
                     destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa)

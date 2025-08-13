@@ -1,54 +1,70 @@
+from twocaptcha import TwoCaptcha
+import logging
 import base64
-import cv2
-import numpy as np
-from PIL import Image
-from selenium.webdriver.common.by import By
-import pytesseract
+from openai import OpenAI
 
-# Caminho do tesseract.exe
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+class Captch:
+    def __init__(self):
+        pass
 
-class CaptchaCapture:
-    def __init__(self, driver):
-        self.driver = driver
+    def quebrar_captch(self,captch_base64):
+        """
+    Envia um captcha em Base64 para a API da OpenAI e retorna o texto extraído.
+    """
+        # Decodifica o base64 para bytes
+        image_data = base64.b64decode(captch_base64)
 
-    def quebrar_captcha(self, salvar_debug=True):
-        # 1. Captura imagem base64
-        img_element = self.driver.find_element(By.ID, "idImgBase64")
-        img_base64 = img_element.get_attribute("src").split(",")[1]
-        img_bytes = base64.b64decode(img_base64)
+        client = OpenAI(api_key="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")
 
-        # 2. Decodifica imagem
-        np_img = np.frombuffer(img_bytes, np.uint8)
-        imagem_colorida = cv2.imdecode(np_img, cv2.IMREAD_COLOR)
-        if imagem_colorida is None:
-            raise ValueError("Erro ao decodificar imagem.")
+        prompt = f"""
+        Decode o seguinte imagem de captcha de texto.
+        Retorne apenas o texto que está escrito, sem espaços extras nem quebras de linha.
+        Base64:
+        {image_data}
+        """
 
-        # 3. Converte para escala de cinza
-        cinza = cv2.cvtColor(imagem_colorida, cv2.COLOR_BGR2GRAY)
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.0,
+            )
+            resposta = response.choices[0].message.content.strip()
+            return resposta.strip()
+        except Exception as e:
+            logging.error(f"Erro na chamada da OpenAI: {e}")
+            return f"❌ Erro na chamada da OpenAI: {e}"
+    
 
-        # 4. Redimensiona (aumenta para melhorar OCR)
-        ampliada = cv2.resize(cinza, None, fx=2, fy=2, interpolation=cv2.INTER_LINEAR)
+    # def quebrar_captch(self, captch_base64):
+    #     # Sua chave de API do 2Captcha
+    #     API_KEY = '0c945c8d1447c7f214057200a3380181'
 
-        # 5. Binariza com THRESH_BINARY
-        binarizada = cv2.adaptiveThreshold(
-            ampliada, 255,
-            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-            cv2.THRESH_BINARY,
-            11, 2
-        )
+    #     # Inicializa o solver
+    #     solver = TwoCaptcha(API_KEY)
 
-        # 6. Remove ruído
-        kernel = np.ones((2, 2), np.uint8)
-        limpa = cv2.morphologyEx(binarizada, cv2.MORPH_OPEN, kernel)
+    #     try:
+    #         # Resolve um captcha de imagem
+    #         result = solver.normal(captch_base64)
+    #         print("Captcha resolvido:", result['code'])
 
-        # 7. Salva imagem para debug (opcional)
-        if salvar_debug:
-            cv2.imwrite("debug_captcha.png", limpa)
+    #     except Exception as e:
+    #         print("Erro ao resolver captcha:", e)
 
-        # 8. OCR com Tesseract
-        pil_img = Image.fromarray(limpa)
-        config = r'--psm 6 -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-        texto = pytesseract.image_to_string(pil_img, config=config)
+    # def encontrar_base64_captch(self, captch):
+    #     # Localiza o elemento da imagem do captcha
+    #     captch = self.driver.find_element("xpath", "//img[@id='captchaImage']")
 
-        return texto.strip()
+    #     # Pega o atributo src
+    #     captch_src = captch.get_attribute("src")
+
+    #     # Caso o src seja base64 direto
+    #     if captch_src.startswith("data:image"):
+    #         captcha_base64 = captch_src.split(",")[1]
+
+    #     # Caso seja uma URL
+    #     else:
+    #         img_data = requests.get(captch_src).content
+    #         captch_base64 = base64.b64encode(img_data).decode("utf-8")
+
+    #     print(captch_base64)
