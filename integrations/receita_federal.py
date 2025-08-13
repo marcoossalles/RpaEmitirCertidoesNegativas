@@ -2,6 +2,8 @@ import requests
 import logging
 import os
 
+from integrations.baixar_pdf_certidao_api import Teste
+
 
 class ApiCertidaoPgfn:
     def __init__(self):
@@ -24,6 +26,7 @@ class ApiCertidaoPgfn:
             response_json = response.json()
 
             if response_json.get("code") == 200:
+                Teste().testebaixar(response_json['site_receipts'][0])
                 logging.info("Retorno com sucesso.")
                 return {
                     "status": "sucesso",
