@@ -3,8 +3,6 @@ import fitz
 import re
 import time
 import logging
-from automation.gerenciado_arquivo import CriadorPastasCertidoes
-from automation.ler_pdf import LerCertidoes
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -12,6 +10,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from automation.gerenciado_arquivo import CriadorPastasCertidoes
+from automation.ler_pdf import LerCertidoes
+from integrations.certidao_estadual import ApiCertidaoEstadual
 
 class CertidaoEstadual:
     def __init__(self):
@@ -39,6 +41,7 @@ class CertidaoEstadual:
 
     def acessar_site(self, cnpj, nome_empresa):
         tipo = 'ESTADUAL'
+        status_emissao_certidao = False
         try:
             logging.info(f"Iniciando emissão da certidão estadual para o CNPJ: {cnpj}")
             url = os.getenv('BASE_URL_CERTIDAO_ESTADUAL')
@@ -91,9 +94,11 @@ class CertidaoEstadual:
             return True
 
         except Exception as e:
-            logging.error(f"Erro ao emitir certidão estadual para o CNPJ {cnpj}: {e}")
+            logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
+            logging.info(f"Vamos utilizar API para emitir a certidão")
+            status_emissao_certidao = ApiCertidaoEstadual().emitir_certidao_estadual(cnpj, nome_empresa)
             self.fechar()
-            return False
+            return status_emissao_certidao
 
     def fechar(self):
         # Encerra o navegador

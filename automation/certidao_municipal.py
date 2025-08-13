@@ -1,7 +1,6 @@
 import logging
 import os
 import time
-from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -10,6 +9,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
+
+from automation.gerenciado_arquivo import CriadorPastasCertidoes
+from integrations.certidao_municipal import ApiCertidaoMunicipalGoiania
 
 class CertidaoMunicipal:
     def __init__(self):
@@ -39,6 +41,7 @@ class CertidaoMunicipal:
         de emissão da certidão PDF.
         """
         tipo = 'MUNICIPAL'
+        status_emissao_certidao = False
         try:
             url = os.getenv('BASE_URL_MUNICIPAL')
             self.driver.get(url)
@@ -91,9 +94,11 @@ class CertidaoMunicipal:
             return True
 
         except Exception as e:
-            logging.error(f"Erro ao emitir certidão FGTS para o CNPJ {cnpj}: {e}")
+            logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
+            logging.info(f"Vamos utilizar API para emitir a certidão")
+            status_emissao_certidao = ApiCertidaoMunicipalGoiania.emitir_certidao_municipal(cnpj, nome_empresa)
             self.fechar()
-            return False
+            return status_emissao_certidao
 
     def fechar(self):
         """

@@ -1,7 +1,6 @@
 import logging
 import os
 import time
-from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -11,6 +10,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import TimeoutException
+
+from automation.gerenciado_arquivo import CriadorPastasCertidoes
+from integrations.certidao_fgts import ApiCertidaoFgts
 
 class CertidaoFgts:
     def __init__(self):
@@ -44,6 +46,7 @@ class CertidaoFgts:
         Acessa o site da Caixa, preenche o CNPJ e realiza o fluxo
         de emissão da certidão FGTS em PDF.
         """
+        status_emissao_certidao = False
         tipo = 'FGTS'
         wait = WebDriverWait(self.driver, 20)
         try:
@@ -116,9 +119,11 @@ class CertidaoFgts:
             return True
 
         except Exception as e:
-            logging.error(f"Erro ao emitir certidão FGTS para o CNPJ {cnpj}: {e}")
+            logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
+            logging.info(f"Vamos utilizar API para emitir a certidão")
+            status_emissao_certidao = ApiCertidaoFgts().emitir_certidao_fgts(cnpj, nome_empresa)
             self.fechar()
-            return False
+            return status_emissao_certidao
 
     def fechar(self):
         """

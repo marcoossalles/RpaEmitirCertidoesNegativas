@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.ler_pdf import LerCertidoes
-from automation.captch import CaptchaCapture
+#from integrations.certidao_trabalhista import ApiCertidaoTrabalhista
 
 # Configuração básica do logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -47,6 +47,7 @@ class CertidaoTrabalhista:
         para a estrutura de pastas correta com nome personalizado.
         """
         tipo = 'TRABALHISTA'
+        status_emissao_certidao = False
         try:
             url = os.getenv('BASE_URL_CERTIDAO_TRABALHISTA')
             self.driver.get(url)
@@ -91,9 +92,11 @@ class CertidaoTrabalhista:
             return True
 
         except Exception as e:
-            logging.error(f"Erro ao emitir certidão para CNPJ {cnpj}: {e}")
+            logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
+            logging.info(f"Vamos utilizar API para emitir a certidão")
+            #status_emissao_certidao = ApiCertidaoTrabalhista.emitir_certidao_trabalhista(cnpj, nome_empresa)
             self.fechar()
-            return False
+            return status_emissao_certidao
         
     def fechar(self):
         """

@@ -1,0 +1,4 @@
+2025-08-13 11:46:55,511 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-13 11:47:39,233 - INFO - Criando estrutura de pastas para certidões.
+2025-08-13 11:48:11,242 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-13 11:48:16,793 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
