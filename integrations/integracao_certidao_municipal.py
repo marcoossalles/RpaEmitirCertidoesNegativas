@@ -12,6 +12,7 @@ class ApiCertidaoMunicipalGoiania:
         self.url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv("INFOSIMPLES_CERTIDAO_MUNICIPAL")
 
     def emitir_certidao_municipal(self, cnpj, nome_empresa):
+        extensao = '.html'
         timeout = 300  # Tempo máximo de espera da requisição
         tipo = 'MUNICIPAL'
         try:
@@ -24,7 +25,7 @@ class ApiCertidaoMunicipalGoiania:
 
             # Envia a requisição POST para a API
             logging.info(f"Enviando requisição para {self.url}")
-            response = requests.post(self.url, json=args, timeout=30)
+            response = requests.post(self.url, json=args, timeout=300)
             response.raise_for_status()  # Lança erro se o status HTTP for >= 400
 
             # Converte a resposta em JSON
@@ -34,7 +35,7 @@ class ApiCertidaoMunicipalGoiania:
             if response_json.get("code") == 200:
                 # Baixa o arquivo PDF usando a URL retornada
                 logging.info(f"Dados da empresa {nome_empresa} encontrado.")
-                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo)
+                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['data'][0]['site_receipt'], cnpj, nome_empresa, tipo, extensao)
                 return status_baixa_certidao
 
             # Caso de retorno inesperado da API

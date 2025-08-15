@@ -12,6 +12,7 @@ class ApiCertidaoFgts:
         self.token = os.getenv('TOKEN_API_INFOSIMPLES')
 
     def emitir_certidao_fgts(self, cnpj, nome_empresa):
+        extensao = '.html'
         timeout = 300  # Tempo máximo de espera para requisição
         tipo = 'FGTS'  # Tipo da certidão emitida
 
@@ -35,7 +36,7 @@ class ApiCertidaoFgts:
             if response_json.get('code') == 200:
                 logging.info(f"Dados da empresa {nome_empresa} encontrado.")
                 # Baixa o arquivo PDF retornado pela API
-                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo)
+                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['data'][0]['site_receipt'], cnpj, nome_empresa, tipo, extensao)
                 return status_baixa_certidao
 
             # Caso a API retorne erro

@@ -599,3 +599,358 @@
 2025-08-13 20:49:01,498 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
 2025-08-13 20:49:01,499 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
 2025-08-13 20:49:01,511 - ERROR - Erro ao carregar a planilha: "There is no item named '[Content_Types].xml' in the archive"
+2025-08-15 00:31:39,502 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 00:31:39,592 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 00:31:53,789 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 00:31:53,792 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 00:31:53,793 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 00:31:53,794 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:31:53,795 - ERROR - Erro ao carregar a planilha: [Errno 2] No such file or directory: 'C:\\empresas\\PLANILHA CONTROLE\\Controle de Certidões - 2025.xlsx'
+2025-08-15 00:32:30,736 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 00:32:30,760 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 00:32:33,682 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 00:32:33,698 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 00:32:33,698 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 00:32:33,698 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:32:40,835 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:32:40,835 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 00:32:40,835 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 00:32:40,835 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 00:32:40,835 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 00:32:40,870 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 00:32:40,870 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 00:32:40,870 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 00:32:40,870 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 00:32:51,176 - INFO - Enviando requisição para: https://api.infosimples.com/api/v2/consultas/sefaz/go/certidao-debitos
+2025-08-15 00:36:46,063 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 00:36:46,065 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 00:36:46,521 - INFO - Certidão baixada com sucesso.
+2025-08-15 00:36:46,521 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 00:36:46,521 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 00:36:46,558 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 00:36:46,558 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 00:37:06,799 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 00:39:22,243 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 00:39:22,244 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 00:39:22,611 - INFO - Certidão baixada com sucesso.
+2025-08-15 00:39:22,611 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 00:39:22,613 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 00:39:22,642 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 00:39:22,645 - INFO - Emitindo certidão FGTS.
+2025-08-15 00:39:46,585 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+2025-08-15 00:41:10,910 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 00:41:10,912 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 00:41:11,458 - INFO - Certidão baixada com sucesso.
+2025-08-15 00:41:11,459 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 00:41:11,462 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 00:41:11,512 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FGTS\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 00:41:11,512 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-15 00:45:27,213 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 00:45:27,239 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 00:45:30,169 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 00:45:30,171 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 00:45:30,173 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 00:45:30,173 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:45:37,776 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:45:37,776 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 00:45:37,776 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 00:45:37,777 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 00:45:37,777 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 00:45:37,811 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 00:45:37,812 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 00:45:37,812 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 00:45:37,812 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 00:45:56,227 - INFO - Enviando requisição para: https://api.infosimples.com/api/v2/consultas/sefaz/go/certidao-debitos
+2025-08-15 00:46:08,533 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 00:49:05,994 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 00:49:06,023 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 00:49:09,204 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 00:49:09,206 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 00:49:09,207 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 00:49:09,208 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:49:16,377 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:49:16,377 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 00:49:16,377 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 00:49:16,378 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 00:49:16,379 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 00:49:16,411 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 00:49:16,412 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 00:49:16,413 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 00:49:16,413 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 00:49:22,356 - INFO - Enviando requisição para: https://api.infosimples.com/api/v2/consultas/sefaz/go/certidao-debitos
+2025-08-15 00:50:13,948 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 00:51:09,386 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 00:51:11,006 - INFO - Certidão baixada com sucesso.
+2025-08-15 00:51:12,184 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 00:51:22,085 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 00:51:32,022 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 00:52:02,921 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 00:52:09,429 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 00:54:20,019 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 00:54:20,046 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 00:54:23,069 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 00:54:23,071 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 00:54:23,072 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 00:54:23,073 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:54:30,272 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:54:30,272 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 00:54:30,272 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 00:54:30,272 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 00:54:30,272 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 00:54:30,309 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 00:54:30,309 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 00:54:30,309 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 00:54:30,309 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 00:54:47,331 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 00:54:51,033 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 00:54:56,001 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 00:55:29,944 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 00:55:29,968 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 00:55:33,426 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 00:55:33,426 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 00:55:33,426 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 00:55:33,426 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:55:40,771 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:55:40,771 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 00:55:40,771 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 00:55:40,771 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 00:55:40,771 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 00:55:40,819 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 00:55:40,820 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 00:55:40,820 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 00:55:40,820 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 00:55:40,820 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 00:55:56,170 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 00:57:28,969 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 00:58:21,631 - ERROR - Erro inesperado: 'site_receipts'
+2025-08-15 00:59:30,666 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 00:59:30,690 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 00:59:33,641 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 00:59:33,641 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 00:59:33,657 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 00:59:33,657 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:59:40,732 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 00:59:40,732 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 00:59:40,732 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 00:59:40,732 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 00:59:40,732 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 00:59:40,768 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 00:59:40,768 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 00:59:40,768 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 00:59:40,768 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 00:59:40,768 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 00:59:48,753 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 00:59:55,458 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:02:17,513 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 01:02:17,539 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 01:02:20,503 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 01:02:20,506 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 01:02:20,508 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 01:02:20,508 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:02:27,993 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:02:27,993 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 01:02:27,993 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 01:02:27,993 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 01:02:27,993 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 01:02:28,035 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 01:02:28,035 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 01:02:28,035 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 01:02:28,035 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 01:02:28,035 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 01:02:40,857 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 01:02:50,050 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:02:55,509 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:02:58,950 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:02:59,999 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:03:14,641 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:03:16,567 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:03:16,570 - INFO - Emitindo certidão FGTS.
+2025-08-15 01:03:25,579 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+2025-08-15 01:05:29,209 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 01:05:29,232 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 01:05:32,178 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 01:05:32,180 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 01:05:32,181 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 01:05:32,182 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:05:39,266 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:05:39,267 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 01:05:39,267 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 01:05:39,268 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 01:05:39,269 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 01:05:39,304 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 01:05:39,304 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 01:05:39,305 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 01:05:39,306 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 01:05:39,306 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 01:06:29,040 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 01:06:32,901 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:06:32,903 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:06:33,255 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:06:33,255 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:06:33,255 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:06:33,255 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:06:33,255 - INFO - Emitindo certidão FGTS.
+2025-08-15 01:06:45,022 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+2025-08-15 01:07:43,364 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:07:43,366 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:07:43,713 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:07:43,714 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:07:43,718 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:07:43,721 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FGTS\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:07:43,724 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-15 01:08:12,256 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 01:08:12,292 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 01:08:15,518 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 01:08:15,520 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 01:08:15,521 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 01:08:15,522 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:08:24,579 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:08:24,580 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 01:08:24,582 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 01:08:24,582 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 01:08:24,582 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 01:08:24,626 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 01:08:24,627 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 01:08:24,627 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 01:08:24,627 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 01:08:24,628 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 01:08:30,506 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 01:09:24,895 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:09:32,836 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:10:11,846 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:10:13,505 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:10:41,666 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:10:41,673 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:10:41,685 - INFO - Emitindo certidão FGTS.
+2025-08-15 01:11:15,829 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+2025-08-15 01:11:29,793 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 01:11:29,816 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 01:11:33,288 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 01:11:33,290 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 01:11:33,292 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 01:11:33,293 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:11:41,400 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:11:41,401 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 01:11:41,401 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 01:11:41,402 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 01:11:41,402 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 01:11:41,435 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 01:11:41,436 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 01:11:41,436 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 01:11:41,437 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 01:11:41,437 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 01:11:46,058 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 01:11:49,851 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:11:49,851 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:11:50,242 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:11:50,242 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:11:50,242 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:11:50,278 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:11:50,279 - INFO - Emitindo certidão FGTS.
+2025-08-15 01:12:16,997 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+2025-08-15 01:13:54,079 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:13:59,249 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:14:01,437 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:14:03,561 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:14:15,338 - INFO - PDF renomeado: 10262895000196_certidao.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-15 01:18:03,676 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 01:18:03,705 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 01:18:06,675 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 01:18:06,677 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 01:18:06,679 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 01:18:06,679 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:18:13,759 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:18:13,759 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 01:18:13,759 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 01:18:13,759 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 01:18:13,759 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 01:18:13,803 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 01:18:13,803 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 01:18:13,803 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 01:18:29,876 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-15 01:18:55,967 - ERROR - Resultado sem sucesso.Código: 615 (O site ou aplicativo de origem parece estar indisponível.)Não foi possível concluir a ação para o contribuinte informado. Por favor, tente novamente dentro de alguns minutos.
+2025-08-15 01:19:10,059 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 01:19:16,105 - INFO - Enviando requisição para: https://api.infosimples.com/api/v2/consultas/sefaz/go/certidao-debitos
+2025-08-15 01:19:20,410 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:19:23,777 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:19:25,299 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:19:25,690 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:19:29,682 - INFO - PDF renomeado: 10262895000196_certidao.html -> 2CR - Consultoria e Serviços de Engenharia Ltda.html
+2025-08-15 01:19:45,757 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.html
+2025-08-15 01:24:33,017 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 01:24:33,042 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 01:24:36,093 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 01:24:36,095 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 01:24:36,096 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 01:24:36,097 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:24:43,132 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:24:43,132 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 01:24:43,132 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 01:24:43,132 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 01:24:43,132 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 01:24:43,160 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 01:24:43,160 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 01:24:43,173 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 01:24:49,322 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-15 01:29:37,561 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 01:29:37,601 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 01:29:40,598 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 01:29:40,600 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 01:29:40,602 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 01:29:40,602 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:29:47,647 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:29:47,647 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 01:29:47,647 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 01:29:47,647 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 01:29:47,647 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 01:29:47,688 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 01:29:47,688 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 01:29:47,688 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 01:30:19,977 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-15 01:32:14,789 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:32:42,062 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-15 01:32:42,087 - INFO - .env carregado com sucesso de env\.env
+2025-08-15 01:32:45,119 - INFO - Criando estrutura de pastas para certidões.
+2025-08-15 01:32:45,119 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-15 01:32:45,119 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-15 01:32:45,119 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:32:52,223 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-15 01:32:52,224 - INFO - Verificando e duplicando aba mensal.
+2025-08-15 01:32:52,224 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-15 01:32:52,225 - INFO - Lendo dados da aba do mês atual.
+2025-08-15 01:32:52,225 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-15 01:32:52,257 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-15 01:32:52,257 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-15 01:32:52,258 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-15 01:33:07,081 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-15 01:33:17,790 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:33:21,222 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:33:22,724 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:33:22,929 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:33:26,669 - INFO - PDF renomeado: 10262895000196_certidao..pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+2025-08-15 01:33:29,165 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FEDERAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+2025-08-15 01:33:29,168 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-15 01:33:43,733 - INFO - Enviando requisição para: https://api.infosimples.com/api/v2/consultas/sefaz/go/certidao-debitos
+2025-08-15 01:33:49,042 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:33:51,547 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:33:52,712 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:33:53,086 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:33:57,525 - INFO - PDF renomeado: 10262895000196_certidao..pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+2025-08-15 01:34:02,530 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+2025-08-15 01:34:02,534 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-15 01:34:23,608 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/pref/go/goiania/cnd
+2025-08-15 01:34:26,187 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:34:26,189 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:34:26,561 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:34:26,562 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:34:40,454 - INFO - PDF renomeado: 10262895000196_certidao..html -> 2CR - Consultoria e Serviços de Engenharia Ltda..html
+2025-08-15 01:34:40,456 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..html
+2025-08-15 01:34:40,457 - INFO - Emitindo certidão FGTS.
+2025-08-15 01:35:20,951 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+2025-08-15 01:35:45,658 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-15 01:35:45,660 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-15 01:35:46,036 - INFO - Certidão baixada com sucesso.
+2025-08-15 01:35:46,036 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-15 01:35:46,037 - INFO - PDF renomeado: 10262895000196_certidao..html -> 2CR - Consultoria e Serviços de Engenharia Ltda..html
+2025-08-15 01:35:46,039 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FGTS\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..html
+2025-08-15 01:35:46,041 - INFO - Emitindo certidão TRABALHISTA.

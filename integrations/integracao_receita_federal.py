@@ -13,6 +13,7 @@ class ApiCertidaoPgfn:
         self.url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv("INFOSIMPLES_CERTIDAO_RECEITA_FEDERAL")
 
     def emitir_certidao_pgfn(self, cnpj, nome_empresa):
+        extensao = '.pdf'
         timeout = 300  # Tempo limite para operações que precisam aguardar
         tipo = 'FEDERAL'  # Tipo fixo de certidão
         try:
@@ -37,7 +38,7 @@ class ApiCertidaoPgfn:
             if response_json.get("code") == 200:
                 # Baixa o arquivo PDF usando a URL retornada
                 logging.info(f"Dados da empresa {nome_empresa} encontrado.")
-                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo)
+                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo, extensao)
                 return status_baixa_certidao
 
             else:
