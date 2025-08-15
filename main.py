@@ -66,7 +66,7 @@ for idx, item in enumerate(lista_empresas):
 
                     elif campo == 'Fazendaria/Previdenciária':
                         logging.info("Emitindo certidão RECEITA FEDERAL.")
-                        status_resultados[campo] = ApiCertidaoPgfn().emitir_certidao_pgfn(item['CNPJ'], item['Empresas'])
+                        status_resultados[campo] = True#ApiCertidaoPgfn().emitir_certidao_pgfn(item['CNPJ'], item['Empresas'])
                         
                     elif campo == 'Status Processamento':
                         logging.info("Marcando como processado.")

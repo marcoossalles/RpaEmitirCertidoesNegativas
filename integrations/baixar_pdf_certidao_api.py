@@ -11,8 +11,7 @@ class BaixarCertidaoViaApi:
         # Garante que a pasta de downloads exista
         os.makedirs(self.download_dir, exist_ok=True)
     
-    def baixa_certidao_api(self, url, cnpj, nome_empresa, tipo, extensao):
-        negativa = False  # Indicador se a certidão e negativa ou positiva
+    def baixa_certidao_api(self, url, cnpj, nome_empresa, tipo, extensao, situacao):
         try:
             logging.info(f"Baixando certidão da empresa {nome_empresa}")
             # Faz a requisição para baixar o arquivo PDF a partir da URL informada
@@ -25,7 +24,6 @@ class BaixarCertidaoViaApi:
                 caminho_arquivo = os.path.join(self.download_dir, f"{cnpj}_certidao.{extensao}")
                 with open(caminho_arquivo, "wb") as f:
                     f.write(response.content)
-                negativa = True  # Indicador se a certidão e negativa ou positiva
 
                 # Define o novo caminho com o nome da empresa
                 caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.{extensao}")
@@ -35,7 +33,7 @@ class BaixarCertidaoViaApi:
                 logging.info(f"PDF renomeado: {cnpj}_certidao.{extensao} -> {nome_empresa}.{extensao}")
 
                 # Move o PDF para a pasta final definida pelo CriadorPastasCertidoes
-                CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa)
+                CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, situacao)
 
                 return True
             else:

@@ -13,7 +13,7 @@ class ApiCertidaoEstadual:
 
     def emitir_certidao_estadual(self, cnpj, nome_empresa):
         extensao = '.pdf'
-        timeout = 300  # Tempo limite de espera em segundos
+        timeout = 60  # Tempo limite de espera em segundos
         tipo = 'ESTADUAL'  # Tipo de certidão
         try:
             # Monta o corpo da requisição
@@ -35,7 +35,7 @@ class ApiCertidaoEstadual:
             if response_json.get("code") == 200:
                 logging.info(f"Dados da empresa {nome_empresa} encontrado.")
                 # Baixa o arquivo PDF usando a URL retornada
-                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['data'][0]['site_receipt'],cnpj,nome_empresa,tipo, extensao)
+                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['data'][0]['site_receipt'],cnpj,nome_empresa,tipo, extensao, teste='')
                 return status_baixa_certidao
 
             # Caso a API retorne erro ou código diferente de 200

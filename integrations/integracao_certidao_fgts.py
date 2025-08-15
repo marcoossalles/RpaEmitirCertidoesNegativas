@@ -13,7 +13,7 @@ class ApiCertidaoFgts:
 
     def emitir_certidao_fgts(self, cnpj, nome_empresa):
         extensao = '.html'
-        timeout = 300  # Tempo máximo de espera para requisição
+        timeout = 60  # Tempo máximo de espera para requisição
         tipo = 'FGTS'  # Tipo da certidão emitida
 
         try:

@@ -13,7 +13,7 @@ class ApiCertidaoMunicipalGoiania:
 
     def emitir_certidao_municipal(self, cnpj, nome_empresa):
         extensao = '.html'
-        timeout = 300  # Tempo máximo de espera da requisição
+        timeout = 60  # Tempo máximo de espera da requisição
         tipo = 'MUNICIPAL'
         try:
             # Monta os parâmetros que serão enviados para a API

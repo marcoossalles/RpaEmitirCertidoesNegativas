@@ -12,7 +12,7 @@ class ApiCertidaoTrabalhista:
         self.token = os.getenv('TOKEN_API_INFOSIMPLES')
 
     def emitir_certidao_trabalhista(self, cnpj, nome_empresa):
-        timeout = 300
+        timeout = 60
         tipo = 'TRABALHISTA' 
         try:
             args = {
@@ -20,7 +20,7 @@ class ApiCertidaoTrabalhista:
                 "login_cpf": '70181650169',
                 "login_senha": 'Jump00jet@1',
                 "token": self.token,
-                "timeout": 300
+                "timeout": timeout
             }
 
             # Envia requisição POST para a API
