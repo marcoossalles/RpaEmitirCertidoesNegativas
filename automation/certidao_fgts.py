@@ -13,7 +13,7 @@ from selenium.common.exceptions import TimeoutException
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from integrations.integracao_certidao_fgts import ApiCertidaoFgts
-from automation.captch import Captch
+from automation.captch import CaptchaSolver
 
 class CertidaoFgts:
     def __init__(self):
@@ -53,6 +53,7 @@ class CertidaoFgts:
         try:
             url = os.getenv('BASE_URL_CERTIDAO_FGTS')
             self.driver.get(url)
+            time.sleep(5)
             logging.info("Site FGTS acessado com sucesso.")
 
             wait = WebDriverWait(self.driver, 20)
@@ -64,8 +65,19 @@ class CertidaoFgts:
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
 
-            # Localiza o elemento da imagem do captcha
-            captcha = self.driver.find_element(By.XPATH, '//*[@id="captchaImg_N2"]')
+            # Captura o atributo src
+            src = self.driver.find_element("xpath", '//*[@id="captchaImg_N2"]').get_attribute("src")
+            
+            # Remove o prefixo "data:image/png;base64,"
+            base64_data = src.split(",")[1]
+            
+            #Resolver captcha
+            captcha_string = CaptchaSolver().solve_captcha(base64_data)
+            
+            #Campo input captcha
+            input_captcha = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="mainForm:txtCaptcha"]')))
+            input_captcha.clear()
+            input_captcha.send_keys(captcha_string)
 
             # Inicia o processo de emissão
             self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnConsultar"]').click()

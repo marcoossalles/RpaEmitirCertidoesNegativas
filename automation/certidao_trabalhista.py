@@ -1,4 +1,5 @@
 import logging
+import time
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -9,6 +10,7 @@ from selenium.webdriver.common.by import By
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.ler_pdf import LerCertidoes
 from integrations.integracao_certidao_trabalhista import ApiCertidaoTrabalhista
+from automation.captch import CaptchaSolver
 
 class CertidaoTrabalhista:
     def __init__(self):
@@ -47,21 +49,38 @@ class CertidaoTrabalhista:
             url = os.getenv('BASE_URL_CERTIDAO_TRABALHISTA')
             self.driver.get(url)
             logging.info(f"Acessado o site: {url}")
+            time.sleep(5)
 
             # Localiza e clica no botão para emitir a certidão
             botao_emitir = self.driver.find_element(By.XPATH, '//*[@id="corpo"]/div/div[2]/input[1]')
             botao_emitir.click()
             logging.info("Botão 'Emitir' clicado com sucesso.")
+            time.sleep(5)
 
             # Preenche o campo de CNPJ
             input_cnpj = self.driver.find_element(By.XPATH, '//*[@id="gerarCertidaoForm:cpfCnpj"]')
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
             logging.info(f"CNPJ informado no campo: {cnpj}")
+            
+            # Captura o atributo src
+            src = self.driver.find_element("xpath", '//*[@id="idImgBase64"]').get_attribute("src")
+            
+            # Remove o prefixo "data:image/png;base64,"
+            base64_data = src.split(",")[1]
+            
+            #Resolver captcha
+            captcha_string = CaptchaSolver().solve_captcha(base64_data)
+            
+            #Campo input captcha
+            input_captcha = self.driver.find_element(By.XPATH, '//*[@id="idCampoResposta"]')
+            input_captcha.clear()
+            input_captcha.send_keys(captcha_string)
 
             # Clica para gerar a certidão
             button_emitir_certidao = self.driver.find_element(By.XPATH, '//*[@id="gerarCertidaoForm:btnEmitirCertidao"]')
             button_emitir_certidao.click()
+            time.sleep(3)
             logging.info("Requisição para emissão da certidão enviada.")
 
             # Verifica se um arquivo PDF foi baixado

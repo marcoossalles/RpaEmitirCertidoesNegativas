@@ -987,3 +987,734 @@
 2025-08-15 01:45:10,994 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
 2025-08-15 01:45:27,810 - INFO - Enviando requisição para: https://api.infosimples.com/api/v2/consultas/sefaz/go/certidao-debitos
 2025-08-15 01:45:32,052 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-19 19:24:47,349 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:24:47,435 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:25:05,751 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:25:05,776 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:25:29,165 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:25:29,188 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:25:31,027 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 19:25:31,030 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 19:25:31,031 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 19:25:31,032 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:25:38,313 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:25:38,314 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 19:25:38,314 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 19:25:38,315 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 19:25:38,315 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 19:25:38,348 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 19:25:38,349 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 19:25:38,349 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:25:38,350 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:25:38,350 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:25:38,350 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:25:38,351 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:25:51,870 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:25:51,871 - INFO - ====== WebDriver manager ======
+2025-08-19 19:25:52,816 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:25:52,984 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:25:53,085 - INFO - There is no [win64] chromedriver "139.0.7258.138" for browser google-chrome "139.0.7258" in cache
+2025-08-19 19:25:53,086 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:25:53,356 - INFO - WebDriver version 139.0.7258.138 selected
+2025-08-19 19:25:53,360 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/139.0.7258.138/win32/chromedriver-win32.zip
+2025-08-19 19:25:53,361 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/139.0.7258.138/win32/chromedriver-win32.zip
+2025-08-19 19:25:53,525 - INFO - Driver downloading response is 200
+2025-08-19 19:25:54,427 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:25:54,680 - INFO - Driver has been saved in cache [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138]
+2025-08-19 19:25:57,095 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:25:58,079 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:26:25,323 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 19:26:29,292 - INFO - CNPJ informado no campo: 10262895000196
+2025-08-19 19:29:42,884 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:29:42,910 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:29:44,598 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 19:29:44,600 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 19:29:44,601 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 19:29:44,601 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:29:51,569 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:29:51,569 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 19:29:51,570 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 19:29:51,571 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 19:29:51,571 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 19:29:51,604 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 19:29:51,605 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 19:29:51,605 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:29:51,605 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:29:51,606 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:29:51,606 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:29:51,607 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:29:56,518 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:29:56,519 - INFO - ====== WebDriver manager ======
+2025-08-19 19:29:57,419 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:29:57,568 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:29:57,709 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:29:58,848 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:29:59,700 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:30:08,191 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 19:30:14,135 - INFO - CNPJ informado no campo: 10262895000196
+2025-08-19 19:32:48,288 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:32:48,312 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:32:50,051 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 19:32:50,053 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 19:32:50,054 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 19:32:50,054 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:32:58,165 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:32:58,165 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 19:32:58,166 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 19:32:58,166 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 19:32:58,167 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 19:32:58,203 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 19:32:58,203 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 19:32:58,204 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:32:58,204 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:32:58,205 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:32:58,205 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:32:58,205 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:33:14,669 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:33:14,670 - INFO - ====== WebDriver manager ======
+2025-08-19 19:33:15,587 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:33:15,688 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:33:15,788 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:33:17,045 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:33:17,997 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:33:19,180 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 19:33:19,270 - INFO - CNPJ informado no campo: 10262895000196
+2025-08-19 19:33:19,293 - ERROR - Erro ao emitir certidão estadual via Web para o CNPJ 10262895000196: 'NoneType' object has no attribute 'split'
+2025-08-19 19:33:19,293 - INFO - Vamos utilizar API para emitir a certidão
+2025-08-19 19:33:19,294 - ERROR - Erro ao processar empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196: ApiCertidaoTrabalhista.emitir_certidao_trabalhista() missing 1 required positional argument: 'nome_empresa'
+2025-08-19 19:33:19,294 - INFO - Processando empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117
+2025-08-19 19:33:19,295 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:33:19,295 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:33:19,295 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:33:19,296 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:33:19,296 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:33:33,498 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:33:33,499 - INFO - ====== WebDriver manager ======
+2025-08-19 19:33:34,396 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:33:34,498 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:33:34,602 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:33:35,843 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:33:36,744 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:33:37,885 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 19:33:37,973 - INFO - CNPJ informado no campo: 09398112000117
+2025-08-19 19:33:37,993 - ERROR - Erro ao emitir certidão estadual via Web para o CNPJ 09398112000117: 'NoneType' object has no attribute 'split'
+2025-08-19 19:33:37,993 - INFO - Vamos utilizar API para emitir a certidão
+2025-08-19 19:33:37,994 - ERROR - Erro ao processar empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117: ApiCertidaoTrabalhista.emitir_certidao_trabalhista() missing 1 required positional argument: 'nome_empresa'
+2025-08-19 19:33:37,995 - INFO - Processando empresa 3CI - Pátio do Lago Administração e Locação Ltda - CNPJ: 07459917000106
+2025-08-19 19:33:37,997 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:33:37,998 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:33:38,001 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:33:38,002 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:33:38,004 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:33:45,736 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:33:49,635 - INFO - ====== WebDriver manager ======
+2025-08-19 19:33:50,540 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:33:52,702 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:33:52,795 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:33:58,789 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:34:02,518 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:34:04,119 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 19:34:07,445 - INFO - CNPJ informado no campo: 07459917000106
+2025-08-19 19:42:12,613 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:42:12,637 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:42:31,322 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:42:31,346 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:42:58,097 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:42:58,121 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:42:59,831 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 19:42:59,833 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 19:42:59,835 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 19:42:59,835 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:43:07,177 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:43:07,178 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 19:43:07,178 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 19:43:07,179 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 19:43:07,179 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 19:43:07,213 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 19:43:07,214 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 19:43:07,214 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:43:07,215 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:43:07,215 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:43:07,215 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:43:07,216 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:43:07,216 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:43:07,217 - INFO - ====== WebDriver manager ======
+2025-08-19 19:43:08,118 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:43:08,270 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:43:08,367 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:43:09,676 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:43:10,612 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:43:15,735 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 19:43:16,539 - INFO - CNPJ informado no campo: 10262895000196
+2025-08-19 19:43:16,561 - ERROR - Erro ao emitir certidão estadual via Web para o CNPJ 10262895000196: 'NoneType' object has no attribute 'split'
+2025-08-19 19:43:16,562 - INFO - Vamos utilizar API para emitir a certidão
+2025-08-19 19:43:16,563 - ERROR - Erro ao processar empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196: ApiCertidaoTrabalhista.emitir_certidao_trabalhista() missing 1 required positional argument: 'nome_empresa'
+2025-08-19 19:43:16,564 - INFO - Processando empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117
+2025-08-19 19:43:16,564 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:43:16,565 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:43:16,565 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:43:16,565 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:43:16,566 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:43:16,566 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:43:16,566 - INFO - ====== WebDriver manager ======
+2025-08-19 19:43:17,478 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:43:17,588 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:43:17,697 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:43:18,985 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:43:19,866 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:43:25,003 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 19:43:25,789 - INFO - CNPJ informado no campo: 09398112000117
+2025-08-19 19:43:25,808 - ERROR - Erro ao emitir certidão estadual via Web para o CNPJ 09398112000117: 'NoneType' object has no attribute 'split'
+2025-08-19 19:43:25,809 - INFO - Vamos utilizar API para emitir a certidão
+2025-08-19 19:43:25,809 - ERROR - Erro ao processar empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117: ApiCertidaoTrabalhista.emitir_certidao_trabalhista() missing 1 required positional argument: 'nome_empresa'
+2025-08-19 19:43:25,810 - INFO - Processando empresa 3CI - Pátio do Lago Administração e Locação Ltda - CNPJ: 07459917000106
+2025-08-19 19:43:25,810 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:43:25,810 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:43:25,811 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:43:25,811 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:43:25,811 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:43:25,812 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:43:25,812 - INFO - ====== WebDriver manager ======
+2025-08-19 19:43:26,696 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:43:28,909 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:43:29,011 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:43:30,287 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:43:31,213 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:44:04,645 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:44:04,669 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:44:06,450 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 19:44:06,451 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 19:44:06,452 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 19:44:06,453 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:44:13,499 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:44:13,499 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 19:44:13,500 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 19:44:13,500 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 19:44:13,501 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 19:44:13,534 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 19:44:13,534 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 19:44:13,535 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:44:13,536 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:44:13,536 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:44:13,536 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:44:13,536 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:44:13,537 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 19:44:13,538 - INFO - ====== WebDriver manager ======
+2025-08-19 19:44:14,439 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:44:14,576 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:44:14,684 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:44:15,940 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 19:44:24,252 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 19:44:36,014 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 19:44:40,426 - INFO - CNPJ informado no campo: 10262895000196
+2025-08-19 19:45:45,320 - INFO - Requisição para emissão da certidão enviada.
+2025-08-19 19:45:55,285 - INFO - Arquivo renomeado: certidao_10262895000196.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-19 19:46:00,538 - INFO - Iniciando leitura da certidão trabalhista: C:\Python\RpaEmitirCertidoesNegativas\downloads\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 19:46:05,558 - INFO - Trecho-chave do CNPJ encontrado no PDF.
+2025-08-19 19:46:08,288 - INFO - Resultado da verificação: False
+2025-08-19 19:46:24,306 - INFO - PDF movido para: C:\empresas\Certidões Positivas\Certidões 2025\08 2025\TRABALHISTA\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 19:46:26,390 - INFO - Certidão estadual salva em: C:\empresas\Certidões Positivas\Certidões 2025\08 2025\TRABALHISTA\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 19:46:31,360 - INFO - Driver encerrado.
+2025-08-19 19:52:54,021 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:52:54,046 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:52:55,800 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 19:52:55,801 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 19:52:55,803 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 19:52:55,803 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:53:02,891 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:53:02,892 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 19:53:02,892 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 19:53:02,893 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 19:53:02,893 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 19:53:02,926 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 19:53:02,926 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 19:53:02,926 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:53:02,926 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:53:02,927 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:53:02,929 - INFO - ====== WebDriver manager ======
+2025-08-19 19:53:03,896 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:53:03,999 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:53:04,098 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:53:05,341 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 19:53:05,448 - INFO - Site prefeitrua de X.
+2025-08-19 19:53:10,451 - INFO - Preenchendo campo CNPJ para o CNPJ: 2532591
+2025-08-19 19:54:10,512 - INFO - Aba da certidão carregada.
+2025-08-19 19:54:13,300 - INFO - Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\2532591_certidao_fgts.png
+2025-08-19 19:54:15,920 - INFO - Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\2532591_certidao_fgts.pdf
+2025-08-19 19:54:16,938 - INFO - Imagem PNG removida após conversão.
+2025-08-19 19:54:19,478 - INFO - PDF renomeado: 2532591_certidao_fgts.pdf -> 2532591.pdf
+2025-08-19 19:54:30,800 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\2532591\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 19:54:32,313 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\2532591\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 19:54:38,454 - INFO - Driver encerrado.
+2025-08-19 19:54:38,456 - INFO - Processo concluído para o CNPJ: 2532591
+2025-08-19 19:54:38,458 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:54:38,460 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 19:54:38,460 - INFO - Marcando como processado.
+2025-08-19 19:54:38,460 - INFO - Escrevendo status na linha 10 da aba 'Agosto 2025'.
+2025-08-19 19:54:42,868 - INFO - Status atualizado na linha 10 da aba 'Agosto 2025'.
+2025-08-19 19:54:42,869 - INFO - Status escrito na planilha para linha 10.
+2025-08-19 19:54:42,869 - INFO - Processando empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117
+2025-08-19 19:54:42,869 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:54:42,870 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:54:42,870 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:54:42,871 - INFO - ====== WebDriver manager ======
+2025-08-19 19:54:43,762 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:54:43,905 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:54:44,007 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:54:45,279 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 19:54:45,332 - INFO - Site prefeitrua de X.
+2025-08-19 19:54:50,335 - INFO - Preenchendo campo CNPJ para o CNPJ: 2501570
+2025-08-19 19:56:01,094 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 19:56:01,142 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 19:56:06,477 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 19:56:06,479 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 19:56:06,480 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 19:56:06,481 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:56:13,930 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 19:56:13,931 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 19:56:13,931 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 19:56:13,932 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 19:56:13,932 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 19:56:13,966 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 19:56:13,967 - INFO - Processando empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117
+2025-08-19 19:56:13,967 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 19:56:13,967 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 19:56:13,968 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 19:56:13,968 - INFO - Emitindo certidão FGTS.
+2025-08-19 19:56:24,353 - INFO - ====== WebDriver manager ======
+2025-08-19 19:56:25,567 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:56:25,717 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 19:56:25,850 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 19:56:29,594 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 19:57:09,862 - INFO - Site FGTS acessado com sucesso.
+2025-08-19 19:57:10,774 - INFO - Emitindo certidão FGTS para o CNPJ: 09398112000117
+2025-08-19 20:01:01,404 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:01:01,429 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:01:03,190 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:01:03,194 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:01:03,197 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:01:03,206 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:01:10,350 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:01:10,351 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 20:01:10,351 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 20:01:10,352 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 20:01:10,352 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 20:01:10,385 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 20:01:10,385 - INFO - Processando empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117
+2025-08-19 20:01:10,386 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 20:01:10,386 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 20:01:10,387 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 20:01:10,387 - INFO - Emitindo certidão FGTS.
+2025-08-19 20:01:10,388 - INFO - ====== WebDriver manager ======
+2025-08-19 20:01:11,283 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:01:11,406 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:01:11,514 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 20:01:12,762 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 20:01:33,027 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:01:33,051 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:01:34,794 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:01:34,795 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:01:34,797 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:01:34,797 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:01:41,756 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:01:41,757 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 20:01:41,757 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 20:01:41,758 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 20:01:41,758 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 20:01:41,789 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 20:01:41,790 - INFO - Processando empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117
+2025-08-19 20:01:41,791 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 20:01:41,791 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 20:01:41,792 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 20:01:41,793 - INFO - Emitindo certidão FGTS.
+2025-08-19 20:01:41,794 - INFO - ====== WebDriver manager ======
+2025-08-19 20:01:42,687 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:01:42,808 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:01:42,904 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 20:01:44,175 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 20:01:49,616 - INFO - Site FGTS acessado com sucesso.
+2025-08-19 20:01:49,617 - INFO - Emitindo certidão FGTS para o CNPJ: 09398112000117
+2025-08-19 20:04:28,554 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:04:28,578 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:04:30,490 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:04:30,492 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:04:30,493 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:04:30,494 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:04:37,514 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:04:37,515 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 20:04:37,515 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 20:04:37,516 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 20:04:37,516 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 20:04:37,551 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 20:04:37,607 - INFO - Processando empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117
+2025-08-19 20:04:37,608 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 20:04:37,608 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 20:04:37,608 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 20:04:37,609 - INFO - Emitindo certidão FGTS.
+2025-08-19 20:04:37,610 - INFO - ====== WebDriver manager ======
+2025-08-19 20:04:38,537 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:04:38,652 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:04:38,779 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 20:04:39,998 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 20:04:45,314 - INFO - Site FGTS acessado com sucesso.
+2025-08-19 20:04:45,315 - INFO - Emitindo certidão FGTS para o CNPJ: 09398112000117
+2025-08-19 20:04:52,741 - ERROR - Erro ao emitir certidão estadual via Web para o CNPJ 09398112000117: Message: invalid element state
+  (Session info: chrome=139.0.7258.128)
+Stacktrace:
+	GetHandleVerifier [0x0xb7ffc3+65331]
+	GetHandleVerifier [0x0xb80004+65396]
+	(No symbol) [0x0x973dc0]
+	(No symbol) [0x0x9b4177]
+	(No symbol) [0x0x9e14dc]
+	(No symbol) [0x0x9b20d4]
+	(No symbol) [0x0x9e1754]
+	(No symbol) [0x0xa02bcb]
+	(No symbol) [0x0x9e12d6]
+	(No symbol) [0x0x9b0910]
+	(No symbol) [0x0x9b1784]
+	GetHandleVerifier [0x0xdc38b3+2439203]
+	GetHandleVerifier [0x0xdbeae2+2419282]
+	GetHandleVerifier [0x0xba712a+225434]
+	GetHandleVerifier [0x0xb96e08+159096]
+	GetHandleVerifier [0x0xb9dd5d+187597]
+	GetHandleVerifier [0x0xb87ad8+96840]
+	GetHandleVerifier [0x0xb87c62+97234]
+	GetHandleVerifier [0x0xb7277a+9962]
+	BaseThreadInitThunk [0x0x763ffcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x777b82ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x777b827e+238]
+
+2025-08-19 20:04:52,744 - INFO - Vamos utilizar API para emitir a certidão
+2025-08-19 20:04:52,745 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+2025-08-19 20:05:53,450 - ERROR - Erro de requisição: HTTPSConnectionPool(host='api.infosimples.com', port=443): Read timed out. (read timeout=60)
+2025-08-19 20:05:55,628 - INFO - Driver encerrado.
+2025-08-19 20:05:55,630 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 20:05:55,631 - INFO - Marcando como processado.
+2025-08-19 20:05:55,631 - INFO - Escrevendo status na linha 11 da aba 'Agosto 2025'.
+2025-08-19 20:05:58,961 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:05:58,984 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:06:00,735 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:06:00,737 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:06:00,739 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:06:00,739 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:06:00,753 - ERROR - Erro ao carregar a planilha: File is not a zip file
+2025-08-19 20:06:12,111 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:06:12,135 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:06:13,845 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:06:13,846 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:06:13,848 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:06:13,848 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:06:13,849 - ERROR - Erro ao carregar a planilha: File is not a zip file
+2025-08-19 20:07:16,304 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:07:16,328 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:07:18,060 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:07:18,062 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:07:18,063 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:07:18,064 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:07:25,000 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:07:25,000 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 20:07:25,001 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 20:07:25,001 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 20:07:25,001 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 20:07:25,034 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 20:07:25,035 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 20:07:25,035 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 20:07:25,035 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 20:07:25,036 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 20:07:25,036 - INFO - Emitindo certidão FGTS.
+2025-08-19 20:07:25,037 - INFO - ====== WebDriver manager ======
+2025-08-19 20:07:25,976 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:07:26,109 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:07:26,209 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 20:07:27,430 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 20:07:33,351 - INFO - Site FGTS acessado com sucesso.
+2025-08-19 20:07:33,351 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-19 20:07:58,812 - ERROR - Erro ao emitir certidão estadual via Web para o CNPJ 10262895000196: Message: invalid element state
+  (Session info: chrome=139.0.7258.128)
+Stacktrace:
+	GetHandleVerifier [0x0xb7ffc3+65331]
+	GetHandleVerifier [0x0xb80004+65396]
+	(No symbol) [0x0x973dc0]
+	(No symbol) [0x0x9b4177]
+	(No symbol) [0x0x9e14dc]
+	(No symbol) [0x0x9b20d4]
+	(No symbol) [0x0x9e1754]
+	(No symbol) [0x0xa02bcb]
+	(No symbol) [0x0x9e12d6]
+	(No symbol) [0x0x9b0910]
+	(No symbol) [0x0x9b1784]
+	GetHandleVerifier [0x0xdc38b3+2439203]
+	GetHandleVerifier [0x0xdbeae2+2419282]
+	GetHandleVerifier [0x0xba712a+225434]
+	GetHandleVerifier [0x0xb96e08+159096]
+	GetHandleVerifier [0x0xb9dd5d+187597]
+	GetHandleVerifier [0x0xb87ad8+96840]
+	GetHandleVerifier [0x0xb87c62+97234]
+	GetHandleVerifier [0x0xb7277a+9962]
+	BaseThreadInitThunk [0x0x763ffcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x777b82ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x777b827e+238]
+
+2025-08-19 20:07:59,313 - INFO - Vamos utilizar API para emitir a certidão
+2025-08-19 20:08:03,875 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+2025-08-19 20:08:35,392 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:08:35,416 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:08:37,213 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:08:37,215 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:08:37,216 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:08:37,216 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:08:46,378 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:08:46,403 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:08:48,156 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:08:48,158 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:08:48,160 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:08:48,160 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:08:55,488 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:08:55,490 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 20:08:55,490 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 20:08:55,490 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 20:08:55,490 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 20:08:55,523 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 20:08:55,523 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 20:08:55,524 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 20:08:55,524 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 20:08:55,524 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 20:08:55,525 - INFO - Emitindo certidão FGTS.
+2025-08-19 20:08:55,526 - INFO - ====== WebDriver manager ======
+2025-08-19 20:08:56,422 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:08:56,551 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 20:08:56,647 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 20:08:57,904 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 20:09:03,854 - INFO - Site FGTS acessado com sucesso.
+2025-08-19 20:09:03,855 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-19 20:18:26,837 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:18:26,868 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:18:39,335 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:21:26,739 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:21:37,449 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:22:50,669 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:23:39,799 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:23:45,451 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 20:23:45,837 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 20:24:55,954 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 20:25:42,475 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 20:25:42,527 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 20:34:20,248 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 20:41:43,558 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 20:46:04,096 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-19 20:47:11,690 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-19 20:47:56,124 - ERROR - Erro inesperado: BaixarCertidaoViaApi.baixa_certidao_api() missing 1 required positional argument: 'situacao'
+2025-08-19 20:48:38,461 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:48:38,490 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:48:47,269 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:48:47,272 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:48:47,274 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:48:47,274 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:48:55,785 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:48:55,786 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 20:48:55,786 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 20:48:55,787 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 20:48:55,788 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 20:48:55,826 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 20:48:55,827 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 20:48:55,827 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 20:49:04,487 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-19 20:49:18,260 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-19 20:50:03,242 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-19 20:50:06,474 - INFO - Certidão baixada com sucesso.
+2025-08-19 20:50:32,060 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-19 20:52:09,364 - INFO - PDF renomeado: 10262895000196_certidao..pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+2025-08-19 20:54:16,546 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 20:54:16,578 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 20:54:18,933 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 20:54:18,934 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 20:54:18,936 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 20:54:18,936 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:54:27,790 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 20:54:27,792 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 20:54:27,793 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 20:54:27,793 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 20:54:27,793 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 20:54:27,831 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 20:54:27,832 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 20:54:27,833 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 20:54:30,902 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-19 20:54:35,842 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-19 20:59:45,246 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-19 20:59:46,710 - INFO - Certidão baixada com sucesso.
+2025-08-19 20:59:46,890 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-19 20:59:59,389 - ERROR - Erro inesperado: [WinError 183] Não é possível criar um arquivo já existente: 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\10262895000196_certidao.pdf' -> 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\2CR - Consultoria e Serviços de Engenharia Ltda..pdf'
+2025-08-19 21:01:15,308 - INFO - Logger configurado com pasta e arquivo separado!
+2025-08-19 21:01:15,336 - INFO - .env carregado com sucesso de env\.env
+2025-08-19 21:01:17,352 - INFO - Criando estrutura de pastas para certidões.
+2025-08-19 21:01:17,354 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Positivas\Certidões 2025\08 2025'.
+2025-08-19 21:01:17,355 - INFO - Pastas de 08/2025 criadas com sucesso em 'C:\empresas\Certidões Negativas\Certidões 2025\08 2025'.
+2025-08-19 21:01:17,356 - INFO - Carregando planilha: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 21:01:25,457 - INFO - Planilha carregada: C:\empresas\PLANILHA CONTROLE\Controle de Certidões - 2025.xlsx
+2025-08-19 21:01:25,458 - INFO - Verificando e duplicando aba mensal.
+2025-08-19 21:01:25,458 - INFO - Aba 'Setembro 2025' já existe. Nenhuma duplicação foi feita.
+2025-08-19 21:01:25,459 - INFO - Lendo dados da aba do mês atual.
+2025-08-19 21:01:25,459 - INFO - Lendo dados da aba 'Agosto 2025'.
+2025-08-19 21:01:25,494 - INFO - 401 linhas de dados carregadas da aba 'Agosto 2025'.
+2025-08-19 21:01:25,494 - INFO - Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+2025-08-19 21:01:25,495 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 21:01:25,495 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-19 21:01:30,341 - INFO - Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+2025-08-19 21:01:36,857 - INFO - Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-19 21:01:38,149 - INFO - Certidão baixada com sucesso.
+2025-08-19 21:01:38,684 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-19 21:01:43,450 - INFO - PDF renomeado: 10262895000196_certidao..pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+2025-08-19 21:03:01,038 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FEDERAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+2025-08-19 21:03:54,486 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 21:04:22,219 - INFO - ====== WebDriver manager ======
+2025-08-19 21:04:23,298 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:04:23,455 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:04:23,571 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 21:04:49,033 - INFO - Iniciando emissão da certidão estadual para o CNPJ: 10262895000196
+2025-08-19 21:05:39,389 - INFO - Selecionado tipo de documento: CNPJ
+2025-08-19 21:06:17,403 - INFO - CNPJ preenchido: 10262895000196
+2025-08-19 21:06:46,362 - INFO - Botão de emissão da certidão clicado
+2025-08-19 21:09:05,678 - INFO - Arquivo renomeado: certidao.asp -> 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-19 21:09:25,931 - INFO - Iniciando leitura da certidão estadual: C:\Python\RpaEmitirCertidoesNegativas\downloads\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:09:58,008 - INFO - Trecho-chave do despacho encontrado no PDF.
+2025-08-19 21:10:39,765 - INFO - Resultado da verificação: True
+2025-08-19 21:11:32,226 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:11:33,724 - INFO - Certidão estadual salva em: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:11:36,487 - INFO - Encerrando o navegador
+2025-08-19 21:12:02,063 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 21:12:21,543 - INFO - ====== WebDriver manager ======
+2025-08-19 21:12:22,651 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:12:22,767 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:12:22,874 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 21:12:37,803 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 21:13:02,489 - INFO - Site prefeitrua de X.
+2025-08-19 21:13:13,907 - INFO - Preenchendo campo CAE para o CNPJ: 2532591
+2025-08-19 21:15:17,935 - INFO - Aba da certidão carregada.
+2025-08-19 21:15:20,822 - INFO - Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\2532591_certidao_fgts.png
+2025-08-19 21:15:26,851 - INFO - Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\2532591_certidao_fgts.pdf
+2025-08-19 21:15:29,952 - INFO - Imagem PNG removida após conversão.
+2025-08-19 21:15:38,060 - INFO - PDF renomeado: 2532591_certidao_fgts.pdf -> 2532591.pdf
+2025-08-19 21:16:11,505 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\2532591\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:16:13,607 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\2532591\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:16:19,312 - INFO - Driver encerrado.
+2025-08-19 21:16:20,814 - INFO - Processo concluído para o CNPJ: 2532591
+2025-08-19 21:16:31,693 - INFO - Emitindo certidão FGTS.
+2025-08-19 21:16:40,665 - INFO - ====== WebDriver manager ======
+2025-08-19 21:16:41,651 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:16:41,777 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:16:41,863 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 21:16:44,330 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 21:17:01,520 - INFO - Site FGTS acessado com sucesso.
+2025-08-19 21:17:04,091 - INFO - Emitindo certidão FGTS para o CNPJ: 10262895000196
+2025-08-19 21:18:41,592 - INFO - Aba da certidão carregada.
+2025-08-19 21:18:42,475 - INFO - Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\10262895000196_certidao_fgts.png
+2025-08-19 21:18:46,784 - INFO - Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\10262895000196_certidao_fgts.pdf
+2025-08-19 21:18:47,801 - INFO - Imagem PNG removida após conversão.
+2025-08-19 21:18:50,505 - INFO - PDF renomeado: 10262895000196_certidao_fgts.pdf -> 10262895000196.pdf
+2025-08-19 21:18:59,803 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FGTS\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:19:01,750 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FGTS\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:19:06,633 - INFO - Driver encerrado.
+2025-08-19 21:19:08,190 - INFO - Processo concluído para o CNPJ: 10262895000196
+2025-08-19 21:20:33,549 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 21:20:38,544 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 21:20:41,905 - INFO - ====== WebDriver manager ======
+2025-08-19 21:20:42,984 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:20:43,095 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:20:43,224 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 21:20:48,007 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 21:20:56,535 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 21:21:07,852 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 21:21:20,786 - INFO - CNPJ informado no campo: 10262895000196
+2025-08-19 21:22:15,793 - INFO - Requisição para emissão da certidão enviada.
+2025-08-19 21:22:18,084 - INFO - Arquivo renomeado: certidao_10262895000196.pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda
+2025-08-19 21:22:19,387 - INFO - Iniciando leitura da certidão trabalhista: C:\Python\RpaEmitirCertidoesNegativas\downloads\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:22:19,405 - INFO - Trecho-chave do CNPJ encontrado no PDF.
+2025-08-19 21:22:19,406 - INFO - Resultado da verificação: False
+2025-08-19 21:22:50,309 - INFO - PDF movido para: C:\empresas\Certidões Positivas\Certidões 2025\08 2025\TRABALHISTA\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:22:52,059 - INFO - Certidão estadual salva em: C:\empresas\Certidões Positivas\Certidões 2025\08 2025\TRABALHISTA\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+2025-08-19 21:22:56,241 - INFO - Driver encerrado.
+2025-08-19 21:23:03,189 - INFO - Marcando como processado.
+2025-08-19 21:23:41,713 - INFO - Escrevendo status na linha 10 da aba 'Agosto 2025'.
+2025-08-19 21:23:47,111 - INFO - Status atualizado na linha 10 da aba 'Agosto 2025'.
+2025-08-19 21:23:54,707 - INFO - Status escrito na planilha para linha 10.
+2025-08-19 21:33:28,939 - INFO - Processando empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117
+2025-08-19 21:40:58,314 - INFO - Emitindo certidão RECEITA FEDERAL.
+2025-08-19 21:43:35,756 - INFO - Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+2025-08-19 21:46:36,419 - INFO - Dados da empresa 3CI - Participações Imobiliárias Ltda encontrado.
+2025-08-19 21:47:15,566 - INFO - Baixando certidão da empresa 3CI - Participações Imobiliárias Ltda
+2025-08-19 21:47:19,567 - INFO - Certidão baixada com sucesso.
+2025-08-19 21:47:20,716 - INFO - Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+2025-08-19 21:47:40,648 - INFO - PDF renomeado: 09398112000117_certidao..pdf -> 3CI - Participações Imobiliárias Ltda..pdf
+2025-08-19 21:48:16,596 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FEDERAL\09398112000117\3CI - Participações Imobiliárias Ltda..pdf
+2025-08-19 21:49:37,396 - INFO - Emitindo certidão ESTADUAL (SEFAZ).
+2025-08-19 21:49:47,244 - INFO - ====== WebDriver manager ======
+2025-08-19 21:49:48,217 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:49:48,388 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:49:48,488 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 21:50:11,020 - INFO - Iniciando emissão da certidão estadual para o CNPJ: 09398112000117
+2025-08-19 21:50:24,597 - INFO - Selecionado tipo de documento: CNPJ
+2025-08-19 21:50:30,616 - INFO - CNPJ preenchido: 09398112000117
+2025-08-19 21:50:38,894 - INFO - Botão de emissão da certidão clicado
+2025-08-19 21:51:27,249 - INFO - Arquivo renomeado: certidao.asp -> 3CI - Participações Imobiliárias Ltda
+2025-08-19 21:51:29,682 - INFO - Iniciando leitura da certidão estadual: C:\Python\RpaEmitirCertidoesNegativas\downloads\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 21:51:43,202 - INFO - Trecho-chave do despacho encontrado no PDF.
+2025-08-19 21:51:45,737 - INFO - Resultado da verificação: True
+2025-08-19 21:52:11,332 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\ESTADUAL\09398112000117\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 21:52:14,142 - INFO - Certidão estadual salva em: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\ESTADUAL\09398112000117\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 21:52:17,255 - INFO - Encerrando o navegador
+2025-08-19 21:53:51,916 - INFO - Emitindo certidão MUNICIPAL.
+2025-08-19 21:54:10,514 - INFO - ====== WebDriver manager ======
+2025-08-19 21:54:11,445 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:54:11,571 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:54:11,693 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 21:54:15,278 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 21:55:17,584 - INFO - Site prefeitrua de X.
+2025-08-19 21:55:23,838 - INFO - Preenchendo campo CAE para o CNPJ: 2501570
+2025-08-19 21:59:14,304 - INFO - Aba da certidão carregada.
+2025-08-19 21:59:15,282 - INFO - Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\2501570_certidao_fgts.png
+2025-08-19 21:59:18,403 - INFO - Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\2501570_certidao_fgts.pdf
+2025-08-19 21:59:19,458 - INFO - Imagem PNG removida após conversão.
+2025-08-19 21:59:22,362 - INFO - PDF renomeado: 2501570_certidao_fgts.pdf -> 2501570.pdf
+2025-08-19 21:59:30,671 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\2501570\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 21:59:31,696 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\MUNICIPAL\2501570\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 21:59:34,565 - INFO - Driver encerrado.
+2025-08-19 21:59:35,431 - INFO - Processo concluído para o CNPJ: 2501570
+2025-08-19 21:59:39,780 - INFO - Emitindo certidão FGTS.
+2025-08-19 21:59:43,019 - INFO - ====== WebDriver manager ======
+2025-08-19 21:59:43,951 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:59:44,066 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 21:59:44,286 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 21:59:45,567 - INFO - Driver Chrome iniciado com sucesso para emissão FGTS.
+2025-08-19 21:59:53,408 - INFO - Site FGTS acessado com sucesso.
+2025-08-19 22:00:00,070 - INFO - Emitindo certidão FGTS para o CNPJ: 09398112000117
+2025-08-19 22:02:08,189 - INFO - Aba da certidão carregada.
+2025-08-19 22:02:08,305 - INFO - Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\09398112000117_certidao_fgts.png
+2025-08-19 22:02:09,319 - INFO - Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\09398112000117_certidao_fgts.pdf
+2025-08-19 22:02:09,703 - INFO - Imagem PNG removida após conversão.
+2025-08-19 22:02:11,395 - INFO - PDF renomeado: 09398112000117_certidao_fgts.pdf -> 09398112000117.pdf
+2025-08-19 22:02:16,465 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FGTS\09398112000117\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 22:02:17,114 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\FGTS\09398112000117\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 22:02:21,496 - INFO - Driver encerrado.
+2025-08-19 22:02:22,462 - INFO - Processo concluído para o CNPJ: 09398112000117
+2025-08-19 22:02:24,850 - INFO - Emitindo certidão TRABALHISTA.
+2025-08-19 22:02:34,109 - INFO - Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+2025-08-19 22:02:36,766 - INFO - ====== WebDriver manager ======
+2025-08-19 22:02:37,705 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 22:02:37,813 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 22:02:37,907 - INFO - Driver [C:\Users\Marcos Antonio\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 22:02:39,428 - INFO - Driver do Chrome iniciado com sucesso.
+2025-08-19 22:02:47,319 - INFO - Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+2025-08-19 22:02:52,927 - INFO - Botão 'Emitir' clicado com sucesso.
+2025-08-19 22:03:07,927 - INFO - CNPJ informado no campo: 09398112000117
+2025-08-19 22:03:43,804 - INFO - Requisição para emissão da certidão enviada.
+2025-08-19 22:03:58,251 - INFO - Arquivo renomeado: certidao_09398112000117.pdf -> 3CI - Participações Imobiliárias Ltda
+2025-08-19 22:04:01,384 - INFO - Iniciando leitura da certidão trabalhista: C:\Python\RpaEmitirCertidoesNegativas\downloads\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 22:04:04,686 - INFO - Trecho-chave do CNPJ encontrado no PDF.
+2025-08-19 22:04:05,616 - INFO - Resultado da verificação: True
+2025-08-19 22:04:19,237 - INFO - PDF movido para: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\TRABALHISTA\09398112000117\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 22:04:21,570 - INFO - Certidão estadual salva em: C:\empresas\Certidões Negativas\Certidões 2025\08 2025\TRABALHISTA\09398112000117\3CI - Participações Imobiliárias Ltda.pdf
+2025-08-19 22:04:24,725 - INFO - Driver encerrado.
+2025-08-19 22:04:30,239 - INFO - Marcando como processado.
+2025-08-19 22:05:03,676 - INFO - Escrevendo status na linha 11 da aba 'Agosto 2025'.
+2025-08-19 22:05:09,161 - ERROR - Erro ao processar empresa 3CI - Participações Imobiliárias Ltda - CNPJ: 09398112000117: I/O operation on closed file.
+2025-08-19 22:05:09,162 - INFO - Processando empresa 3CI - Pátio do Lago Administração e Locação Ltda - CNPJ: 07459917000106

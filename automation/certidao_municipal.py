@@ -46,14 +46,15 @@ class CertidaoMunicipal:
             url = os.getenv('BASE_URL_MUNICIPAL')
             self.driver.get(url)
             logging.info("Site prefeitrua de X.")
+            time.sleep(5)
 
             wait = WebDriverWait(self.driver, 20)
 
             # Preenche o CNPJ
+            logging.info(f"Preenchendo campo CAE para o CNPJ: {cnpj}")
             input_cnpj = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/font/form/table[1]/tbody/tr[1]/td[2]/input')))
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
-            logging.info(f"Emitindo certidão FGTS para o CNPJ: {cnpj}")
 
             # Inicia o processo de emissão
             self.driver.find_element(By.XPATH, '/html/body/font/form/table[1]/tbody/tr[3]/td/input').click()

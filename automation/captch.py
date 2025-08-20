@@ -1,70 +1,57 @@
-from twocaptcha import TwoCaptcha
+import requests
 import logging
-import base64
-from openai import OpenAI
+import time
+from twocaptcha import TwoCaptcha
+import sys
+import os
 
-class Captch:
-    def __init__(self):
-        pass
+class CaptchaSolver:
+    def __init__(self, api_key='0c945c8d1447c7f214057200a3380181'):
+        self.api_key = api_key
+        self.base_url = "https://api.2captcha.com"
 
-    def quebrar_captch(self,captch_base64):
+    def solve_captcha(self, image_base64):
         """
-    Envia um captcha em Base64 para a API da OpenAI e retorna o texto extraído.
-    """
-        # Decodifica o base64 para bytes
-        image_data = base64.b64decode(captch_base64)
-
-        client = OpenAI(api_key="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")
-
-        prompt = f"""
-        Decode o seguinte imagem de captcha de texto.
-        Retorne apenas o texto que está escrito, sem espaços extras nem quebras de linha.
-        Base64:
-        {image_data}
+        Cria uma task de ImageToText no 2Captcha e retorna somente o texto do captcha resolvido.
         """
+        # Criar task
+        create_url = f"{self.base_url}/createTask"
+        payload = {
+            "clientKey": self.api_key,
+            "task": {
+                "type": "ImageToTextTask",
+                "body": image_base64,
+                "phrase": False,
+                "case": True,
+                "numeric": 0,
+                "math": False,
+                "minLength": 1,
+                "maxLength": 5,
+                "comment": "enter the text you see on the image"
+            },
+            "languagePool": "en"
+        }
 
         try:
-            response = client.chat.completions.create(
-                model="gpt-4",
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.0,
-            )
-            resposta = response.choices[0].message.content.strip()
-            return resposta.strip()
+            response = requests.post(create_url, json=payload, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+
+            if data.get("errorId", 0) != 0:
+                raise Exception(f"Erro ao criar task: {data.get('errorDescription')}")
+
+            task_id = data.get("taskId")
+
+            # Consultar resultado até estar pronto
+            get_url = f"{self.base_url}/getTaskResult"
+            while True:
+                result = requests.post(get_url, json={"clientKey": self.api_key, "taskId": task_id}, timeout=30).json()
+                
+                if result.get("status") == "ready":
+                    return result["solution"]["text"]
+                
+                time.sleep(5)  # espera 5s antes de tentar de novo
+
         except Exception as e:
-            logging.error(f"Erro na chamada da OpenAI: {e}")
-            return f"❌ Erro na chamada da OpenAI: {e}"
-    
-
-    # def quebrar_captch(self, captch_base64):
-    #     # Sua chave de API do 2Captcha
-    #     API_KEY = '0c945c8d1447c7f214057200a3380181'
-
-    #     # Inicializa o solver
-    #     solver = TwoCaptcha(API_KEY)
-
-    #     try:
-    #         # Resolve um captcha de imagem
-    #         result = solver.normal(captch_base64)
-    #         print("Captcha resolvido:", result['code'])
-
-    #     except Exception as e:
-    #         print("Erro ao resolver captcha:", e)
-
-    # def encontrar_base64_captch(self, captch):
-    #     # Localiza o elemento da imagem do captcha
-    #     captch = self.driver.find_element("xpath", "//img[@id='captchaImage']")
-
-    #     # Pega o atributo src
-    #     captch_src = captch.get_attribute("src")
-
-    #     # Caso o src seja base64 direto
-    #     if captch_src.startswith("data:image"):
-    #         captcha_base64 = captch_src.split(",")[1]
-
-    #     # Caso seja uma URL
-    #     else:
-    #         img_data = requests.get(captch_src).content
-    #         captch_base64 = base64.b64encode(img_data).decode("utf-8")
-
-    #     print(captch_base64)
+            print(f"Erro: {e}")
+            return None
