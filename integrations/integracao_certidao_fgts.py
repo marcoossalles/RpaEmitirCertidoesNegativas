@@ -31,6 +31,10 @@ class ApiCertidaoFgts:
 
             # Converte resposta para JSON
             response_json = response.json()
+            
+            # Se a API retornou 611 e pq existe pendencias
+            if response_json.get("code") == 611:
+                return "PENDENTE"
 
             # Verifica se a API retornou sucesso
             if response_json.get('code') == 200:

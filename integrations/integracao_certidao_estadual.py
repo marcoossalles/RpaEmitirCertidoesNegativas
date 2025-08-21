@@ -33,9 +33,13 @@ class ApiCertidaoEstadual:
 
             # Se a API retornou sucesso
             if response_json.get("code") == 200:
+                if response.get("code_message") != "CERTIDAO DE DEBITO INSCRITO EM DIVIDA ATIVA - NEGATIVA":
+                    negativa = "PENDENTE"
+                else:
+                    negativa = "OK"
                 logging.info(f"Dados da empresa {nome_empresa} encontrado.")
                 # Baixa o arquivo PDF usando a URL retornada
-                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['data'][0]['site_receipt'],cnpj,nome_empresa,tipo, extensao, teste='')
+                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['data'][0]['site_receipt'],cnpj,nome_empresa,tipo, extensao, negativa)
                 return status_baixa_certidao
 
             # Caso a API retorne erro ou código diferente de 200

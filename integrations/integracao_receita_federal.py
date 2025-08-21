@@ -34,6 +34,10 @@ class ApiCertidaoPgfn:
             # Converte o retorno da API em formato JSON
             response_json = response.json()
 
+            # Se a API retornou 611 e pq existe pendencias
+            if response_json.get("code") == 611:
+                return "PENDENTE"
+
             # Se a API retornou sucesso no campo "code"
             if response_json.get("code") == 200:
                 # Baixa o arquivo PDF usando a URL retornada
