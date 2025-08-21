@@ -39,7 +39,7 @@ class CertidaoEstadual:
 
     def acessar_site(self, cnpj, nome_empresa):
         tipo = 'ESTADUAL'
-        status_emissao_certidao = False
+        status_emissao_certidao = []
         try:
             logging.info(f"Iniciando emissão da certidão estadual para o CNPJ: {cnpj}")
             url = os.getenv('BASE_URL_CERTIDAO_ESTADUAL')
@@ -63,26 +63,41 @@ class CertidaoEstadual:
             # Clica no botão de emissão
             self.driver.find_element(By.XPATH, '/html/body/form/div/div[2]/input[1]').click()
             logging.info("Botão de emissão da certidão clicado")
+            
+            # espera até 7 segundos pelo h2 com o texto
+            elemento = WebDriverWait(self.driver, 7).until(
+                EC.text_to_be_present_in_element(
+                    (By.XPATH, '//*[@id="form1"]/h2'),
+                    "Emissão de Certidão de Débitos"
+                )
+            )
+            
+            if elemento:  # se achou o texto
+                botao = self.driver.find_element(By.XPATH, '//*[@id="Certidao.ConfirmaNomeContribuinteSim"]')
+                botao.click()
+            else:
+                # se não aparecer, segue o processo normal
+                logging.info("Texto não encontrado, seguindo o fluxo padrão...")
 
-            # Aguarda o download ser concluído
-            time.sleep(5)
+                # Aguarda o download ser concluído
+                time.sleep(5)
 
-            # Renomeia e move o arquivo baixado
-            for nome_arquivo in os.listdir(self.download_dir):
-                if nome_arquivo.endswith('.asp'):
-                    caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
-                    
-                    os.rename(caminho_antigo, caminho_pdf)
-                    logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
-                    negativa = LerCertidoes().leitura_certidao_estadual(caminho_pdf)
+                # Renomeia e move o arquivo baixado
+                for nome_arquivo in os.listdir(self.download_dir):
+                    if nome_arquivo.endswith('.asp'):
+                        caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
+                        caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
+                        
+                        os.rename(caminho_antigo, caminho_pdf)
+                        logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
+                        status_emissao_certidao = LerCertidoes().leitura_certidao_estadual(caminho_pdf)
 
-                    # Salva o PDF na pasta final organizada
-                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa)
-                    logging.info(f"Certidão estadual salva em: {destino_final}")
+                        # Salva o PDF na pasta final organizada
+                        destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
+                        logging.info(f"Certidão estadual salva em: {destino_final}")
 
-            self.fechar()
-            return True
+                self.fechar()
+                return status_emissao_certidao
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")

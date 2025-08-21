@@ -47,14 +47,14 @@ class ApiCertidaoFgts:
                     + "; ".join(response_json.get("errors", []))
                 )
                 logging.error(mensagem)
-                return False
+                return []
 
         except requests.exceptions.RequestException as e:
             logging.error("Erro de requisição: %s", e)
-            return False
+            return []
         except ValueError as e:
             logging.error("Erro de configuração: %s", e)
-            return False
+            return []
         except Exception as e:
             logging.exception("Erro inesperado: %s", e)
-            return False
+            return []

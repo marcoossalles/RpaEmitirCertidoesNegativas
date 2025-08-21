@@ -36,7 +36,7 @@ for idx, item in enumerate(lista_empresas):
         status = item.get('Status')
         status_proc = item.get('Status Processamento')
 
-        if status != ['Suspenso', 'Paralizado'] and status_proc is None:
+        if status != ['Suspenso', 'Paralizado'] and item['Cidade'] == 'Goiânia - GO':
             logging.info(f"Processando empresa {item.get('Empresas')} - CNPJ: {item.get('CNPJ')}")
 
             status_resultados = {}

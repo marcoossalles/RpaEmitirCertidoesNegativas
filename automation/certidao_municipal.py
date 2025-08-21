@@ -41,7 +41,7 @@ class CertidaoMunicipal:
         de emissão da certidão PDF.
         """
         tipo = 'MUNICIPAL'
-        status_emissao_certidao = False
+        status_emissao_certidao = []
         try:
             url = os.getenv('BASE_URL_MUNICIPAL')
             self.driver.get(url)
@@ -81,18 +81,19 @@ class CertidaoMunicipal:
 
             # Renomeia e move o arquivo PDF final
             for nome_arquivo in os.listdir(self.download_dir):
+                status_emissao_certidao = "OK"
                 if nome_arquivo.endswith('.pdf'):
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
                     caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"PDF renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
-                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa=True)
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
                     logging.info(f"PDF movido para: {destino_final}")
 
             self.fechar()
             logging.info(f"Processo concluído para o CNPJ: {cnpj}")
-            return True
+            return status_emissao_certidao
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")

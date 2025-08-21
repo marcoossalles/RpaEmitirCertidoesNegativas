@@ -14,7 +14,7 @@ class ApiCertidaoPgfn:
 
     def emitir_certidao_pgfn(self, cnpj, nome_empresa):
         extensao = '.pdf'
-        timeout = 300  # Tempo limite para operações que precisam aguardar
+        timeout = 60  # Tempo limite para operações que precisam aguardar
         tipo = 'FEDERAL'  # Tipo fixo de certidão
         try:
             # Parâmetros a serem enviados na requisição POST
@@ -49,14 +49,14 @@ class ApiCertidaoPgfn:
                     + "; ".join(response_json.get("errors", []))
                 )
                 logging.error(mensagem)
-                return False
+                return []
 
         # Captura erros relacionados à requisição HTTP
         except requests.exceptions.RequestException as e:
             logging.error(f"Erro na requisição: {e}")
-            return False
+            return []
 
         # Captura quaisquer outros erros inesperados
         except Exception as e:
             logging.error(f"Erro inesperado: {e}")
-            return False
+            return []

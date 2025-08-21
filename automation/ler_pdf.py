@@ -37,14 +37,17 @@ class LerCertidoes:
                 # Verifica se 'NAO CONSTA DEBITO' aparece logo após
                 resultado = "NAO CONSTA DEBITO" in trecho_pos_despacho.upper()
                 logging.info(f"Resultado da verificação: {resultado}")
-                return resultado
+                if resultado:
+                    return "OK"
+                else:
+                    return "PENDENTE"
 
             logging.warning("Trecho-chave do despacho não encontrado no PDF.")
-            return False
+            return []
 
         except Exception as e:
             logging.error(f"Erro ao processar certidão estadual: {e}")
-            return False
+            return []
 
     def leitura_certidao_trabalhista(self, caminho_pdf) -> bool:
         """
@@ -69,11 +72,15 @@ class LerCertidoes:
                 trecho_pos_chave = texto_total.split(trecho_chave, 1)[1]
                 resultado = "NÃO CONSTA" in trecho_pos_chave.upper()
                 logging.info(f"Resultado da verificação: {resultado}")
-                return resultado
+                resultado
+                if resultado:
+                    return "OK"
+                else:
+                    return "PENDENTE"
 
             logging.warning("Trecho-chave do CNPJ não encontrado no PDF.")
-            return False
+            return []
 
         except Exception as e:
             logging.error(f"Erro ao processar certidão trabalhista: {e}")
-            return False
+            return []

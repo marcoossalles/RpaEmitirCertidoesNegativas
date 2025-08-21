@@ -58,8 +58,12 @@ class CriadorPastasCertidoes:
             agora = datetime.now()
             ano = str(agora.year)
             mes = f"{agora.month:02d}"
-
-            caminho_base = r"C:\empresas\Certidões Negativas" if negativa else r"C:\empresas\Certidões Positivas"
+            
+            if negativa == "OK":
+                caminho_base = r"C:\empresas\Certidões Negativas"
+            else:
+                caminho_base = r"C:\empresas\Certidões Positivas"
+            
             cnpj_limpo = ''.join(filter(str.isdigit, cnpj))
 
             pasta_destino = os.path.join(

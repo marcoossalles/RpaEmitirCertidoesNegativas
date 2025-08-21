@@ -44,7 +44,7 @@ class CertidaoTrabalhista:
         para a estrutura de pastas correta com nome personalizado.
         """
         tipo = 'TRABALHISTA'
-        status_emissao_certidao = False
+        status_emissao_certidao = []
         try:
             url = os.getenv('BASE_URL_CERTIDAO_TRABALHISTA')
             self.driver.get(url)
@@ -93,13 +93,13 @@ class CertidaoTrabalhista:
                     os.rename(caminho_antigo, caminho_pdf)
                     logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
                     
-                    negativa = LerCertidoes().leitura_certidao_trabalhista(caminho_pdf)
+                    status_emissao_certidao = LerCertidoes().leitura_certidao_trabalhista(caminho_pdf)
                     
-                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa)
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
                     logging.info(f"Certidão estadual salva em: {destino_final}")
 
             self.fechar()
-            return True
+            return status_emissao_certidao
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")

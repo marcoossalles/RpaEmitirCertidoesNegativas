@@ -15,10 +15,12 @@ class BaixarCertidaoViaApi:
         try:
             logging.info(f"Baixando certidão da empresa {nome_empresa}")
             # Faz a requisição para baixar o arquivo PDF a partir da URL informada
-            response = requests.get(url, timeout=300)
+            response = requests.get(url, timeout=60)
+            
             # Verifica se a requisição foi bem-sucedida (status HTTP 200)
             if response.status_code == 200:
                 logging.info(f"Certidão baixada com sucesso.")
+                
                 # Salva o conteúdo como arquivo PDF temporário no diretório de download configurado
                 logging.info(f"Salvando certidão {self.download_dir}.")
                 caminho_arquivo = os.path.join(self.download_dir, f"{cnpj}_certidao{extensao}")
@@ -33,22 +35,24 @@ class BaixarCertidaoViaApi:
                 logging.info(f"PDF renomeado: {cnpj}_certidao.{extensao} -> {nome_empresa}.{extensao}")
 
                 # Move o PDF para a pasta final definida pelo CriadorPastasCertidoes
-                CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa=True)
+                CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, negativa="OK")
 
-                return True
+                return "OK"
             else:
                 logging.error(f"Erro ao baixar arquivo PDF")
-                return False
+                return []
 
         # Trata erros de timeout na requisição
         except requests.exceptions.Timeout:
             logging.error("Tempo limite excedido ao tentar baixar o arquivo.")
-            return False
+            return []
+        
         # Trata outros erros relacionados à requisição HTTP
         except requests.exceptions.RequestException as e:
             logging.error(f"Erro ao fazer requisição: {e}")
-            return False
+            return []
+        
         # Trata qualquer outro erro inesperado
         except Exception as e:
             logging.error(f"Erro inesperado: {e}")
-            return False
+            return []
