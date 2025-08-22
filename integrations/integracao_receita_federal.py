@@ -41,8 +41,9 @@ class ApiCertidaoPgfn:
             # Se a API retornou sucesso no campo "code"
             if response_json.get("code") == 200:
                 # Baixa o arquivo PDF usando a URL retornada
+                negatividade = "OK"
                 logging.info(f"Dados da empresa {nome_empresa} encontrado.")
-                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo, extensao)
+                status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo, extensao, negatividade)
                 return status_baixa_certidao
 
             else:

@@ -64,21 +64,17 @@ class CertidaoEstadual:
             self.driver.find_element(By.XPATH, '/html/body/form/div/div[2]/input[1]').click()
             logging.info("Botão de emissão da certidão clicado")
             
-            # espera até 7 segundos pelo h2 com o texto
-            elemento = WebDriverWait(self.driver, 7).until(
-                EC.text_to_be_present_in_element(
-                    (By.XPATH, '//*[@id="form1"]/h2'),
-                    "Emissão de Certidão de Débitos"
+            try:
+                WebDriverWait(self.driver, 7).until(
+                    EC.text_to_be_present_in_element(
+                        (By.XPATH, '//*[@id="form1"]/div/div[2]/strong'),
+                        nome_empresa
+                    )
                 )
-            )
-            
-            if elemento:  # se achou o texto
                 botao = self.driver.find_element(By.XPATH, '//*[@id="Certidao.ConfirmaNomeContribuinteSim"]')
                 botao.click()
-            else:
-                # se não aparecer, segue o processo normal
-                logging.info("Texto não encontrado, seguindo o fluxo padrão...")
-
+            except Exception as e:
+                logging.info("Botão 'Sim' não apareceu, seguindo o fluxo padrão...")
                 # Aguarda o download ser concluído
                 time.sleep(5)
 

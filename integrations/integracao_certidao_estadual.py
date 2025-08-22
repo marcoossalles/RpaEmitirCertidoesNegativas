@@ -33,7 +33,7 @@ class ApiCertidaoEstadual:
 
             # Se a API retornou sucesso
             if response_json.get("code") == 200:
-                if response.get("code_message") != "CERTIDAO DE DEBITO INSCRITO EM DIVIDA ATIVA - NEGATIVA":
+                if response_json['data'][0]['mensagem'] != "CERTIDAO DE DEBITO INSCRITO EM DIVIDA ATIVA - NEGATIVA":
                     negativa = "PENDENTE"
                 else:
                     negativa = "OK"
