@@ -40,19 +40,19 @@ class BaixarCertidaoViaApi:
                 return "OK"
             else:
                 logging.error(f"Erro ao baixar arquivo PDF")
-                return []
+                return "PENDENTE"
 
         # Trata erros de timeout na requisição
         except requests.exceptions.Timeout:
             logging.error("Tempo limite excedido ao tentar baixar o arquivo.")
-            return []
+            return None
         
         # Trata outros erros relacionados à requisição HTTP
         except requests.exceptions.RequestException as e:
             logging.error(f"Erro ao fazer requisição: {e}")
-            return []
+            return None
         
         # Trata qualquer outro erro inesperado
         except Exception as e:
             logging.error(f"Erro inesperado: {e}")
-            return []
+            return None

@@ -12,6 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.ler_pdf import LerCertidoes
 from integrations.integracao_certidao_estadual import ApiCertidaoEstadual
+from automation.print_erro import ScreenCapture
 
 class CertidaoEstadual:
     def __init__(self):
@@ -39,7 +40,7 @@ class CertidaoEstadual:
 
     def acessar_site(self, cnpj, nome_empresa):
         tipo = 'ESTADUAL'
-        status_emissao_certidao = []
+        status_emissao_certidao = None
         try:
             logging.info(f"Iniciando emissão da certidão estadual para o CNPJ: {cnpj}")
             url = os.getenv('BASE_URL_CERTIDAO_ESTADUAL')
@@ -63,43 +64,51 @@ class CertidaoEstadual:
             # Clica no botão de emissão
             self.driver.find_element(By.XPATH, '/html/body/form/div/div[2]/input[1]').click()
             logging.info("Botão de emissão da certidão clicado")
+
+            # Pega todos os handles (abas abertas)
+            abas = self.driver.window_handles
+
+            # Muda para a última aba aberta
+            self.driver.switch_to.window(abas[-1])
             
             try:
-                WebDriverWait(self.driver, 7).until(
-                    EC.text_to_be_present_in_element(
-                        (By.XPATH, '//*[@id="form1"]/div/div[2]/strong'),
-                        nome_empresa
-                    )
-                )
+                time.sleep(3)
+                # Troca para a última aba aberta (caso tenha mudado)
+                abas = self.driver.window_handles
+                self.driver.switch_to.window(abas[1])
+
                 botao = self.driver.find_element(By.XPATH, '//*[@id="Certidao.ConfirmaNomeContribuinteSim"]')
                 botao.click()
+                time.sleep(3)
+
             except Exception as e:
                 logging.info("Botão 'Sim' não apareceu, seguindo o fluxo padrão...")
                 # Aguarda o download ser concluído
-                time.sleep(5)
+                time.sleep(3)
 
-                # Renomeia e move o arquivo baixado
-                for nome_arquivo in os.listdir(self.download_dir):
-                    if nome_arquivo.endswith('.asp'):
-                        caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                        caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
-                        
-                        os.rename(caminho_antigo, caminho_pdf)
-                        logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
-                        status_emissao_certidao = LerCertidoes().leitura_certidao_estadual(caminho_pdf)
+            # Renomeia e move o arquivo baixado
+            for nome_arquivo in os.listdir(self.download_dir):
+                if nome_arquivo.endswith(('.tmp', '.asp')):
+                    caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
+                    caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
+                    
+                    os.rename(caminho_antigo, caminho_pdf)
+                    logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
+                    status_emissao_certidao = LerCertidoes().leitura_certidao_estadual(caminho_pdf)
 
-                        # Salva o PDF na pasta final organizada
-                        destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
-                        logging.info(f"Certidão estadual salva em: {destino_final}")
+                    # Salva o PDF na pasta final organizada
+                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
+                    logging.info(f"Certidão estadual salva em: {destino_final}")
 
-                self.fechar()
-                return status_emissao_certidao
+            self.fechar()
+            return status_emissao_certidao
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
+            ScreenCapture().print_momento_erro(nome_empresa, tipo)
+            self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
             status_emissao_certidao = ApiCertidaoEstadual().emitir_certidao_estadual(cnpj, nome_empresa)
-            self.fechar()
             return status_emissao_certidao
 
     def fechar(self):

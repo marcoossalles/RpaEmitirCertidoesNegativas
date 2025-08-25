@@ -14,6 +14,7 @@ from selenium.common.exceptions import TimeoutException
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from integrations.integracao_certidao_fgts import ApiCertidaoFgts
 from automation.captch import CaptchaSolver
+from automation.print_erro import ScreenCapture
 
 class CertidaoFgts:
     def __init__(self):
@@ -47,7 +48,7 @@ class CertidaoFgts:
         Acessa o site da Caixa, preenche o CNPJ e realiza o fluxo
         de emissão da certidão FGTS em PDF.
         """
-        status_emissao_certidao = []
+        status_emissao_certidao = None
         tipo = 'FGTS'
         wait = WebDriverWait(self.driver, 20)
         try:
@@ -78,6 +79,7 @@ class CertidaoFgts:
             input_captcha = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="mainForm:txtCaptcha"]')))
             input_captcha.clear()
             input_captcha.send_keys(captcha_string)
+            time.sleep(2)
 
             # Inicia o processo de emissão
             self.driver.find_element(By.XPATH, '//*[@id="mainForm:btnConsultar"]').click()
@@ -137,9 +139,10 @@ class CertidaoFgts:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
+            ScreenCapture().print_momento_erro(nome_empresa, tipo)            
+            self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
             status_emissao_certidao = ApiCertidaoFgts().emitir_certidao_fgts(cnpj, nome_empresa)
-            self.fechar()
             return status_emissao_certidao
 
     def fechar(self):

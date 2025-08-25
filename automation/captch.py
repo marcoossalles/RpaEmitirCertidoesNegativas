@@ -9,6 +9,8 @@ class CaptchaSolver:
     def __init__(self, api_key='0c945c8d1447c7f214057200a3380181'):
         self.api_key = api_key
         self.base_url = "https://api.2captcha.com"
+        self.timeout = 60
+        self.start_time = time.time()
 
     def solve_captcha(self, image_base64):
         """
@@ -33,25 +35,38 @@ class CaptchaSolver:
         }
 
         try:
+            logging.info("Criando task para quebrar captcha")
             response = requests.post(create_url, json=payload, timeout=30)
             response.raise_for_status()
             data = response.json()
 
             if data.get("errorId", 0) != 0:
+                logging.error(f"Erro ao criar task: {data.get('errorDescription')}")
                 raise Exception(f"Erro ao criar task: {data.get('errorDescription')}")
 
             task_id = data.get("taskId")
 
             # Consultar resultado até estar pronto
+            logging.info("Aguardando quebra do Captcha")
             get_url = f"{self.base_url}/getTaskResult"
+            
             while True:
-                result = requests.post(get_url, json={"clientKey": self.api_key, "taskId": task_id}, timeout=30).json()
-                
+                result = requests.post(
+                    get_url,
+                    json={"clientKey": self.api_key, "taskId": task_id},
+                    timeout=30
+                ).json()
+
                 if result.get("status") == "ready":
                     return result["solution"]["text"]
-                
-                time.sleep(5)  # espera 5s antes de tentar de novo
+                    #return "teste"
+
+                # verifica se já passou do tempo limite
+                if time.time() - self.start_time > self.timeout:
+                    return "Erro: não ficou pronto dentro de 1 minuto"
+
+                time.sleep(2)
 
         except Exception as e:
-            print(f"Erro: {e}")
+            logging.error(f"Erro: {e}")
             return None

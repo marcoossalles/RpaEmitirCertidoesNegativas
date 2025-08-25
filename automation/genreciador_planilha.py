@@ -110,10 +110,15 @@ class PlanilhaMensalDuplicador:
         logging.info(f"{len(dados)} linhas de dados carregadas da aba '{nome_aba}'.")
         return dados
     
-    def escrever_status_linha(self, nome_aba, linha, dicionario_status, linha_titulo=8):
+    def escrever_status_linha(self, linha, dicionario_status, linha_titulo=8):
         """
         Escreve os valores do dicionário de status nas colunas correspondentes da linha informada.
         """
+        hoje = datetime.today()
+        mes_nome = hoje.strftime('%B').capitalize()
+        ano = hoje.year
+        nome_aba = f"{mes_nome} {ano}"
+
         if nome_aba not in self.wb.sheetnames:
             logging.error(f"Aba '{nome_aba}' não encontrada no arquivo.")
             raise ValueError(f"Aba '{nome_aba}' não encontrada no arquivo.")

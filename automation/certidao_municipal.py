@@ -11,6 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
+from automation.print_erro import ScreenCapture
 from integrations.integracao_certidao_municipal import ApiCertidaoMunicipalGoiania
 
 class CertidaoMunicipal:
@@ -41,7 +42,7 @@ class CertidaoMunicipal:
         de emissão da certidão PDF.
         """
         tipo = 'MUNICIPAL'
-        status_emissao_certidao = []
+        status_emissao_certidao = None
         try:
             url = os.getenv('BASE_URL_MUNICIPAL')
             self.driver.get(url)
@@ -97,10 +98,11 @@ class CertidaoMunicipal:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            logging.info(f"Vamos utilizar API para emitir a certidão")
-            status_emissao_certidao = ApiCertidaoMunicipalGoiania.emitir_certidao_municipal(cnpj, nome_empresa)
+            ScreenCapture().print_momento_erro(nome_empresa, tipo)
             self.fechar()
-            return status_emissao_certidao
+            logging.info(f"Vamos utilizar API para emitir a certidão")
+            #status_emissao_certidao = ApiCertidaoMunicipalGoiania().emitir_certidao_municipal(cnpj, nome_empresa)
+            return None
 
     def fechar(self):
         """

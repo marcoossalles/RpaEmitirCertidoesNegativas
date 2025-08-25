@@ -45,15 +45,15 @@ for idx, item in enumerate(lista_empresas):
                 if item[campo] is None:
                     if campo == 'TRABALHISTA':
                         logging.info("Emitindo certidão TRABALHISTA.")
-                        status_resultados[campo] = [] #idaoTrabalhista().acessar_site(item['CNPJ'], item['Empresas'])
+                        status_resultados[campo] = CertidaoTrabalhista().acessar_site(item['CNPJ'], item['Empresas'])
 
                     elif campo == 'Certidão Mun.':
                         logging.info("Emitindo certidão MUNICIPAL.")
-                        status_resultados[campo] =[] #tidaoMunicipal().acessar_site(item['Inscrição Mun.'], item['Empresas'])
+                        status_resultados[campo] = CertidaoMunicipal().acessar_site(item['Inscrição Mun.'], item['Empresas'])
 
                     elif campo == 'FGTS':
                         logging.info("Emitindo certidão FGTS.")
-                        status_resultados[campo] =[] #ertidaoFgts().acessar_site(item['CNPJ'], item['Empresas'])
+                        status_resultados[campo] = CertidaoFgts().acessar_site(item['CNPJ'], item['Empresas'])
 
                     elif campo == 'Certidão Sefaz':
                         logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
@@ -61,15 +61,14 @@ for idx, item in enumerate(lista_empresas):
 
                     elif campo == 'Fazendaria/Previdenciária':
                         logging.info("Emitindo certidão RECEITA FEDERAL.")
-                        status_resultados[campo] = [] #ertidaoPgfn().emitir_certidao_pgfn(item['CNPJ'], item['Empresas'])
+                        status_resultados[campo] = ApiCertidaoPgfn().emitir_certidao_pgfn(item['CNPJ'], item['Empresas'])
                         
                     elif campo == 'Status Processamento':
                         logging.info("Marcando como processado.")
-                        status_resultados[campo] = True
+                        status_resultados[campo] = "OK"
 
             linha_planilha = linha_dados + idx
             duplicador.escrever_status_linha(
-                nome_aba="Agosto 2025",
                 linha=linha_planilha,
                 dicionario_status=status_resultados,
                 linha_titulo=7

@@ -54,14 +54,14 @@ class ApiCertidaoPgfn:
                     + "; ".join(response_json.get("errors", []))
                 )
                 logging.error(mensagem)
-                return []
+                return None
 
         # Captura erros relacionados à requisição HTTP
         except requests.exceptions.RequestException as e:
             logging.error(f"Erro na requisição: {e}")
-            return []
+            return None
 
         # Captura quaisquer outros erros inesperados
         except Exception as e:
             logging.error(f"Erro inesperado: {e}")
-            return []
+            return None

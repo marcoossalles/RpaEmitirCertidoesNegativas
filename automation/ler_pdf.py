@@ -43,11 +43,11 @@ class LerCertidoes:
                     return "PENDENTE"
 
             logging.warning("Trecho-chave do despacho não encontrado no PDF.")
-            return []
+            return None
 
         except Exception as e:
             logging.error(f"Erro ao processar certidão estadual: {e}")
-            return []
+            return None
 
     def leitura_certidao_trabalhista(self, caminho_pdf) -> bool:
         """
@@ -79,8 +79,8 @@ class LerCertidoes:
                     return "PENDENTE"
 
             logging.warning("Trecho-chave do CNPJ não encontrado no PDF.")
-            return []
+            return None
 
         except Exception as e:
             logging.error(f"Erro ao processar certidão trabalhista: {e}")
-            return []
+            return None

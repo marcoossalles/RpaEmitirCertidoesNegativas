@@ -3,11 +3,14 @@ import time
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
+from automation.print_erro import ScreenCapture
 from automation.ler_pdf import LerCertidoes
 from integrations.integracao_certidao_trabalhista import ApiCertidaoTrabalhista
 from automation.captch import CaptchaSolver
@@ -44,7 +47,7 @@ class CertidaoTrabalhista:
         para a estrutura de pastas correta com nome personalizado.
         """
         tipo = 'TRABALHISTA'
-        status_emissao_certidao = []
+        status_emissao_certidao = None
         try:
             url = os.getenv('BASE_URL_CERTIDAO_TRABALHISTA')
             self.driver.get(url)
@@ -76,6 +79,7 @@ class CertidaoTrabalhista:
             input_captcha = self.driver.find_element(By.XPATH, '//*[@id="idCampoResposta"]')
             input_captcha.clear()
             input_captcha.send_keys(captcha_string)
+            time.sleep(2)
 
             # Clica para gerar a certidão
             button_emitir_certidao = self.driver.find_element(By.XPATH, '//*[@id="gerarCertidaoForm:btnEmitirCertidao"]')
@@ -83,29 +87,40 @@ class CertidaoTrabalhista:
             time.sleep(3)
             logging.info("Requisição para emissão da certidão enviada.")
 
-            # Verifica se um arquivo PDF foi baixado
-            for nome_arquivo in os.listdir(self.download_dir):
-                if nome_arquivo.endswith('.pdf'):
-                    caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
-                    caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
+            try:
+                mensagem = WebDriverWait(self.driver, 5).until(
+                    EC.presence_of_element_located((By.XPATH, '//*[@id="mensagens"]/ul/li'))
+                )
+                if mensagem.text.strip() == "Código de validação inválido.":
+                    logging.info("Captcha retornado incorreto.")
+                    logging.info(f"Vamos utilizar API para emitir a certidão")
+                    status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)
+                    return status_emissao_certidao
+            except:
+                # Verifica se um arquivo PDF foi baixado
+                for nome_arquivo in os.listdir(self.download_dir):
+                    if nome_arquivo.endswith('.pdf'):
+                        caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
+                        caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
 
-                    # Renomeia o PDF com o nome da empresa
-                    os.rename(caminho_antigo, caminho_pdf)
-                    logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
-                    
-                    status_emissao_certidao = LerCertidoes().leitura_certidao_trabalhista(caminho_pdf)
-                    
-                    destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
-                    logging.info(f"Certidão estadual salva em: {destino_final}")
+                        # Renomeia o PDF com o nome da empresa
+                        os.rename(caminho_antigo, caminho_pdf)
+                        logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
+                        
+                        status_emissao_certidao = LerCertidoes().leitura_certidao_trabalhista(caminho_pdf)
+                        
+                        destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
+                        logging.info(f"Certidão estadual salva em: {destino_final}")
 
-            self.fechar()
-            return status_emissao_certidao
+                self.fechar()
+                return status_emissao_certidao
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            logging.info(f"Vamos utilizar API para emitir a certidão")
-            status_emissao_certidao = ApiCertidaoTrabalhista.emitir_certidao_trabalhista(cnpj, nome_empresa)
+            ScreenCapture().print_momento_erro(nome_empresa, tipo)
             self.fechar()
+            logging.info(f"Vamos utilizar API para emitir a certidão")
+            #status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)
             return status_emissao_certidao
         
     def fechar(self):

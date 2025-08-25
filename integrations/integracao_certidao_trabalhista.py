@@ -46,14 +46,14 @@ class ApiCertidaoTrabalhista:
                     + "; ".join(response_json.get("errors", []))
                 )
                 logging.error(mensagem)
-                return []
+                return None
 
         except requests.exceptions.RequestException as e:
             logging.error("Erro de requisição: %s", e)
-            return []
+            return None
         except ValueError as e:
             logging.error("Erro de configuração: %s", e)
-            return []
+            return None
         except Exception as e:
             logging.exception("Erro inesperado: %s", e)
-            return []
+            return None
