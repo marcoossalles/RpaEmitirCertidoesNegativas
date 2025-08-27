@@ -10,7 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
-from automation.print_erro import ScreenCapture
+from automation.genrenciador_processamento import GerenciadorProcessamento
 from automation.ler_pdf import LerCertidoes
 from integrations.integracao_certidao_trabalhista import ApiCertidaoTrabalhista
 from automation.captch import CaptchaSolver
@@ -117,7 +117,7 @@ class CertidaoTrabalhista:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            ScreenCapture().print_momento_erro(nome_empresa, tipo)
+            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo)
             self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
             #status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)

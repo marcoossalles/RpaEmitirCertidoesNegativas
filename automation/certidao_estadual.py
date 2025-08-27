@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.ler_pdf import LerCertidoes
 from integrations.integracao_certidao_estadual import ApiCertidaoEstadual
-from automation.print_erro import ScreenCapture
+from automation.genrenciador_processamento import GerenciadorProcessamento
 
 class CertidaoEstadual:
     def __init__(self):
@@ -105,7 +105,7 @@ class CertidaoEstadual:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            ScreenCapture().print_momento_erro(nome_empresa, tipo)
+            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo)
             self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
             status_emissao_certidao = ApiCertidaoEstadual().emitir_certidao_estadual(cnpj, nome_empresa)

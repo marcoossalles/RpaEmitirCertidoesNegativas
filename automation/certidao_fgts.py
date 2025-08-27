@@ -14,7 +14,7 @@ from selenium.common.exceptions import TimeoutException
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from integrations.integracao_certidao_fgts import ApiCertidaoFgts
 from automation.captch import CaptchaSolver
-from automation.print_erro import ScreenCapture
+from automation.genrenciador_processamento import GerenciadorProcessamento
 
 class CertidaoFgts:
     def __init__(self):
@@ -139,7 +139,7 @@ class CertidaoFgts:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            ScreenCapture().print_momento_erro(nome_empresa, tipo)            
+            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo)            
             self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
             status_emissao_certidao = ApiCertidaoFgts().emitir_certidao_fgts(cnpj, nome_empresa)

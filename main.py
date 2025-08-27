@@ -1,7 +1,8 @@
-from logs import log_config
-from config import settings
+from datetime import datetime
 import logging
+from config import settings
 
+from automation.genrenciador_processamento import GerenciadorProcessamento
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.genreciador_planilha import PlanilhaMensalDuplicador
 from automation.certidao_trabalhista import CertidaoTrabalhista
@@ -10,8 +11,9 @@ from automation.certidao_estadual import CertidaoEstadual
 from automation.certidao_municipal import CertidaoMunicipal
 from integrations.integracao_receita_federal import ApiCertidaoPgfn
 
-#Configuração do logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+#Criação da estrutura de gerenciamento de processamento
+logging.info("Criando estrutura de pastas de gerenciamento de processamento.")
+GerenciadorProcessamento()
 
 #Criação da estrutura de pastas
 logging.info("Criando estrutura de pastas para certidões.")
