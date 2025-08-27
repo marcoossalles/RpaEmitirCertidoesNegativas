@@ -14,7 +14,7 @@ except:
     locale.setlocale(locale.LC_TIME, 'Portuguese_Brazil.1252')  # Windows
 
 class PlanilhaMensalDuplicador:
-    def __init__(self, caminho_arquivo='C:\\empresas\\PLANILHA CONTROLE\\Controle de Certidões - 2025.xlsx'):
+    def __init__(self, caminho_arquivo='C:\\BOTS_RPA\Repositorio\\PLANILHA CONTROLE\\Controle de Certidões - 2025.xlsx'):
         """
         Inicializa a classe com o caminho do arquivo Excel e carrega a planilha.
         """
@@ -35,7 +35,7 @@ class PlanilhaMensalDuplicador:
         """
         Duplica a aba do mês atual para o próximo mês, limpando colunas específicas.
         """
-        locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
+        #locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 
         hoje = datetime.today()
 

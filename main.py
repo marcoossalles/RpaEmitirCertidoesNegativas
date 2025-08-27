@@ -38,7 +38,7 @@ for idx, item in enumerate(lista_empresas):
         status = item.get('Status')
         status_proc = item.get('Status Processamento')
 
-        if status != ['Suspenso', 'Paralizado'] and item['Cidade'] == 'Goiânia - GO':
+        if status != ['Suspenso', 'Paralizado']:
             logging.info(f"Processando empresa {item.get('Empresas')} - CNPJ: {item.get('CNPJ')}")
 
             status_resultados = {}
@@ -57,7 +57,7 @@ for idx, item in enumerate(lista_empresas):
                         logging.info("Emitindo certidão FGTS.")
                         status_resultados[campo] = CertidaoFgts().acessar_site(item['CNPJ'], item['Empresas'])
 
-                    elif campo == 'Certidão Sefaz':
+                    elif campo == 'Certidão Sefaz' and item['Cidade'] == 'Goiânia - GO':
                         logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
                         status_resultados[campo] = CertidaoEstadual().acessar_site(item['CNPJ'], item['Empresas'])
 

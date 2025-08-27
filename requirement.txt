@@ -6,3 +6,4 @@ openpyxl
 PyMuPDF
 dotenv
 requests
+PyAutoGUI

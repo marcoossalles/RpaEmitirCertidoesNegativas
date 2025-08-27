@@ -27,6 +27,10 @@ class CertidaoTrabalhista:
 
         chrome_options = Options()
         chrome_options.add_argument("--start-maximized")
+        if os.getenv("CONFIG_HEADLESS"):
+                # chrome moderno
+                chrome_options.add_argument("--headless=new")
+                chrome_options.add_argument("--disable-gpu")
         # chrome_options.add_argument("--headless")  # Descomente se quiser executar em segundo plano
 
         # Define o diretório padrão de downloads no navegador

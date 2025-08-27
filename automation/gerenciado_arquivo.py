@@ -16,8 +16,8 @@ class CriadorPastasCertidoes:
         self.ano = str(agora.year)
         self.mes = f"{agora.month:02d}"  # Ex: "08"
         self.caminhos_base = [
-            r"C:\empresas\Certidões Positivas",
-            r"C:\empresas\Certidões Negativas"
+            r"C:\BOTS_RPA\Repositorio\Certidões Negativas",
+            r"C:\BOTS_RPA\Repositorio\Certidões Positivas"
         ]
         self.subpastas = ["ESTADUAL", "FEDERAL", "FGTS", "MUNICIPAL", "TRABALHISTA"]
 
@@ -60,9 +60,9 @@ class CriadorPastasCertidoes:
             mes = f"{agora.month:02d}"
             
             if negativa == "OK":
-                caminho_base = r"C:\empresas\Certidões Negativas"
+                caminho_base = r"C:\BOTS_RPA\Repositorio\Certidões Negativas"
             else:
-                caminho_base = r"C:\empresas\Certidões Positivas"
+                caminho_base = r"C:\BOTS_RPA\Repositorio\Certidões Positivas"
             
             cnpj_limpo = ''.join(filter(str.isdigit, cnpj))
 

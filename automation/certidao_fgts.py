@@ -26,6 +26,10 @@ class CertidaoFgts:
         os.makedirs(self.download_dir, exist_ok=True)
 
         chrome_options = Options()
+        if os.getenv("CONFIG_HEADLESS"):
+                # chrome moderno
+                chrome_options.add_argument("--headless=new")
+                chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_experimental_option("prefs", {
             "download.default_directory": self.download_dir,
