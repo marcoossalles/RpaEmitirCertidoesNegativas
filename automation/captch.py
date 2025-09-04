@@ -6,9 +6,9 @@ import sys
 import os
 
 class CaptchaSolver:
-    def __init__(self, api_key='0c945c8d1447c7f214057200a3380181'):
+    def __init__(self, api_key=os.getenv('TOKEN_API_2CAPTCHA')):
         self.api_key = api_key
-        self.base_url = "https://api.2captcha.com"
+        self.base_url = os.getenv('BASE_URL_2CAPTCHA')
         self.timeout = 60
         self.start_time = time.time()
 

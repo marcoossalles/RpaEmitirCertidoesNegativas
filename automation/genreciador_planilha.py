@@ -3,6 +3,7 @@ from openpyxl.utils import get_column_letter
 from datetime import datetime, timedelta
 import locale
 import logging
+import os
 
 # Configura logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -14,7 +15,7 @@ except:
     locale.setlocale(locale.LC_TIME, 'Portuguese_Brazil.1252')  # Windows
 
 class PlanilhaMensalDuplicador:
-    def __init__(self, caminho_arquivo='C:\\BOTS_RPA\Repositorio\\PLANILHA CONTROLE\\Controle de Certidões - 2025.xlsx'):
+    def __init__(self, caminho_arquivo=os.getenv('PASTA_PLANILHA_CNPJS')):
         """
         Inicializa a classe com o caminho do arquivo Excel e carrega a planilha.
         """

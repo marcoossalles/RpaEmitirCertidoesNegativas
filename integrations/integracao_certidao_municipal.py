@@ -9,9 +9,9 @@ class ApiCertidaoMunicipalGoiania:
         # Token de autenticação da API obtido via variável de ambiente
         self.token_api = os.getenv('TOKEN_API_INFOSIMPLES')
         # Monta a URL base da API a partir de variáveis de ambiente
-        self.url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv("INFOSIMPLES_CERTIDAO_MUNICIPAL")
 
-    def emitir_certidao_municipal(self, cnpj, nome_empresa):
+    def emitir_certidao_municipal(self, cnpj, nome_empresa, cidade):
+        self.url = os.getenv("BASE_URL_INFOSIMPLES") + os.getenv(f"infosimples_Certidao_{cidade}")
         extensao = '.html'
         timeout = 60  # Tempo máximo de espera da requisição
         tipo = 'MUNICIPAL'

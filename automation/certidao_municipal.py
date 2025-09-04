@@ -40,7 +40,8 @@ class CertidaoMunicipal:
 
         logging.info("Driver Chrome iniciado com sucesso para emissão FGTS.")
 
-    def acessar_site(self, cnpj, nome_empresa):
+    def acessar_site(self, cnpj, nome_empresa, cidade):
+        cidade = cidade.split(" - ")[0] 
         """
         Acessa o site, preenche o CNPJ e realiza o fluxo
         de emissão da certidão PDF.
@@ -105,7 +106,7 @@ class CertidaoMunicipal:
             GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo)
             self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
-            #status_emissao_certidao = ApiCertidaoMunicipalGoiania().emitir_certidao_municipal(cnpj, nome_empresa)
+            status_emissao_certidao = ApiCertidaoMunicipalGoiania().emitir_certidao_municipal(cnpj, nome_empresa,cidade)
             return None
 
     def fechar(self):

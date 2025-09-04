@@ -1,6 +1,7 @@
 from datetime import datetime
 import logging
 from config import settings
+logging.basicConfig(filename=f".\\Task\\Task_{datetime.now().strftime('%Y%m%d')}\\Logs\\Log.txt", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 from automation.genrenciador_processamento import GerenciadorProcessamento
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
@@ -13,6 +14,8 @@ from integrations.integracao_receita_federal import ApiCertidaoPgfn
 
 #Criação da estrutura de gerenciamento de processamento
 logging.info("Criando estrutura de pastas de gerenciamento de processamento.")
+
+# Instância do gerenciador de processamento
 GerenciadorProcessamento()
 
 #Criação da estrutura de pastas
@@ -51,7 +54,7 @@ for idx, item in enumerate(lista_empresas):
 
                     elif campo == 'Certidão Mun.':
                         logging.info("Emitindo certidão MUNICIPAL.")
-                        status_resultados[campo] = CertidaoMunicipal().acessar_site(item['Inscrição Mun.'], item['Empresas'])
+                        status_resultados[campo] = CertidaoMunicipal().acessar_site(item['Inscrição Mun.'], item['Empresas'], item['Cidade'])
 
                     elif campo == 'FGTS':
                         logging.info("Emitindo certidão FGTS.")
