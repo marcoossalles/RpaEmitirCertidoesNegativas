@@ -27,11 +27,10 @@ class CertidaoTrabalhista:
 
         chrome_options = Options()
         chrome_options.add_argument("--start-maximized")
-        if os.getenv("CONFIG_HEADLESS"):
+        if os.getenv("CONFIG_HEADLESS") == 'True':
                 # chrome moderno
                 chrome_options.add_argument("--headless=new")
                 chrome_options.add_argument("--disable-gpu")
-        # chrome_options.add_argument("--headless")  # Descomente se quiser executar em segundo plano
 
         # Define o diretório padrão de downloads no navegador
         chrome_options.add_experimental_option("prefs", {
@@ -121,7 +120,7 @@ class CertidaoTrabalhista:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo)
+            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo, self.driver)
             self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
             #status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)

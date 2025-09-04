@@ -40,30 +40,32 @@ class PlanilhaMensalDuplicador:
 
         hoje = datetime.today()
 
-        # Define nomes das abas de origem e destino
+        # Nome da aba referente ao mês atual
         mes_atual_nome = hoje.strftime('%B').capitalize()
         ano_atual = hoje.year
-        aba_origem = f"{mes_atual_nome} {ano_atual}"
+        aba_mes_atual = f"{mes_atual_nome} {ano_atual}"
 
-        proximo_mes = hoje.replace(day=28) + timedelta(days=4)
-        proximo_mes = proximo_mes.replace(day=1)
-        mes_proximo_nome = proximo_mes.strftime('%B').capitalize()
-        ano_proximo = proximo_mes.year
-        aba_destino = f"{mes_proximo_nome} {ano_proximo}"
+        # Calcular mês anterior
+        mes_anterior = (hoje.replace(day=1) - timedelta(days=1))
+        mes_anterior_nome = mes_anterior.strftime('%B').capitalize()
+        ano_anterior = mes_anterior.year
+        aba_mes_anterior = f"{mes_anterior_nome} {ano_anterior}"
 
-        if aba_destino in self.wb.sheetnames:
-            logging.info(f"Aba '{aba_destino}' já existe. Nenhuma duplicação foi feita.")
+        # Verifica se já existe a aba do mês atual
+        if aba_mes_atual in self.wb.sheetnames:
+            logging.info(f"Aba '{aba_mes_atual}' já existe. Nenhuma duplicação foi feita.")
             return
 
-        if aba_origem not in self.wb.sheetnames:
-            logging.error(f"Aba de origem '{aba_origem}' não encontrada.")
-            raise ValueError(f"Aba de origem '{aba_origem}' não encontrada.")
+        # Verifica se a aba do mês anterior existe
+        if aba_mes_anterior not in self.wb.sheetnames:
+            logging.error(f"Aba de origem '{aba_mes_anterior}' não encontrada.")
+            raise ValueError(f"Aba de origem '{aba_mes_anterior}' não encontrada.")
 
-        logging.info(f"Duplicando aba '{aba_origem}' para '{aba_destino}'.")
+        logging.info(f"Duplicando aba '{aba_mes_anterior}' para '{aba_mes_atual}'.")
 
-        aba_original = self.wb[aba_origem]
+        aba_original = self.wb[aba_mes_anterior]
         nova_aba = self.wb.copy_worksheet(aba_original)
-        nova_aba.title = aba_destino
+        nova_aba.title = aba_mes_atual
 
         # Prepara as colunas que devem ser limpas
         colunas_para_limpar = [col.strip().upper() for col in colunas_para_limpar]
@@ -79,7 +81,7 @@ class PlanilhaMensalDuplicador:
                     cell.value = None
 
         self.wb.save(self.caminho_arquivo)
-        logging.info(f"Aba '{aba_destino}' criada com sucesso com base na aba '{aba_origem}'.")
+        logging.info(f"Aba criada com sucesso com base na aba '{aba_mes_atual}'.")
 
     def ler_aba_mes_atual(self, linha_titulo=8, linha_dados=9):
         """

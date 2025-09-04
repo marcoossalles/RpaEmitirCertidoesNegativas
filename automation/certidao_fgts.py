@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.chrome.service import Service
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from integrations.integracao_certidao_fgts import ApiCertidaoFgts
@@ -25,11 +26,17 @@ class CertidaoFgts:
         self.download_dir = os.path.join(os.getcwd(), "downloads")
         os.makedirs(self.download_dir, exist_ok=True)
 
+        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+        
         chrome_options = Options()
-        if os.getenv("CONFIG_HEADLESS"):
+        if os.getenv("CONFIG_HEADLESS") == 'True':
                 # chrome moderno
                 chrome_options.add_argument("--headless=new")
                 chrome_options.add_argument("--disable-gpu")
+
+        chrome_options.add_argument("--start-maximized")
+
+        chrome_options.add_argument(f"user-agent={user_agent}")
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_experimental_option("prefs", {
             "download.default_directory": self.download_dir,
@@ -143,7 +150,7 @@ class CertidaoFgts:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo)            
+            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo, self.driver)            
             self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
             status_emissao_certidao = ApiCertidaoFgts().emitir_certidao_fgts(cnpj, nome_empresa)

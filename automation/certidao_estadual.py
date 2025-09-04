@@ -8,6 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
 
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
 from automation.ler_pdf import LerCertidoes
@@ -19,14 +20,15 @@ class CertidaoEstadual:
         # Define e cria a pasta de downloads se não existir
         self.download_dir = os.path.join(os.getcwd(), "downloads")
         os.makedirs(self.download_dir, exist_ok=True)
-
+        
         # Configurações do Chrome
         chrome_options = Options()
-        if os.getenv("CONFIG_HEADLESS"):
-                # chrome moderno
-                chrome_options.add_argument("--headless=new")
-                chrome_options.add_argument("--disable-gpu")
+        if os.getenv("CONFIG_HEADLESS") == 'True':
+            chrome_options.add_argument("--headless=new")
+            chrome_options.add_argument("--disable-gpu")
+
         chrome_options.add_argument("--start-maximized")
+
         chrome_options.add_experimental_option("prefs", {
             "download.default_directory": self.download_dir,
             "plugins.always_open_pdf_externally": True,
@@ -36,12 +38,10 @@ class CertidaoEstadual:
             "safebrowsing.disable_download_protection": True
         })
 
-        # Inicializa o driver do Chrome
         self.driver = webdriver.Chrome(
             service=ChromeService(ChromeDriverManager().install()),
             options=chrome_options
         )
-
     def acessar_site(self, cnpj, nome_empresa):
         tipo = 'ESTADUAL'
         status_emissao_certidao = None
@@ -109,7 +109,7 @@ class CertidaoEstadual:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo)
+            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo, self.driver)
             self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
             status_emissao_certidao = ApiCertidaoEstadual().emitir_certidao_estadual(cnpj, nome_empresa)

@@ -24,7 +24,7 @@ class CertidaoMunicipal:
         os.makedirs(self.download_dir, exist_ok=True)
 
         chrome_options = Options()
-        if os.getenv("CONFIG_HEADLESS"):
+        if os.getenv("CONFIG_HEADLESS") == 'True':
                 # chrome moderno
                 chrome_options.add_argument("--headless=new")
                 chrome_options.add_argument("--disable-gpu")
@@ -38,7 +38,7 @@ class CertidaoMunicipal:
             options=chrome_options
         )
 
-        logging.info("Driver Chrome iniciado com sucesso para emissão FGTS.")
+        logging.info("Driver Chrome iniciado com sucesso para emissão Municipal.")
 
     def acessar_site(self, cnpj, nome_empresa, cidade):
         cidade = cidade.split(" - ")[0] 
@@ -103,10 +103,10 @@ class CertidaoMunicipal:
 
         except Exception as e:
             logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo)
+            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo, self.driver)
             self.fechar()
             logging.info(f"Vamos utilizar API para emitir a certidão")
-            status_emissao_certidao = ApiCertidaoMunicipalGoiania().emitir_certidao_municipal(cnpj, nome_empresa,cidade)
+            #status_emissao_certidao = ApiCertidaoMunicipalGoiania().emitir_certidao_municipal(cnpj, nome_empresa,cidade)
             return None
 
     def fechar(self):

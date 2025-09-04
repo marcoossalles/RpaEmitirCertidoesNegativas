@@ -1,4 +1,3 @@
-openai
 twocaptcha
 selenium
 webdriver-manager
@@ -7,3 +6,4 @@ PyMuPDF
 dotenv
 requests
 PyAutoGUI
+pillow

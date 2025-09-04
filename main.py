@@ -1,7 +1,7 @@
 from datetime import datetime
 import logging
 from config import settings
-logging.basicConfig(filename=f".\\Task\\Task_{datetime.now().strftime('%Y%m%d')}\\Logs\\Log.txt", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 from automation.genrenciador_processamento import GerenciadorProcessamento
 from automation.gerenciado_arquivo import CriadorPastasCertidoes
@@ -60,7 +60,7 @@ for idx, item in enumerate(lista_empresas):
                         logging.info("Emitindo certidão FGTS.")
                         status_resultados[campo] = CertidaoFgts().acessar_site(item['CNPJ'], item['Empresas'])
 
-                    elif campo == 'Certidão Sefaz' and item['Cidade'] == 'Goiânia - GO':
+                    elif campo == 'Certidão Sefaz':
                         logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
                         status_resultados[campo] = CertidaoEstadual().acessar_site(item['CNPJ'], item['Empresas'])
 
