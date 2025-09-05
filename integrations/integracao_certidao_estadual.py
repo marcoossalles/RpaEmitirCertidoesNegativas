@@ -1,11 +1,12 @@
 import requests
-import logging
 import os
 
 from integrations.baixar_pdf_certidao_api import BaixarCertidaoViaApi
+from manager_logs.logger_manager import Logger
 
 class ApiCertidaoEstadual:
     def __init__(self):
+        self.logging = Logger("EmissaoCertidao")
         # Token de autenticação obtido de variável de ambiente
         self.token = os.getenv('TOKEN_API_INFOSIMPLES')
         # URL da API montada a partir das variáveis de ambiente
@@ -24,7 +25,7 @@ class ApiCertidaoEstadual:
             }
 
             # Envia a requisição POST para a API
-            logging.info(f"Enviando requisição para: {self.base_url}")
+            self.logging.info(f"Enviando requisição para: {self.base_url}")
             response = requests.post(self.base_url, json=args, timeout=timeout)
             response.raise_for_status()  # Lança exceção em caso de erro HTTP
 
@@ -37,7 +38,7 @@ class ApiCertidaoEstadual:
                     negativa = "PENDENTE"
                 else:
                     negativa = "OK"
-                logging.info(f"Dados da empresa {nome_empresa} encontrado.")
+                self.logging.info(f"Dados da empresa {nome_empresa} encontrado.")
                 # Baixa o arquivo PDF usando a URL retornada
                 status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['data'][0]['site_receipt'],cnpj,nome_empresa,tipo, extensao, negativa)
                 return status_baixa_certidao
@@ -49,22 +50,22 @@ class ApiCertidaoEstadual:
                     f"Código: {response_json.get('code')} ({response_json.get('code_message')})"
                     + "; ".join(response_json.get("errors", []))
                 )
-                logging.warning(mensagem)
+                self.logging.warning(mensagem)
                 return None
 
         # Tratamento de erros específicos de timeout
         except requests.exceptions.Timeout:
-            logging.error("Tempo limite excedido na requisição para emissão da certidão.")
+            self.logging.error("Tempo limite excedido na requisição para emissão da certidão.")
             return None
         # Tratamento de erros relacionados a requisições HTTP
         except requests.exceptions.RequestException as e:
-            logging.error(f"Erro na requisição: {e}")
+            self.logging.error(f"Erro na requisição: {e}")
             return None
         # Tratamento de erro ao interpretar o JSON
         except ValueError as e:
-            logging.error(f"Erro ao interpretar JSON: {e}")
+            self.logging.error(f"Erro ao interpretar JSON: {e}")
             return None
         # Tratamento de qualquer outro erro inesperado
         except Exception as e:
-            logging.error(f"Erro inesperado: {e}")
+            self.logging.error(f"Erro inesperado: {e}")
             return None

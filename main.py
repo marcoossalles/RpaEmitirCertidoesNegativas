@@ -1,87 +1,109 @@
-import logging
 import json
-from datetime import datetime
+import os
 from config import settings
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-from automation.genrenciador_processamento import GerenciadorProcessamento
-from automation.gerenciado_arquivo import CriadorPastasCertidoes
-from automation.genreciador_planilha import PlanilhaMensalDuplicador
+from models.genrenciador_processamento import GerenciadorProcessamento
+from manager_logs.logger_manager import Logger
+from models.gerenciado_arquivo import CriadorPastasCertidoes
+from models.genreciador_planilha import CriarAbaPlanilha
 from automation.certidao_trabalhista import CertidaoTrabalhista
 from automation.certidao_fgts import CertidaoFgts
 from automation.certidao_estadual import CertidaoEstadual
 from automation.certidao_municipal import CertidaoMunicipal
 from integrations.integracao_receita_federal import ApiCertidaoPgfn
+from services.db_services import DbServices
 
-#Criação da estrutura de gerenciamento de processamento
-logging.info("Criando estrutura de pastas de gerenciamento de processamento.")
-GerenciadorProcessamento()
 
-#Criação da estrutura de pastas
-logging.info("Criando estrutura de pastas para certidões.")
-CriadorPastasCertidoes().criar_estrutura_pastas()
+class Main:
+    def __init__(self):
+        #Criação da estrutura de gerenciamento de processamento
+        GerenciadorProcessamento()
 
-#Leitura do arquivo EMPRESA.json
-logging.info("Realizando leitura obejto empresas.json")
-with open('empresas.json', 'r', encoding='utf-8') as file:
-    lista_EMPRESA = json.load(file)
+        logging = Logger("EmissaoCertidao", log_file ='.\\Task\\Task_20250905\\logs\\log.txt')
 
-#Instância do gerenciador da planilha
-#duplicador = PlanilhaMensalDuplicador()
+        #Criação da estrutura de pastas
+        CriadorPastasCertidoes().criar_estrutura_pastas()
 
-#Duplica a aba do próximo mês, se necessário
-# logging.info("Verificando e duplicando aba mensal.")
-# duplicador.duplicar_aba_mensal()
+        #Leitura do arquivo EMPRESA.json
+        logging.info("Realizando leitura obejto empresas.json")
+        with open(r'data\empresas.json', 'r', encoding='utf-8') as file:
+            lista_empresa = json.load(file)
 
-#Lê os dados da aba atual
-# logging.info("Lendo dados da aba do mês atual.")
-# lista_EMPRESA = duplicador.ler_aba_mes_atual(linha_titulo=7, linha_dados=8)
+        #Instância do serviço de banco de dados
+        db_services = DbServices()
 
-#linha_dados = 8  # linha inicial dos dados na planilha
+        #Criação da tabela, se não existir
+        db_services.criar_tabela()
 
-#Itera sobre os dados das EMPRESA
-for empresa in lista_EMPRESA:
-    try:
-        # status = empresa.get('Status')
-        # status_proc = empresa.get('Status Processamento')
+        #Inserção das EMPRESA no banco, ignorando duplicatas
+        db_services.inserir_empresas(lista_empresa)
 
-        if empresa['STATUS'] != ['Suspenso', 'Paralizado']:
-            logging.info(f"Processando empresa {empresa.get('EMPRESA')} - CNPJ: {empresa.get('CNPJ')}")
+        #busca das EMPRESA que precisam ser processadas
+        lista_empresa_db = db_services.buscar_pendentes()
 
-            status_resultados = {}
+        #Instância do gerenciador da planilha
+        #duplicador = PlanilhaMensalDuplicador()
 
-            for campo in empresa:
-                if campo == 'TRABALHISTA':
-                    logging.info("Emitindo certidão TRABALHISTA.")
-                    status_resultados[campo] = CertidaoTrabalhista().acessar_site(empresa['CNPJ'], empresa['EMPRESA'])
+        #Duplica a aba do próximo mês, se necessário
+        # logging.info("Verificando e duplicando aba mensal.")
+        # duplicador.duplicar_aba_mensal()
 
-                elif campo == 'MUNICIPAL':
-                    logging.info("Emitindo certidão MUNICIPAL.")
-                    status_resultados[campo] = "OK"#CertidaoMunicipal().acessar_site(empresa['MUNICIPAL']['CAE'], empresa['MUNICIPAL']['EMPRESA'], empresa['CIDADE'])
+        #Lê os dados da aba atual
+        # logging.info("Lendo dados da aba do mês atual.")
+        # lista_EMPRESA = duplicador.ler_aba_mes_atual(linha_titulo=7, linha_dados=8)
 
-                elif campo == 'FGTS':
-                    logging.info("Emitindo certidão FGTS.")
-                    status_resultados[campo] = CertidaoFgts().acessar_site(empresa['CNPJ'], empresa['EMPRESA'])
+        #linha_dados = 8  # linha inicial dos dados na planilha
 
-                elif campo == 'SEFAZ':
-                    logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
-                    status_resultados[campo] = CertidaoEstadual().acessar_site(empresa['CNPJ'], empresa['EMPRESA'])
+        #Itera sobre os dados das EMPRESA
+        for empresa in lista_empresa_db:
+            try:
+                # status = empresa.get('Status')
+                # status_proc = empresa.get('Status Processamento')
 
-                elif campo == 'RECEITA FEDERAL':
-                    logging.info("Emitindo certidão RECEITA FEDERAL.")
-                    status_resultados[campo] = ApiCertidaoPgfn().emitir_certidao_pgfn(empresa['CNPJ'], empresa['EMPRESA'])
-                    
-                elif campo == 'STATUS PROCESSAMENTO':
-                    logging.info("Marcando como processado.")
-                    status_resultados[campo] = "OK"
-        #atualiza fila
+                if empresa['status'] != ['Suspenso', 'Paralizado']:
+                    logging.info(f"Processando empresa {empresa.get('empresa')} - CNPJ: {empresa.get('cnpj')}")
 
-            # linha_planilha = linha_dados + idx
-            # duplicador.escrever_status_linha(
-            #     linha=linha_planilha,
-            #     dicionario_status=status_resultados,
-            #     linha_titulo=7
-            # )
-            #logging.info(f"Status escrito na planilha para linha {linha_planilha}.")
-    except Exception as e:
-        logging.error(f"Erro ao processar empresa {empresa.get('EMPRESA')} - CNPJ: {empresa.get('CNPJ')}: {e}")
+                    status_resultados = {}
+
+                    for campo in empresa:
+                        if campo == 'trabalhista':
+                            logging.info("Emitindo certidão TRABALHISTA.")
+                            status_resultados[campo] = CertidaoTrabalhista().acessar_site(empresa['cnpj'], empresa['empresa'])
+
+                        elif campo == 'municipal_certidao' and empresa['cidade'] == 'Goiânia - GO':
+                            logging.info("Emitindo certidão MUNICIPAL.")
+                            status_resultados[campo] = CertidaoMunicipal().acessar_site(empresa['municipal_cae'], empresa['empresa'], empresa['cidade'])
+
+                        elif campo == 'fgts':
+                            logging.info("Emitindo certidão FGTS.")
+                            status_resultados[campo] = CertidaoFgts().acessar_site(empresa['cnpj'], empresa['empresa'])
+
+                        elif campo == 'estadual':
+                            logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
+                            status_resultados[campo] = CertidaoEstadual().acessar_site(empresa['cnpj'], empresa['empresa'])
+
+                        elif campo == 'receita_federal':
+                            logging.info("Emitindo certidão RECEITA FEDERAL.")
+                            status_resultados[campo] = ApiCertidaoPgfn().emitir_certidao_pgfn(empresa['cnpj'], empresa['empresa'])
+                            
+                        elif campo == 'status_processamento':
+                            logging.info("Marcando como processado.")
+                            campos_verificacao = ['receita_federal', 'estadual', 'municipal_certidao', 'fgts', 'trabalhista']
+                            
+                            if any(status_resultados[c] == None for c in campos_verificacao):
+                                status_resultados[campo] = "PROCESSO PENDENTE"
+                            else:
+                                status_resultados[campo] = "OK"
+
+                    #atualiza tabela com os status
+                    db_services.atualizar_empresa(empresa['cnpj'], status_resultados)
+            except Exception as e:
+                logging.error(f"Erro ao processar empresa {empresa.get('EMPRESA')} - CNPJ: {empresa.get('CNPJ')}: {e}")
+
+        #Criação da aba mensal, se necessário
+        CriarAbaPlanilha().criar_aba_mensal()
+
+        db_services.gerar_relatorio(os.getenv('PASTA_PLANILHA_CNPJS'))
+
+if __name__ == "__main__":
+    main = Main()

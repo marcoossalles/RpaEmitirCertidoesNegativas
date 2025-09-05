@@ -1,12 +1,13 @@
 import requests
-import logging
 import time
 from twocaptcha import TwoCaptcha
 import sys
 import os
+from manager_logs.logger_manager import Logger
 
 class CaptchaSolver:
     def __init__(self, api_key=os.getenv('TOKEN_API_2CAPTCHA')):
+        self.logging = Logger("EmissaoCertidao")
         self.api_key = api_key
         self.base_url = os.getenv('BASE_URL_2CAPTCHA')
         self.timeout = 60
@@ -35,19 +36,19 @@ class CaptchaSolver:
         }
 
         try:
-            logging.info("Criando task para quebrar captcha")
+            self.logging.info("Criando task para quebrar captcha")
             response = requests.post(create_url, json=payload, timeout=30)
             response.raise_for_status()
             data = response.json()
 
             if data.get("errorId", 0) != 0:
-                logging.error(f"Erro ao criar task: {data.get('errorDescription')}")
+                self.logging.error(f"Erro ao criar task: {data.get('errorDescription')}")
                 raise Exception(f"Erro ao criar task: {data.get('errorDescription')}")
 
             task_id = data.get("taskId")
 
             # Consultar resultado até estar pronto
-            logging.info("Aguardando quebra do Captcha")
+            self.logging.info("Aguardando quebra do Captcha")
             get_url = f"{self.base_url}/getTaskResult"
             
             while True:
@@ -68,5 +69,5 @@ class CaptchaSolver:
                 time.sleep(2)
 
         except Exception as e:
-            logging.error(f"Erro: {e}")
+            self.logging.error(f"Erro: {e}")
             return None

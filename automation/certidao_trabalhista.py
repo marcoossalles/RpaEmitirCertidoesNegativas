@@ -1,4 +1,3 @@
-import logging
 import time
 import os
 from selenium import webdriver
@@ -9,21 +8,23 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-from automation.gerenciado_arquivo import CriadorPastasCertidoes
-from automation.genrenciador_processamento import GerenciadorProcessamento
-from automation.ler_pdf import LerCertidoes
+from models.gerenciado_arquivo import CriadorPastasCertidoes
+from models.genrenciador_processamento import GerenciadorProcessamento
+from models.ler_pdf import LerCertidoes
 from integrations.integracao_certidao_trabalhista import ApiCertidaoTrabalhista
 from automation.captch import CaptchaSolver
+from manager_logs.logger_manager import Logger
 
 class CertidaoTrabalhista:
     def __init__(self):
+        self.logging = Logger("EmissaoCertidao")
         """
         Inicializa o navegador Chrome com configurações específicas,
         incluindo o diretório onde os arquivos PDF serão baixados.
         """
         self.download_dir = os.path.join(os.getcwd(), "downloads")
         os.makedirs(self.download_dir, exist_ok=True)
-        logging.info(f"Diretório de downloads configurado em: {self.download_dir}")
+        self.logging.info(f"Diretório de downloads configurado em: {self.download_dir}")
 
         chrome_options = Options()
         chrome_options.add_argument("--start-maximized")
@@ -42,7 +43,7 @@ class CertidaoTrabalhista:
             service=ChromeService(ChromeDriverManager().install()),
             options=chrome_options
         )
-        logging.info("Driver do Chrome iniciado com sucesso.")
+        self.logging.info("Driver do Chrome iniciado com sucesso.")
 
     def acessar_site(self, cnpj, nome_empresa):
         """
@@ -54,20 +55,20 @@ class CertidaoTrabalhista:
         try:
             url = os.getenv('BASE_URL_CERTIDAO_TRABALHISTA')
             self.driver.get(url)
-            logging.info(f"Acessado o site: {url}")
+            self.logging.info(f"Acessado o site: {url}")
             time.sleep(5)
 
             # Localiza e clica no botão para emitir a certidão
             botao_emitir = self.driver.find_element(By.XPATH, '//*[@id="corpo"]/div/div[2]/input[1]')
             botao_emitir.click()
-            logging.info("Botão 'Emitir' clicado com sucesso.")
+            self.logging.info("Botão 'Emitir' clicado com sucesso.")
             time.sleep(5)
 
             # Preenche o campo de CNPJ
             input_cnpj = self.driver.find_element(By.XPATH, '//*[@id="gerarCertidaoForm:cpfCnpj"]')
             input_cnpj.clear()
             input_cnpj.send_keys(cnpj)
-            logging.info(f"CNPJ informado no campo: {cnpj}")
+            self.logging.info(f"CNPJ informado no campo: {cnpj}")
             
             # Captura o atributo src
             src = self.driver.find_element("xpath", '//*[@id="idImgBase64"]').get_attribute("src")
@@ -88,16 +89,16 @@ class CertidaoTrabalhista:
             button_emitir_certidao = self.driver.find_element(By.XPATH, '//*[@id="gerarCertidaoForm:btnEmitirCertidao"]')
             button_emitir_certidao.click()
             time.sleep(3)
-            logging.info("Requisição para emissão da certidão enviada.")
+            self.logging.info("Requisição para emissão da certidão enviada.")
 
             try:
                 mensagem = WebDriverWait(self.driver, 5).until(
                     EC.presence_of_element_located((By.XPATH, '//*[@id="mensagens"]/ul/li'))
                 )
                 if mensagem.text.strip() == "Código de validação inválido.":
-                    logging.info("Captcha retornado incorreto.")
-                    logging.info(f"Vamos utilizar API para emitir a certidão")
-                    status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)
+                    self.logging.info("Captcha retornado incorreto.")
+                    self.logging.info(f"Vamos utilizar API para emitir a certidão")
+                    #status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)
                     return status_emissao_certidao
             except:
                 # Verifica se um arquivo PDF foi baixado
@@ -108,21 +109,21 @@ class CertidaoTrabalhista:
 
                         # Renomeia o PDF com o nome da empresa
                         os.rename(caminho_antigo, caminho_pdf)
-                        logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
+                        self.logging.info(f"Arquivo renomeado: {nome_arquivo} -> {nome_empresa}")
                         
                         status_emissao_certidao = LerCertidoes().leitura_certidao_trabalhista(caminho_pdf)
                         
                         destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
-                        logging.info(f"Certidão estadual salva em: {destino_final}")
+                        self.logging.info(f"Certidão estadual salva em: {destino_final}")
 
                 self.fechar()
                 return status_emissao_certidao
 
         except Exception as e:
-            logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
+            self.logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
             GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo, self.driver)
             self.fechar()
-            logging.info(f"Vamos utilizar API para emitir a certidão")
+            self.logging.info(f"Vamos utilizar API para emitir a certidão")
             #status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)
             return status_emissao_certidao
         
@@ -131,4 +132,4 @@ class CertidaoTrabalhista:
         Fecha o navegador.
         """
         self.driver.quit()
-        logging.info("Driver encerrado.")
+        self.logging.info("Driver encerrado.")

@@ -1,16 +1,10 @@
 import fitz  # Biblioteca PyMuPDF para manipulação de PDFs
 import re    # Expressões regulares (não usado diretamente, mas importado)
-import logging  # Para registrar logs
-
-# Configuração básica de logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+from manager_logs.logger_manager import Logger
 
 class LerCertidoes:
     def __init__(self):
-        pass
+        self.logging = Logger("EmissaoCertidao")
 
     def leitura_certidao_estadual(self, caminho_pdf) -> bool:
         """
@@ -18,7 +12,7 @@ class LerCertidoes:
         aparece logo após o trecho do despacho.
         Retorna True se encontrado, False caso contrário.
         """
-        logging.info(f"Iniciando leitura da certidão estadual: {caminho_pdf}")
+        self.logging.info(f"Iniciando leitura da certidão estadual: {caminho_pdf}")
         texto_total = ""
 
         try:
@@ -27,26 +21,26 @@ class LerCertidoes:
                 for pagina in pdf:
                     texto_total += pagina.get_text()
 
-            logging.debug("Texto extraído do PDF com sucesso.")
+            self.logging.debug("Texto extraído do PDF com sucesso.")
 
             trecho_chave = "DESPACHO (Certidao valida para a matriz e suas filiais):"
             if trecho_chave in texto_total:
-                logging.info("Trecho-chave do despacho encontrado no PDF.")
+                self.logging.info("Trecho-chave do despacho encontrado no PDF.")
                 # Pega apenas o texto após o trecho-chave
                 trecho_pos_despacho = texto_total.split(trecho_chave, 1)[1]
                 # Verifica se 'NAO CONSTA DEBITO' aparece logo após
                 resultado = "NAO CONSTA DEBITO" in trecho_pos_despacho.upper()
-                logging.info(f"Resultado da verificação: {resultado}")
+                self.logging.info(f"Resultado da verificação: {resultado}")
                 if resultado:
                     return "OK"
                 else:
                     return "PENDENTE"
 
-            logging.warning("Trecho-chave do despacho não encontrado no PDF.")
+            self.logging.warning("Trecho-chave do despacho não encontrado no PDF.")
             return None
 
         except Exception as e:
-            logging.error(f"Erro ao processar certidão estadual: {e}")
+            self.logging.error(f"Erro ao processar certidão estadual: {e}")
             return None
 
     def leitura_certidao_trabalhista(self, caminho_pdf) -> bool:
@@ -55,7 +49,7 @@ class LerCertidoes:
         aparece após o trecho fixo da certidão.
         Retorna True se encontrado, False caso contrário.
         """
-        logging.info(f"Iniciando leitura da certidão trabalhista: {caminho_pdf}")
+        self.logging.info(f"Iniciando leitura da certidão trabalhista: {caminho_pdf}")
         texto_total = ""
 
         try:
@@ -64,23 +58,23 @@ class LerCertidoes:
                 for pagina in pdf:
                     texto_total += pagina.get_text()
 
-            logging.debug("Texto extraído do PDF com sucesso.")
+            self.logging.debug("Texto extraído do PDF com sucesso.")
 
             trecho_chave = "CNPJ sob o nº"
             if trecho_chave in texto_total:
-                logging.info("Trecho-chave do CNPJ encontrado no PDF.")
+                self.logging.info("Trecho-chave do CNPJ encontrado no PDF.")
                 trecho_pos_chave = texto_total.split(trecho_chave, 1)[1]
                 resultado = "NÃO CONSTA" in trecho_pos_chave.upper()
-                logging.info(f"Resultado da verificação: {resultado}")
+                self.logging.info(f"Resultado da verificação: {resultado}")
                 resultado
                 if resultado:
                     return "OK"
                 else:
                     return "PENDENTE"
 
-            logging.warning("Trecho-chave do CNPJ não encontrado no PDF.")
+            self.logging.warning("Trecho-chave do CNPJ não encontrado no PDF.")
             return None
 
         except Exception as e:
-            logging.error(f"Erro ao processar certidão trabalhista: {e}")
+            self.logging.error(f"Erro ao processar certidão trabalhista: {e}")
             return None

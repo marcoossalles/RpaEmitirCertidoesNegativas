@@ -1,1 +1,666 @@
-Log iniciado em 2025-09-05 00:58:20.050947
+
+05/09/2025 16:09:43 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:09:53 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:09:53 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:09:53 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:10:25 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:11:06 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:11:11 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:11:15 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:11:17 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:11:19 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:11:22 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:11:25 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> Ação Consultoria e Assessoria Ltda
+05/09/2025 16:11:25 - EmissaoCertidao - ERROR - [certidao_estadual.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 19103270000156: 'LerCertidoes' object has no attribute 'logging'
+05/09/2025 16:11:25 - EmissaoCertidao - ERROR - [__main__.__init__] Erro ao processar empresa None - CNPJ: None: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.80)
+Stacktrace:
+	GetHandleVerifier [0x0x110d283+66419]
+	GetHandleVerifier [0x0x110d2c4+66484]
+	(No symbol) [0x0xee4bd3]
+	(No symbol) [0x0xec343d]
+	(No symbol) [0x0xf5786e]
+	(No symbol) [0x0xf721b9]
+	(No symbol) [0x0xf50e16]
+	(No symbol) [0x0xf225ce]
+	(No symbol) [0x0xf234a4]
+	GetHandleVerifier [0x0x1355ec3+2461619]
+	GetHandleVerifier [0x0x1350f46+2441270]
+	GetHandleVerifier [0x0x1136222+234258]
+	GetHandleVerifier [0x0x11261e8+168664]
+	GetHandleVerifier [0x0x112d18d+197245]
+	GetHandleVerifier [0x0x11155d8+100040]
+	GetHandleVerifier [0x0x1115772+100450]
+	GetHandleVerifier [0x0x10ff72a+10266]
+	BaseThreadInitThunk [0x0x75417ba9+25]
+	RtlInitializeExceptionChain [0x0x774cc3ab+107]
+	RtlClearBits [0x0x774cc32f+191]
+
+05/09/2025 16:11:25 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa 2ARK Participações em Sociedades Ltda - CNPJ: 52915443000106
+05/09/2025 16:11:25 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:11:25 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:11:33 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Dados da empresa 2ARK Participações em Sociedades Ltda encontrado.
+05/09/2025 16:11:33 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa 2ARK Participações em Sociedades Ltda
+05/09/2025 16:11:34 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:11:34 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:11:34 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 52915443000106_certidao..pdf -> 2ARK Participações em Sociedades Ltda..pdf
+05/09/2025 16:11:34 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FEDERAL\52915443000106\2ARK Participações em Sociedades Ltda..pdf
+05/09/2025 16:11:34 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:11:38 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 52915443000106
+05/09/2025 16:11:42 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:11:44 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 52915443000106
+05/09/2025 16:11:46 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:11:50 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:11:53 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> 2ARK Participações em Sociedades Ltda
+05/09/2025 16:11:53 - EmissaoCertidao - ERROR - [certidao_estadual.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 52915443000106: 'LerCertidoes' object has no attribute 'logging'
+05/09/2025 16:11:53 - EmissaoCertidao - ERROR - [__main__.__init__] Erro ao processar empresa None - CNPJ: None: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.80)
+Stacktrace:
+	GetHandleVerifier [0x0x110d283+66419]
+	GetHandleVerifier [0x0x110d2c4+66484]
+	(No symbol) [0x0xee4bd3]
+	(No symbol) [0x0xec343d]
+	(No symbol) [0x0xf5786e]
+	(No symbol) [0x0xf721b9]
+	(No symbol) [0x0xf50e16]
+	(No symbol) [0x0xf225ce]
+	(No symbol) [0x0xf234a4]
+	GetHandleVerifier [0x0x1355ec3+2461619]
+	GetHandleVerifier [0x0x1350f46+2441270]
+	GetHandleVerifier [0x0x1136222+234258]
+	GetHandleVerifier [0x0x11261e8+168664]
+	GetHandleVerifier [0x0x112d18d+197245]
+	GetHandleVerifier [0x0x11155d8+100040]
+	GetHandleVerifier [0x0x1115772+100450]
+	GetHandleVerifier [0x0x10ff72a+10266]
+	BaseThreadInitThunk [0x0x75417ba9+25]
+	RtlInitializeExceptionChain [0x0x774cc3ab+107]
+	RtlClearBits [0x0x774cc32f+191]
+
+05/09/2025 16:11:53 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+05/09/2025 16:11:53 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:11:53 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:12:00 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+05/09/2025 16:12:00 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+05/09/2025 16:12:01 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:12:01 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:12:01 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 10262895000196_certidao..pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+05/09/2025 16:12:01 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FEDERAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+05/09/2025 16:12:01 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:12:08 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 10262895000196
+05/09/2025 16:12:12 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:12:14 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 10262895000196
+05/09/2025 16:12:16 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:12:23 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> 2CR - Consultoria e Serviços de Engenharia Ltda
+05/09/2025 16:12:23 - EmissaoCertidao - ERROR - [certidao_estadual.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 10262895000196: 'LerCertidoes' object has no attribute 'logging'
+05/09/2025 16:12:23 - EmissaoCertidao - INFO - [certidao_estadual.fechar] Encerrando o navegador
+05/09/2025 16:12:25 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:12:25 - EmissaoCertidao - INFO - [integracao_certidao_estadual.emitir_certidao_estadual] Enviando requisição para: https://api.infosimples.com/api/v2/consultas/sefaz/go/certidao-debitos
+05/09/2025 16:12:28 - EmissaoCertidao - INFO - [integracao_certidao_estadual.emitir_certidao_estadual] Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+05/09/2025 16:12:28 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+05/09/2025 16:12:28 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:12:28 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:12:28 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 10262895000196_certidao..pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+05/09/2025 16:12:28 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+05/09/2025 16:12:28 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão MUNICIPAL.
+05/09/2025 16:12:33 - EmissaoCertidao - INFO - [certidao_municipal.__init__] Driver Chrome iniciado com sucesso para emissão Municipal.
+05/09/2025 16:12:34 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Site prefeitrua de X.
+05/09/2025 16:12:39 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Preenchendo campo CAE para o CNPJ: 2532591
+05/09/2025 16:12:44 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Aba da certidão carregada.
+05/09/2025 16:12:44 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\2532591_certidao_fgts.png
+05/09/2025 16:12:44 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\2532591_certidao_fgts.pdf
+05/09/2025 16:12:44 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:12:44 - EmissaoCertidao - ERROR - [certidao_municipal.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 2532591: [WinError 183] Cannot create a file when that file already exists: 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\2532591_certidao_fgts.pdf' -> 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\2CR - Consultoria e Serviços de Engenharia Ltda.pdf'
+05/09/2025 16:12:47 - EmissaoCertidao - INFO - [certidao_municipal.fechar] Driver encerrado.
+05/09/2025 16:12:47 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:12:47 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão FGTS.
+05/09/2025 16:12:52 - EmissaoCertidao - INFO - [certidao_fgts.__init__] Driver Chrome iniciado com sucesso para emissão FGTS.
+05/09/2025 16:12:58 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Site FGTS acessado com sucesso.
+05/09/2025 16:12:58 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Emitindo certidão FGTS para o CNPJ: 10262895000196
+05/09/2025 16:12:58 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:12:59 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:13:27 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Aba da certidão carregada.
+05/09/2025 16:13:27 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\10262895000196_certidao_fgts.png
+05/09/2025 16:13:27 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\10262895000196_certidao_fgts.pdf
+05/09/2025 16:13:27 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:13:27 - EmissaoCertidao - ERROR - [certidao_fgts.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 10262895000196: [WinError 183] Cannot create a file when that file already exists: 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\10262895000196_certidao_fgts.pdf' -> 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\2CR - Consultoria e Serviços de Engenharia Ltda.pdf'
+05/09/2025 16:13:30 - EmissaoCertidao - INFO - [certidao_fgts.fechar] Driver encerrado.
+05/09/2025 16:13:30 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:13:30 - EmissaoCertidao - INFO - [integracao_certidao_fgts.emitir_certidao_fgts] Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+05/09/2025 16:13:34 - EmissaoCertidao - INFO - [integracao_certidao_fgts.emitir_certidao_fgts] Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+05/09/2025 16:13:34 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+05/09/2025 16:13:35 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:13:35 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:13:35 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 10262895000196_certidao..html -> 2CR - Consultoria e Serviços de Engenharia Ltda..html
+05/09/2025 16:13:35 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FGTS\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..html
+05/09/2025 16:13:35 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão TRABALHISTA.
+05/09/2025 16:13:35 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+05/09/2025 16:13:40 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Driver do Chrome iniciado com sucesso.
+05/09/2025 16:13:42 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+05/09/2025 16:13:48 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Botão 'Emitir' clicado com sucesso.
+05/09/2025 16:13:53 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] CNPJ informado no campo: 10262895000196
+05/09/2025 16:13:53 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:13:54 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:14:26 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Requisição para emissão da certidão enviada.
+05/09/2025 16:14:32 - EmissaoCertidao - ERROR - [certidao_trabalhista.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 10262895000196: [WinError 183] Cannot create a file when that file already exists: 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\10262895000196_certidao_fgts.pdf' -> 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\2CR - Consultoria e Serviços de Engenharia Ltda.pdf'
+05/09/2025 16:14:34 - EmissaoCertidao - INFO - [certidao_trabalhista.fechar] Driver encerrado.
+05/09/2025 16:14:34 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:14:34 - EmissaoCertidao - INFO - [__main__.__init__] Marcando como processado.
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:18:13 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:18:17 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:18:51 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:19:02 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:19:04 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:19:06 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:19:09 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:19:12 - EmissaoCertidao - ERROR - [certidao_estadual.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 19103270000156: [WinError 183] Cannot create a file when that file already exists: 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\certidao.asp' -> 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\Ação Consultoria e Assessoria Ltda.pdf'
+05/09/2025 16:19:12 - EmissaoCertidao - ERROR - [__main__.__init__] Erro ao processar empresa None - CNPJ: None: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.80)
+Stacktrace:
+	GetHandleVerifier [0x0x110d283+66419]
+	GetHandleVerifier [0x0x110d2c4+66484]
+	(No symbol) [0x0xee4bd3]
+	(No symbol) [0x0xec343d]
+	(No symbol) [0x0xf5786e]
+	(No symbol) [0x0xf721b9]
+	(No symbol) [0x0xf50e16]
+	(No symbol) [0x0xf225ce]
+	(No symbol) [0x0xf234a4]
+	GetHandleVerifier [0x0x1355ec3+2461619]
+	GetHandleVerifier [0x0x1350f46+2441270]
+	GetHandleVerifier [0x0x1136222+234258]
+	GetHandleVerifier [0x0x11261e8+168664]
+	GetHandleVerifier [0x0x112d18d+197245]
+	GetHandleVerifier [0x0x11155d8+100040]
+	GetHandleVerifier [0x0x1115772+100450]
+	GetHandleVerifier [0x0x10ff72a+10266]
+	BaseThreadInitThunk [0x0x75417ba9+25]
+	RtlInitializeExceptionChain [0x0x774cc3ab+107]
+	RtlClearBits [0x0x774cc32f+191]
+
+05/09/2025 16:19:12 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa 2ARK Participações em Sociedades Ltda - CNPJ: 52915443000106
+05/09/2025 16:19:12 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:19:12 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:19:17 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Dados da empresa 2ARK Participações em Sociedades Ltda encontrado.
+05/09/2025 16:19:17 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa 2ARK Participações em Sociedades Ltda
+05/09/2025 16:19:19 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:19:19 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:19:19 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 52915443000106_certidao..pdf -> 2ARK Participações em Sociedades Ltda..pdf
+05/09/2025 16:19:19 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FEDERAL\52915443000106\2ARK Participações em Sociedades Ltda..pdf
+05/09/2025 16:19:19 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:20:12 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:20:17 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:20:34 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:20:37 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:20:39 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:20:41 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:20:44 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:20:47 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> Ação Consultoria e Assessoria Ltda
+05/09/2025 16:20:47 - EmissaoCertidao - ERROR - [certidao_estadual.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 19103270000156: 'LerCertidoes' object has no attribute 'logging'
+05/09/2025 16:20:48 - EmissaoCertidao - ERROR - [__main__.__init__] Erro ao processar empresa None - CNPJ: None: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=140.0.7339.80)
+Stacktrace:
+	GetHandleVerifier [0x0x110d283+66419]
+	GetHandleVerifier [0x0x110d2c4+66484]
+	(No symbol) [0x0xee4bd3]
+	(No symbol) [0x0xec343d]
+	(No symbol) [0x0xf5786e]
+	(No symbol) [0x0xf721b9]
+	(No symbol) [0x0xf50e16]
+	(No symbol) [0x0xf225ce]
+	(No symbol) [0x0xf234a4]
+	GetHandleVerifier [0x0x1355ec3+2461619]
+	GetHandleVerifier [0x0x1350f46+2441270]
+	GetHandleVerifier [0x0x1136222+234258]
+	GetHandleVerifier [0x0x11261e8+168664]
+	GetHandleVerifier [0x0x112d18d+197245]
+	GetHandleVerifier [0x0x11155d8+100040]
+	GetHandleVerifier [0x0x1115772+100450]
+	GetHandleVerifier [0x0x10ff72a+10266]
+	BaseThreadInitThunk [0x0x75417ba9+25]
+	RtlInitializeExceptionChain [0x0x774cc3ab+107]
+	RtlClearBits [0x0x774cc32f+191]
+
+05/09/2025 16:20:48 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa 2ARK Participações em Sociedades Ltda - CNPJ: 52915443000106
+05/09/2025 16:20:48 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:20:48 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:20:53 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Dados da empresa 2ARK Participações em Sociedades Ltda encontrado.
+05/09/2025 16:20:53 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa 2ARK Participações em Sociedades Ltda
+05/09/2025 16:20:53 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:20:53 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:20:53 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 52915443000106_certidao..pdf -> 2ARK Participações em Sociedades Ltda..pdf
+05/09/2025 16:20:53 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FEDERAL\52915443000106\2ARK Participações em Sociedades Ltda..pdf
+05/09/2025 16:20:53 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:21:39 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:21:43 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:22:02 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:22:15 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:22:24 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:22:34 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:23:13 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:24:24 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:24:29 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:24:37 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:24:41 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:24:43 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:24:47 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:24:53 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:25:04 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> Ação Consultoria e Assessoria Ltda
+05/09/2025 16:25:04 - EmissaoCertidao - ERROR - [certidao_estadual.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 19103270000156: 'LerCertidoes' object has no attribute 'logging'
+05/09/2025 16:25:04 - EmissaoCertidao - INFO - [certidao_estadual.fechar] Encerrando o navegador
+05/09/2025 16:25:06 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:25:06 - EmissaoCertidao - INFO - [integracao_certidao_estadual.emitir_certidao_estadual] Enviando requisição para: https://api.infosimples.com/api/v2/consultas/sefaz/go/certidao-debitos
+05/09/2025 16:25:08 - EmissaoCertidao - INFO - [integracao_certidao_estadual.emitir_certidao_estadual] Dados da empresa Ação Consultoria e Assessoria Ltda encontrado.
+05/09/2025 16:25:08 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa Ação Consultoria e Assessoria Ltda
+05/09/2025 16:25:09 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:25:09 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:25:09 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 19103270000156_certidao..pdf -> Ação Consultoria e Assessoria Ltda..pdf
+05/09/2025 16:25:09 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\19103270000156\Ação Consultoria e Assessoria Ltda..pdf
+05/09/2025 16:25:23 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão MUNICIPAL.
+05/09/2025 16:25:32 - EmissaoCertidao - INFO - [certidao_municipal.__init__] Driver Chrome iniciado com sucesso para emissão Municipal.
+05/09/2025 16:25:33 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Site prefeitrua de X.
+05/09/2025 16:25:38 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Preenchendo campo CAE para o CNPJ: 3618145
+05/09/2025 16:25:44 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Aba da certidão carregada.
+05/09/2025 16:25:44 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\3618145_certidao_fgts.png
+05/09/2025 16:25:45 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\3618145_certidao_fgts.pdf
+05/09/2025 16:25:45 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:25:45 - EmissaoCertidao - ERROR - [certidao_municipal.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 3618145: [WinError 183] Cannot create a file when that file already exists: 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\3618145_certidao_fgts.pdf' -> 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\Ação Consultoria e Assessoria Ltda.pdf'
+05/09/2025 16:25:47 - EmissaoCertidao - INFO - [certidao_municipal.fechar] Driver encerrado.
+05/09/2025 16:25:47 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:25:47 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão FGTS.
+05/09/2025 16:25:53 - EmissaoCertidao - INFO - [certidao_fgts.__init__] Driver Chrome iniciado com sucesso para emissão FGTS.
+05/09/2025 16:26:07 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Site FGTS acessado com sucesso.
+05/09/2025 16:26:07 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Emitindo certidão FGTS para o CNPJ: 19103270000156
+05/09/2025 16:26:07 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:26:08 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:26:35 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Aba da certidão carregada.
+05/09/2025 16:26:35 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\19103270000156_certidao_fgts.png
+05/09/2025 16:26:35 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\19103270000156_certidao_fgts.pdf
+05/09/2025 16:26:35 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:26:35 - EmissaoCertidao - ERROR - [certidao_fgts.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 19103270000156: [WinError 183] Cannot create a file when that file already exists: 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\19103270000156_certidao_fgts.pdf' -> 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\Ação Consultoria e Assessoria Ltda.pdf'
+05/09/2025 16:26:38 - EmissaoCertidao - INFO - [certidao_fgts.fechar] Driver encerrado.
+05/09/2025 16:26:38 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:26:38 - EmissaoCertidao - INFO - [integracao_certidao_fgts.emitir_certidao_fgts] Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+05/09/2025 16:26:43 - EmissaoCertidao - INFO - [integracao_certidao_fgts.emitir_certidao_fgts] Dados da empresa Ação Consultoria e Assessoria Ltda encontrado.
+05/09/2025 16:26:43 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa Ação Consultoria e Assessoria Ltda
+05/09/2025 16:26:43 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:26:43 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:26:43 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 19103270000156_certidao..html -> Ação Consultoria e Assessoria Ltda..html
+05/09/2025 16:26:43 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FGTS\19103270000156\Ação Consultoria e Assessoria Ltda..html
+05/09/2025 16:26:43 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão TRABALHISTA.
+05/09/2025 16:26:48 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+05/09/2025 16:26:52 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Driver do Chrome iniciado com sucesso.
+05/09/2025 16:26:54 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+05/09/2025 16:26:59 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Botão 'Emitir' clicado com sucesso.
+05/09/2025 16:27:04 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] CNPJ informado no campo: 19103270000156
+05/09/2025 16:27:04 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:27:05 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:27:22 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Requisição para emissão da certidão enviada.
+05/09/2025 16:27:28 - EmissaoCertidao - ERROR - [certidao_trabalhista.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 19103270000156: [WinError 183] Cannot create a file when that file already exists: 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\19103270000156_certidao_fgts.pdf' -> 'C:\\Python\\RpaEmitirCertidoesNegativas\\downloads\\Ação Consultoria e Assessoria Ltda.pdf'
+05/09/2025 16:27:30 - EmissaoCertidao - INFO - [certidao_trabalhista.fechar] Driver encerrado.
+05/09/2025 16:27:30 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:27:30 - EmissaoCertidao - INFO - [__main__.__init__] Marcando como processado.
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:31:44 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:31:48 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:32:52 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:32:56 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:33:00 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:33:04 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:33:06 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:33:09 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:33:15 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:33:27 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> Ação Consultoria e Assessoria Ltda
+05/09/2025 16:33:34 - EmissaoCertidao - ERROR - [certidao_estadual.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 19103270000156: 'LerCertidoes' object has no attribute 'logging'
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:36:30 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:36:34 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:36:39 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:36:42 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:36:44 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:36:48 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:36:54 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:39:57 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:40:01 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:40:06 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:40:10 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:40:12 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:40:15 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:40:21 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:40:49 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> Ação Consultoria e Assessoria Ltda
+05/09/2025 16:40:49 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Iniciando leitura da certidão estadual: C:\Python\RpaEmitirCertidoesNegativas\downloads\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:40:49 - EmissaoCertidao - DEBUG - [ler_pdf.leitura_certidao_estadual] Texto extraído do PDF com sucesso.
+05/09/2025 16:40:49 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Trecho-chave do despacho encontrado no PDF.
+05/09/2025 16:40:49 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Resultado da verificação: True
+05/09/2025 16:40:49 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\19103270000156\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:40:49 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Certidão estadual salva em: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\19103270000156\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:40:49 - EmissaoCertidao - INFO - [certidao_estadual.fechar] Encerrando o navegador
+05/09/2025 16:40:51 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão MUNICIPAL.
+05/09/2025 16:40:55 - EmissaoCertidao - INFO - [certidao_municipal.__init__] Driver Chrome iniciado com sucesso para emissão Municipal.
+05/09/2025 16:40:55 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Site prefeitrua de X.
+05/09/2025 16:41:00 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Preenchendo campo CAE para o CNPJ: 3618145
+05/09/2025 16:41:05 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Aba da certidão carregada.
+05/09/2025 16:41:05 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\3618145_certidao_fgts.png
+05/09/2025 16:41:05 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\3618145_certidao_fgts.pdf
+05/09/2025 16:41:05 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:41:05 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] PDF renomeado: 3618145_certidao_fgts.pdf -> 3618145.pdf
+05/09/2025 16:41:05 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\MUNICIPAL\3618145\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:41:05 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\MUNICIPAL\3618145\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:41:08 - EmissaoCertidao - INFO - [certidao_municipal.fechar] Driver encerrado.
+05/09/2025 16:41:08 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Processo concluído para o CNPJ: 3618145
+05/09/2025 16:41:18 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão FGTS.
+05/09/2025 16:41:24 - EmissaoCertidao - INFO - [certidao_fgts.__init__] Driver Chrome iniciado com sucesso para emissão FGTS.
+05/09/2025 16:41:30 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Site FGTS acessado com sucesso.
+05/09/2025 16:41:30 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Emitindo certidão FGTS para o CNPJ: 19103270000156
+05/09/2025 16:41:31 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:41:31 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:41:52 - EmissaoCertidao - ERROR - [certidao_fgts.acessar_site] Erro ao emitir certidão estadual via Web para o CNPJ 19103270000156: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="mainForm:j_id51"]"}
+  (Session info: chrome=140.0.7339.80); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x110d283+66419]
+	GetHandleVerifier [0x0x110d2c4+66484]
+	(No symbol) [0x0xee4bd3]
+	(No symbol) [0x0xf2e958]
+	(No symbol) [0x0xf2ecfb]
+	(No symbol) [0x0xf75152]
+	(No symbol) [0x0xf51064]
+	(No symbol) [0x0xf728a1]
+	(No symbol) [0x0xf50e16]
+	(No symbol) [0x0xf225ce]
+	(No symbol) [0x0xf234a4]
+	GetHandleVerifier [0x0x1355ec3+2461619]
+	GetHandleVerifier [0x0x1350f46+2441270]
+	GetHandleVerifier [0x0x1136222+234258]
+	GetHandleVerifier [0x0x11261e8+168664]
+	GetHandleVerifier [0x0x112d18d+197245]
+	GetHandleVerifier [0x0x11155d8+100040]
+	GetHandleVerifier [0x0x1115772+100450]
+	GetHandleVerifier [0x0x10ff72a+10266]
+	BaseThreadInitThunk [0x0x75417ba9+25]
+	RtlInitializeExceptionChain [0x0x774cc3ab+107]
+	RtlClearBits [0x0x774cc32f+191]
+
+05/09/2025 16:41:55 - EmissaoCertidao - INFO - [certidao_fgts.fechar] Driver encerrado.
+05/09/2025 16:41:55 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:41:55 - EmissaoCertidao - INFO - [integracao_certidao_fgts.emitir_certidao_fgts] Enviando requisição para https://api.infosimples.com/api/v2/consultas/caixa/regularidade
+05/09/2025 16:42:56 - EmissaoCertidao - ERROR - [__main__.__init__] Erro ao processar empresa None - CNPJ: None: Logger.error() takes 2 positional arguments but 3 were given
+05/09/2025 16:42:56 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa 2ARK Participações em Sociedades Ltda - CNPJ: 52915443000106
+05/09/2025 16:42:56 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:42:56 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:43:01 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Dados da empresa 2ARK Participações em Sociedades Ltda encontrado.
+05/09/2025 16:43:01 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa 2ARK Participações em Sociedades Ltda
+05/09/2025 16:43:01 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:43:01 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:43:01 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 52915443000106_certidao..pdf -> 2ARK Participações em Sociedades Ltda..pdf
+05/09/2025 16:43:01 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FEDERAL\52915443000106\2ARK Participações em Sociedades Ltda..pdf
+05/09/2025 16:43:01 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:43:05 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 52915443000106
+05/09/2025 16:43:08 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:43:11 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 52915443000106
+05/09/2025 16:43:14 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:43:20 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:43:23 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> 2ARK Participações em Sociedades Ltda
+05/09/2025 16:43:23 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Iniciando leitura da certidão estadual: C:\Python\RpaEmitirCertidoesNegativas\downloads\2ARK Participações em Sociedades Ltda.pdf
+05/09/2025 16:43:23 - EmissaoCertidao - DEBUG - [ler_pdf.leitura_certidao_estadual] Texto extraído do PDF com sucesso.
+05/09/2025 16:43:23 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Trecho-chave do despacho encontrado no PDF.
+05/09/2025 16:43:23 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Resultado da verificação: True
+05/09/2025 16:43:23 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\52915443000106\2ARK Participações em Sociedades Ltda.pdf
+05/09/2025 16:43:23 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Certidão estadual salva em: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\52915443000106\2ARK Participações em Sociedades Ltda.pdf
+05/09/2025 16:43:23 - EmissaoCertidao - INFO - [certidao_estadual.fechar] Encerrando o navegador
+05/09/2025 16:43:25 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão FGTS.
+05/09/2025 16:43:31 - EmissaoCertidao - INFO - [certidao_fgts.__init__] Driver Chrome iniciado com sucesso para emissão FGTS.
+05/09/2025 16:43:38 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Site FGTS acessado com sucesso.
+05/09/2025 16:43:38 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Emitindo certidão FGTS para o CNPJ: 52915443000106
+05/09/2025 16:43:38 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:43:45 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:44:13 - EmissaoCertidao - WARNING - [certidao_fgts.acessar_site] Mensagem de erro encontrada, interrompendo emissão.
+05/09/2025 16:44:13 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão TRABALHISTA.
+05/09/2025 16:44:13 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+05/09/2025 16:44:19 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Driver do Chrome iniciado com sucesso.
+05/09/2025 16:44:21 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+05/09/2025 16:44:26 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Botão 'Emitir' clicado com sucesso.
+05/09/2025 16:44:31 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] CNPJ informado no campo: 52915443000106
+05/09/2025 16:44:31 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:44:32 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:44:43 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Requisição para emissão da certidão enviada.
+05/09/2025 16:44:49 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Arquivo renomeado: certidao_52915443000106.pdf -> 2ARK Participações em Sociedades Ltda
+05/09/2025 16:44:49 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_trabalhista] Iniciando leitura da certidão trabalhista: C:\Python\RpaEmitirCertidoesNegativas\downloads\2ARK Participações em Sociedades Ltda.pdf
+05/09/2025 16:44:49 - EmissaoCertidao - DEBUG - [ler_pdf.leitura_certidao_trabalhista] Texto extraído do PDF com sucesso.
+05/09/2025 16:44:49 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_trabalhista] Trecho-chave do CNPJ encontrado no PDF.
+05/09/2025 16:44:49 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_trabalhista] Resultado da verificação: True
+05/09/2025 16:44:49 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\TRABALHISTA\52915443000106\2ARK Participações em Sociedades Ltda.pdf
+05/09/2025 16:44:49 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Certidão estadual salva em: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\TRABALHISTA\52915443000106\2ARK Participações em Sociedades Ltda.pdf
+05/09/2025 16:44:51 - EmissaoCertidao - INFO - [certidao_trabalhista.fechar] Driver encerrado.
+05/09/2025 16:44:51 - EmissaoCertidao - INFO - [__main__.__init__] Marcando como processado.
+05/09/2025 16:45:03 - EmissaoCertidao - ERROR - [__main__.__init__] Erro ao processar empresa None - CNPJ: None: 'municipal_certidao'
+05/09/2025 16:45:03 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa 2CR - Consultoria e Serviços de Engenharia Ltda - CNPJ: 10262895000196
+05/09/2025 16:45:03 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:45:03 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:45:28 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Dados da empresa 2CR - Consultoria e Serviços de Engenharia Ltda encontrado.
+05/09/2025 16:45:28 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Baixando certidão da empresa 2CR - Consultoria e Serviços de Engenharia Ltda
+05/09/2025 16:45:29 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Certidão baixada com sucesso.
+05/09/2025 16:45:29 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] Salvando certidão C:\Python\RpaEmitirCertidoesNegativas\downloads.
+05/09/2025 16:45:29 - EmissaoCertidao - INFO - [baixar_pdf_certidao_api.baixa_certidao_api] PDF renomeado: 10262895000196_certidao..pdf -> 2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+05/09/2025 16:45:29 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FEDERAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda..pdf
+05/09/2025 16:45:29 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:45:33 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 10262895000196
+05/09/2025 16:45:37 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:45:39 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 10262895000196
+05/09/2025 16:45:42 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:45:51 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> 2CR - Consultoria e Serviços de Engenharia Ltda
+05/09/2025 16:45:51 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Iniciando leitura da certidão estadual: C:\Python\RpaEmitirCertidoesNegativas\downloads\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+05/09/2025 16:45:51 - EmissaoCertidao - DEBUG - [ler_pdf.leitura_certidao_estadual] Texto extraído do PDF com sucesso.
+05/09/2025 16:45:51 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Trecho-chave do despacho encontrado no PDF.
+05/09/2025 16:45:52 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Resultado da verificação: True
+05/09/2025 16:45:52 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+05/09/2025 16:45:52 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Certidão estadual salva em: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+05/09/2025 16:45:52 - EmissaoCertidao - INFO - [certidao_estadual.fechar] Encerrando o navegador
+05/09/2025 16:45:54 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão MUNICIPAL.
+05/09/2025 16:45:59 - EmissaoCertidao - INFO - [certidao_municipal.__init__] Driver Chrome iniciado com sucesso para emissão Municipal.
+05/09/2025 16:45:59 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Site prefeitrua de X.
+05/09/2025 16:46:04 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Preenchendo campo CAE para o CNPJ: 2532591
+05/09/2025 16:46:09 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Aba da certidão carregada.
+05/09/2025 16:46:09 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\2532591_certidao_fgts.png
+05/09/2025 16:46:09 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\2532591_certidao_fgts.pdf
+05/09/2025 16:46:09 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:46:09 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] PDF renomeado: 2532591_certidao_fgts.pdf -> 2532591.pdf
+05/09/2025 16:46:09 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\MUNICIPAL\2532591\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+05/09/2025 16:46:09 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\MUNICIPAL\2532591\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+05/09/2025 16:46:12 - EmissaoCertidao - INFO - [certidao_municipal.fechar] Driver encerrado.
+05/09/2025 16:46:12 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Processo concluído para o CNPJ: 2532591
+05/09/2025 16:46:12 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão FGTS.
+05/09/2025 16:46:18 - EmissaoCertidao - INFO - [certidao_fgts.__init__] Driver Chrome iniciado com sucesso para emissão FGTS.
+05/09/2025 16:46:24 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Site FGTS acessado com sucesso.
+05/09/2025 16:46:24 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Emitindo certidão FGTS para o CNPJ: 10262895000196
+05/09/2025 16:46:25 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:46:28 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:46:57 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Aba da certidão carregada.
+05/09/2025 16:46:57 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\10262895000196_certidao_fgts.png
+05/09/2025 16:46:57 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\10262895000196_certidao_fgts.pdf
+05/09/2025 16:46:57 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:46:57 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] PDF renomeado: 10262895000196_certidao_fgts.pdf -> 10262895000196.pdf
+05/09/2025 16:46:57 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FGTS\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+05/09/2025 16:46:57 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FGTS\10262895000196\2CR - Consultoria e Serviços de Engenharia Ltda.pdf
+05/09/2025 16:47:00 - EmissaoCertidao - INFO - [certidao_fgts.fechar] Driver encerrado.
+05/09/2025 16:47:00 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Processo concluído para o CNPJ: 10262895000196
+05/09/2025 16:47:00 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão TRABALHISTA.
+05/09/2025 16:47:00 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+05/09/2025 16:47:05 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Driver do Chrome iniciado com sucesso.
+05/09/2025 16:47:09 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+05/09/2025 16:47:14 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Botão 'Emitir' clicado com sucesso.
+05/09/2025 16:47:19 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] CNPJ informado no campo: 10262895000196
+05/09/2025 16:47:19 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:47:21 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:47:53 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Requisição para emissão da certidão enviada.
+05/09/2025 16:47:53 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Captcha retornado incorreto.
+05/09/2025 16:47:53 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Vamos utilizar API para emitir a certidão
+05/09/2025 16:47:53 - EmissaoCertidao - INFO - [__main__.__init__] Marcando como processado.
+05/09/2025 16:49:33 - EmissaoCertidao - INFO - [db_services.atualizar_empresa] Atualizando empresa com CNPJ: 10262895000196
+05/09/2025 16:51:14 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:51:14 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:51:14 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:51:14 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:51:14 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:51:14 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:51:46 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:51:46 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:51:46 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:51:46 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:51:46 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:51:46 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:54:26 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:54:26 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:54:26 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:54:26 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:54:26 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:54:26 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Ação Consultoria e Assessoria Ltda - CNPJ: 19103270000156
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão RECEITA FEDERAL.
+05/09/2025 16:56:44 - EmissaoCertidao - INFO - [integracao_receita_federal.emitir_certidao_pgfn] Enviando requisição para https://api.infosimples.com/api/v2/consultas/receita-federal/pgfn
+05/09/2025 16:56:48 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+05/09/2025 16:56:52 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Iniciando emissão da certidão estadual para o CNPJ: 19103270000156
+05/09/2025 16:56:56 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Selecionado tipo de documento: CNPJ
+05/09/2025 16:56:58 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] CNPJ preenchido: 19103270000156
+05/09/2025 16:57:01 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão de emissão da certidão clicado
+05/09/2025 16:57:07 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Botão 'Sim' não apareceu, seguindo o fluxo padrão...
+05/09/2025 16:57:10 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Arquivo renomeado: certidao.asp -> Ação Consultoria e Assessoria Ltda
+05/09/2025 16:57:10 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Iniciando leitura da certidão estadual: C:\Python\RpaEmitirCertidoesNegativas\downloads\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:57:10 - EmissaoCertidao - DEBUG - [ler_pdf.leitura_certidao_estadual] Texto extraído do PDF com sucesso.
+05/09/2025 16:57:10 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Trecho-chave do despacho encontrado no PDF.
+05/09/2025 16:57:10 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_estadual] Resultado da verificação: True
+05/09/2025 16:57:10 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\19103270000156\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:57:10 - EmissaoCertidao - INFO - [certidao_estadual.acessar_site] Certidão estadual salva em: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\ESTADUAL\19103270000156\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:57:10 - EmissaoCertidao - INFO - [certidao_estadual.fechar] Encerrando o navegador
+05/09/2025 16:57:12 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão MUNICIPAL.
+05/09/2025 16:57:17 - EmissaoCertidao - INFO - [certidao_municipal.__init__] Driver Chrome iniciado com sucesso para emissão Municipal.
+05/09/2025 16:57:18 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Site prefeitrua de X.
+05/09/2025 16:57:23 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Preenchendo campo CAE para o CNPJ: 3618145
+05/09/2025 16:57:28 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Aba da certidão carregada.
+05/09/2025 16:57:28 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\3618145_certidao_fgts.png
+05/09/2025 16:57:28 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\3618145_certidao_fgts.pdf
+05/09/2025 16:57:28 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:57:28 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] PDF renomeado: 3618145_certidao_fgts.pdf -> 3618145.pdf
+05/09/2025 16:57:28 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\MUNICIPAL\3618145\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:57:28 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\MUNICIPAL\3618145\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:57:30 - EmissaoCertidao - INFO - [certidao_municipal.fechar] Driver encerrado.
+05/09/2025 16:57:30 - EmissaoCertidao - INFO - [certidao_municipal.acessar_site] Processo concluído para o CNPJ: 3618145
+05/09/2025 16:57:30 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão FGTS.
+05/09/2025 16:57:34 - EmissaoCertidao - INFO - [certidao_fgts.__init__] Driver Chrome iniciado com sucesso para emissão FGTS.
+05/09/2025 16:57:40 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Site FGTS acessado com sucesso.
+05/09/2025 16:57:40 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Emitindo certidão FGTS para o CNPJ: 19103270000156
+05/09/2025 16:57:40 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:57:41 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:58:09 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Aba da certidão carregada.
+05/09/2025 16:58:09 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Screenshot salva em: C:\Python\RpaEmitirCertidoesNegativas\downloads\19103270000156_certidao_fgts.png
+05/09/2025 16:58:09 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Imagem convertida para PDF: C:\Python\RpaEmitirCertidoesNegativas\downloads\19103270000156_certidao_fgts.pdf
+05/09/2025 16:58:09 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Imagem PNG removida após conversão.
+05/09/2025 16:58:09 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] PDF renomeado: 19103270000156_certidao_fgts.pdf -> 19103270000156.pdf
+05/09/2025 16:58:09 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FGTS\19103270000156\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:58:09 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\FGTS\19103270000156\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:58:12 - EmissaoCertidao - INFO - [certidao_fgts.fechar] Driver encerrado.
+05/09/2025 16:58:12 - EmissaoCertidao - INFO - [certidao_fgts.acessar_site] Processo concluído para o CNPJ: 19103270000156
+05/09/2025 16:58:12 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão TRABALHISTA.
+05/09/2025 16:58:12 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Diretório de downloads configurado em: C:\Python\RpaEmitirCertidoesNegativas\downloads
+05/09/2025 16:58:15 - EmissaoCertidao - INFO - [certidao_trabalhista.__init__] Driver do Chrome iniciado com sucesso.
+05/09/2025 16:58:23 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Acessado o site: https://cndt-certidao.tst.jus.br/inicio.faces
+05/09/2025 16:58:29 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Botão 'Emitir' clicado com sucesso.
+05/09/2025 16:58:34 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] CNPJ informado no campo: 19103270000156
+05/09/2025 16:58:34 - EmissaoCertidao - INFO - [captch.solve_captcha] Criando task para quebrar captcha
+05/09/2025 16:58:35 - EmissaoCertidao - INFO - [captch.solve_captcha] Aguardando quebra do Captcha
+05/09/2025 16:58:51 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Requisição para emissão da certidão enviada.
+05/09/2025 16:58:57 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Arquivo renomeado: certidao_19103270000156.pdf -> Ação Consultoria e Assessoria Ltda
+05/09/2025 16:58:57 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_trabalhista] Iniciando leitura da certidão trabalhista: C:\Python\RpaEmitirCertidoesNegativas\downloads\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:58:57 - EmissaoCertidao - DEBUG - [ler_pdf.leitura_certidao_trabalhista] Texto extraído do PDF com sucesso.
+05/09/2025 16:58:57 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_trabalhista] Trecho-chave do CNPJ encontrado no PDF.
+05/09/2025 16:58:57 - EmissaoCertidao - INFO - [ler_pdf.leitura_certidao_trabalhista] Resultado da verificação: True
+05/09/2025 16:58:57 - EmissaoCertidao - INFO - [gerenciado_arquivo.salvar_pdf] PDF movido para: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\TRABALHISTA\19103270000156\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:58:57 - EmissaoCertidao - INFO - [certidao_trabalhista.acessar_site] Certidão estadual salva em: C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025\TRABALHISTA\19103270000156\Ação Consultoria e Assessoria Ltda.pdf
+05/09/2025 16:58:59 - EmissaoCertidao - INFO - [certidao_trabalhista.fechar] Driver encerrado.
+05/09/2025 16:58:59 - EmissaoCertidao - INFO - [__main__.__init__] Marcando como processado.
+05/09/2025 17:01:04 - EmissaoCertidao - INFO - [db_services.atualizar_empresa] Atualizando empresa com CNPJ: 19103270000156
+05/09/2025 17:03:19 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+05/09/2025 17:03:19 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+05/09/2025 17:03:19 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+05/09/2025 17:03:19 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+05/09/2025 17:03:19 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+05/09/2025 17:03:19 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.

@@ -1,13 +1,12 @@
 import os
 import shutil
-import logging
 from datetime import datetime
+from manager_logs.logger_manager import Logger
 
-# Configura o logging para exibir mensagens no terminal
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class CriadorPastasCertidoes:
     def __init__(self):
+        self.logging = Logger("EmissaoCertidao")
         """
         Inicializa a classe pegando o mês e o ano atual automaticamente.
         Define os caminhos base (positivas e negativas) e as subpastas a serem criadas.
@@ -22,6 +21,7 @@ class CriadorPastasCertidoes:
         self.subpastas = ["ESTADUAL", "FEDERAL", "FGTS", "MUNICIPAL", "TRABALHISTA"]
 
     def criar_estrutura_pastas(self):
+        self.logging.info("Iniciando criação da estrutura de pastas para certidões.")
         """
         Cria a estrutura de pastas no formato:
         {caminho_base} → Certidões {ano} → {mes} {ano} → [ESTADUAL, FEDERAL, FGTS, MUNICIPAL, TRABALHISTA]
@@ -38,9 +38,9 @@ class CriadorPastasCertidoes:
                     caminho_subpasta = os.path.join(pasta_mes, subpasta)
                     os.makedirs(caminho_subpasta, exist_ok=True)
 
-                logging.info(f"Pastas de {self.mes}/{self.ano} criadas com sucesso em '{pasta_mes}'.")
+                self.logging.info(f"Pastas de {self.mes}/{self.ano} criadas com sucesso em '{pasta_mes}'.")
             except Exception as e:
-                logging.error(f"Erro ao criar estrutura de pastas em '{caminho_base}': {e}")
+                self.logging.error(f"Erro ao criar estrutura de pastas em '{caminho_base}': {e}")
 
     def salvar_pdf(self, caminho_pdf_origem, cnpj, tipo, negativa):
         """
@@ -81,9 +81,9 @@ class CriadorPastasCertidoes:
 
             shutil.move(caminho_pdf_origem, caminho_pdf_destino)
 
-            logging.info(f"PDF movido para: {caminho_pdf_destino}")
+            self.logging.info(f"PDF movido para: {caminho_pdf_destino}")
             return caminho_pdf_destino
 
         except Exception as e:
-            logging.error(f"Erro ao mover o PDF '{caminho_pdf_origem}': {e}")
+            self.logging.error(f"Erro ao mover o PDF '{caminho_pdf_origem}': {e}")
             raise

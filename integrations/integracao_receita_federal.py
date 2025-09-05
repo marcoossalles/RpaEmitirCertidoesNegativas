@@ -1,12 +1,13 @@
 import requests
-import logging
 import os
 
 from integrations.baixar_pdf_certidao_api import BaixarCertidaoViaApi
+from manager_logs.logger_manager import Logger
 
 
 class ApiCertidaoPgfn:
     def __init__(self):
+        self.logging = Logger("EmissaoCertidao")
         # Recupera o token de autenticação da API a partir das variáveis de ambiente
         self.token_api = os.getenv('TOKEN_API_INFOSIMPLES')
         # Monta a URL base da API a partir de variáveis de ambiente
@@ -26,7 +27,7 @@ class ApiCertidaoPgfn:
             }
 
             # Log informando a URL de destino
-            logging.info(f"Enviando requisição para {self.url}")
+            self.logging.info(f"Enviando requisição para {self.url}")
             # Envia a requisição POST para a API
             response = requests.post(self.url, json=args, timeout=timeout)
             # Lança exceção se o status HTTP indicar erro (>= 400)
@@ -42,7 +43,7 @@ class ApiCertidaoPgfn:
             if response_json.get("code") == 200:
                 # Baixa o arquivo PDF usando a URL retornada
                 negatividade = "OK"
-                logging.info(f"Dados da empresa {nome_empresa} encontrado.")
+                self.logging.info(f"Dados da empresa {nome_empresa} encontrado.")
                 status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo, extensao, negatividade)
                 return status_baixa_certidao
 
@@ -53,15 +54,15 @@ class ApiCertidaoPgfn:
                     f"Código: {response_json.get('code')} ({response_json.get('code_message')})"
                     + "; ".join(response_json.get("errors", []))
                 )
-                logging.error(mensagem)
+                self.logging.error(mensagem)
                 return None
 
         # Captura erros relacionados à requisição HTTP
         except requests.exceptions.RequestException as e:
-            logging.error(f"Erro na requisição: {e}")
+            self.logging.error(f"Erro na requisição: {e}")
             return None
 
         # Captura quaisquer outros erros inesperados
         except Exception as e:
-            logging.error(f"Erro inesperado: {e}")
+            self.logging.error(f"Erro inesperado: {e}")
             return None

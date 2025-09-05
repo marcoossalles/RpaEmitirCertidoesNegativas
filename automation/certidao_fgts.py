@@ -1,4 +1,3 @@
-import logging
 import os
 import time
 from PIL import Image
@@ -12,13 +11,15 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.service import Service
 
-from automation.gerenciado_arquivo import CriadorPastasCertidoes
+from models.gerenciado_arquivo import CriadorPastasCertidoes
 from integrations.integracao_certidao_fgts import ApiCertidaoFgts
 from automation.captch import CaptchaSolver
-from automation.genrenciador_processamento import GerenciadorProcessamento
+from models.genrenciador_processamento import GerenciadorProcessamento
+from manager_logs.logger_manager import Logger
 
 class CertidaoFgts:
     def __init__(self):
+        self.logging = Logger("EmissaoCertidao")
         """
         Inicializa o driver do Chrome com opções específicas,
         incluindo diretório de download e permissões de segurança.
@@ -52,7 +53,7 @@ class CertidaoFgts:
             options=chrome_options
         )
 
-        logging.info("Driver Chrome iniciado com sucesso para emissão FGTS.")
+        self.logging.info("Driver Chrome iniciado com sucesso para emissão FGTS.")
 
     def acessar_site(self, cnpj, nome_empresa):
         """
@@ -61,16 +62,14 @@ class CertidaoFgts:
         """
         status_emissao_certidao = None
         tipo = 'FGTS'
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.driver, 15)
         try:
             url = os.getenv('BASE_URL_CERTIDAO_FGTS')
             self.driver.get(url)
             time.sleep(5)
-            logging.info("Site FGTS acessado com sucesso.")
+            self.logging.info("Site FGTS acessado com sucesso.")
 
-            wait = WebDriverWait(self.driver, 20)
-
-            logging.info(f"Emitindo certidão FGTS para o CNPJ: {cnpj}")
+            self.logging.info(f"Emitindo certidão FGTS para o CNPJ: {cnpj}")
 
             # Preenche o CNPJ
             input_cnpj = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="mainForm:txtInscricao1"]')))
@@ -101,7 +100,7 @@ class CertidaoFgts:
                     EC.presence_of_element_located((By.XPATH, '//*[@id="mainForm"]/div[1]/div[1]/div/span'))
                 )
                 if mensagem.is_displayed():
-                    logging.warning("Mensagem de erro encontrada, interrompendo emissão.")
+                    self.logging.warning("Mensagem de erro encontrada, interrompendo emissão.")
                     return "PENDENTE"
             except TimeoutException:
                 # A mensagem não apareceu → segue o processo
@@ -116,21 +115,21 @@ class CertidaoFgts:
             # Troca para a aba da certidão
             self.driver.switch_to.window(self.driver.window_handles[-1])
             time.sleep(2)
-            logging.info("Aba da certidão carregada.")
+            self.logging.info("Aba da certidão carregada.")
 
             # Captura da tela em imagem
             caminho_png = os.path.join(self.download_dir, f"{cnpj}_certidao_fgts.png")
             self.driver.save_screenshot(caminho_png)
-            logging.info(f"Screenshot salva em: {caminho_png}")
+            self.logging.info(f"Screenshot salva em: {caminho_png}")
 
             # Converte imagem para PDF
             imagem = Image.open(caminho_png)
             caminho_pdf = os.path.join(self.download_dir, f"{cnpj}_certidao_fgts.pdf")
             imagem.convert("RGB").save(caminho_pdf)
-            logging.info(f"Imagem convertida para PDF: {caminho_pdf}")
+            self.logging.info(f"Imagem convertida para PDF: {caminho_pdf}")
 
             os.remove(caminho_png)  # Remove a imagem original
-            logging.info("Imagem PNG removida após conversão.")
+            self.logging.info("Imagem PNG removida após conversão.")
 
             # Renomeia e move o arquivo PDF final
             for nome_arquivo in os.listdir(self.download_dir):
@@ -139,20 +138,20 @@ class CertidaoFgts:
                     caminho_antigo = os.path.join(self.download_dir, nome_arquivo)
                     caminho_pdf = os.path.join(self.download_dir, f"{nome_empresa}.pdf")
                     os.rename(caminho_antigo, caminho_pdf)
-                    logging.info(f"PDF renomeado: {nome_arquivo} -> {cnpj}.pdf")
+                    self.logging.info(f"PDF renomeado: {nome_arquivo} -> {cnpj}.pdf")
 
                     destino_final = CriadorPastasCertidoes().salvar_pdf(caminho_pdf, cnpj, tipo, status_emissao_certidao)
-                    logging.info(f"PDF movido para: {destino_final}")
+                    self.logging.info(f"PDF movido para: {destino_final}")
 
             self.fechar()
-            logging.info(f"Processo concluído para o CNPJ: {cnpj}")
+            self.logging.info(f"Processo concluído para o CNPJ: {cnpj}")
             return "OK"
 
         except Exception as e:
-            logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
+            self.logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
             GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo, self.driver)            
             self.fechar()
-            logging.info(f"Vamos utilizar API para emitir a certidão")
+            self.logging.info(f"Vamos utilizar API para emitir a certidão")
             status_emissao_certidao = ApiCertidaoFgts().emitir_certidao_fgts(cnpj, nome_empresa)
             return status_emissao_certidao
 
@@ -161,4 +160,4 @@ class CertidaoFgts:
         Fecha o navegador.
         """
         self.driver.quit()
-        logging.info("Driver encerrado.")
+        self.logging.info("Driver encerrado.")

@@ -1,11 +1,12 @@
 import requests
 import os
-import logging
 
 from integrations.baixar_pdf_certidao_api import BaixarCertidaoViaApi
+from manager_logs.logger_manager import Logger
 
 class ApiCertidaoTrabalhista:
     def __init__(self):
+        self.logging = Logger("EmissaoCertidao")
         # Monta a URL base da API a partir das variáveis de ambiente
         self.base_url = os.getenv('BASE_URL_INFOSIMPLES') + os.getenv('INFOSIMPLES_CERTIDAO_TRABALHISTA')
         # Token de autenticação obtido do ambiente
@@ -24,7 +25,7 @@ class ApiCertidaoTrabalhista:
             }
 
             # Envia requisição POST para a API
-            logging.info(f"Enviando requisição para {self.base_url}")
+            self.logging.info(f"Enviando requisição para {self.base_url}")
             response = requests.post(self.base_url, json=args, timeout=timeout)
             response.raise_for_status()
 
@@ -33,7 +34,7 @@ class ApiCertidaoTrabalhista:
 
             # Verifica se a API retornou sucesso
             if response_json.get('code') == 200:
-                logging.info(f"Dados da empresa {nome_empresa} encontrado.")
+                self.logging.info(f"Dados da empresa {nome_empresa} encontrado.")
                 # Baixa o arquivo PDF retornado pela API
                 status_baixa_certidao = BaixarCertidaoViaApi().baixa_certidao_api(response_json['site_receipts'][0], cnpj, nome_empresa, tipo)
                 return status_baixa_certidao
@@ -45,15 +46,15 @@ class ApiCertidaoTrabalhista:
                     f"Código: {response_json.get('code')} ({response_json.get('code_message')})"
                     + "; ".join(response_json.get("errors", []))
                 )
-                logging.error(mensagem)
+                self.logging.error(mensagem)
                 return None
 
         except requests.exceptions.RequestException as e:
-            logging.error("Erro de requisição: %s", e)
+            self.logging.error("Erro de requisição: %s", e)
             return None
         except ValueError as e:
-            logging.error("Erro de configuração: %s", e)
+            self.logging.error("Erro de configuração: %s", e)
             return None
         except Exception as e:
-            logging.exception("Erro inesperado: %s", e)
+            self.logging.exception("Erro inesperado: %s", e)
             return None
