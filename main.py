@@ -1,5 +1,6 @@
-from datetime import datetime
 import logging
+import json
+from datetime import datetime
 from config import settings
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -14,70 +15,73 @@ from integrations.integracao_receita_federal import ApiCertidaoPgfn
 
 #Criação da estrutura de gerenciamento de processamento
 logging.info("Criando estrutura de pastas de gerenciamento de processamento.")
-
-# Instância do gerenciador de processamento
 GerenciadorProcessamento()
 
 #Criação da estrutura de pastas
 logging.info("Criando estrutura de pastas para certidões.")
 CriadorPastasCertidoes().criar_estrutura_pastas()
 
+#Leitura do arquivo EMPRESA.json
+logging.info("Realizando leitura obejto empresas.json")
+with open('empresas.json', 'r', encoding='utf-8') as file:
+    lista_EMPRESA = json.load(file)
+
 #Instância do gerenciador da planilha
-duplicador = PlanilhaMensalDuplicador()
+#duplicador = PlanilhaMensalDuplicador()
 
 #Duplica a aba do próximo mês, se necessário
-logging.info("Verificando e duplicando aba mensal.")
-duplicador.duplicar_aba_mensal()
+# logging.info("Verificando e duplicando aba mensal.")
+# duplicador.duplicar_aba_mensal()
 
 #Lê os dados da aba atual
-logging.info("Lendo dados da aba do mês atual.")
-lista_empresas = duplicador.ler_aba_mes_atual(linha_titulo=7, linha_dados=8)
+# logging.info("Lendo dados da aba do mês atual.")
+# lista_EMPRESA = duplicador.ler_aba_mes_atual(linha_titulo=7, linha_dados=8)
 
-linha_dados = 8  # linha inicial dos dados na planilha
+#linha_dados = 8  # linha inicial dos dados na planilha
 
-#Itera sobre os dados das empresas
-for idx, item in enumerate(lista_empresas):
+#Itera sobre os dados das EMPRESA
+for empresa in lista_EMPRESA:
     try:
-        status = item.get('Status')
-        status_proc = item.get('Status Processamento')
+        # status = empresa.get('Status')
+        # status_proc = empresa.get('Status Processamento')
 
-        if status != ['Suspenso', 'Paralizado']:
-            logging.info(f"Processando empresa {item.get('Empresas')} - CNPJ: {item.get('CNPJ')}")
+        if empresa['STATUS'] != ['Suspenso', 'Paralizado']:
+            logging.info(f"Processando empresa {empresa.get('EMPRESA')} - CNPJ: {empresa.get('CNPJ')}")
 
             status_resultados = {}
 
-            for campo in item:
-                if item[campo] is None:
-                    if campo == 'TRABALHISTA':
-                        logging.info("Emitindo certidão TRABALHISTA.")
-                        status_resultados[campo] = CertidaoTrabalhista().acessar_site(item['CNPJ'], item['Empresas'])
+            for campo in empresa:
+                if campo == 'TRABALHISTA':
+                    logging.info("Emitindo certidão TRABALHISTA.")
+                    status_resultados[campo] = CertidaoTrabalhista().acessar_site(empresa['CNPJ'], empresa['EMPRESA'])
 
-                    elif campo == 'Certidão Mun.':
-                        logging.info("Emitindo certidão MUNICIPAL.")
-                        status_resultados[campo] = CertidaoMunicipal().acessar_site(item['Inscrição Mun.'], item['Empresas'], item['Cidade'])
+                elif campo == 'MUNICIPAL':
+                    logging.info("Emitindo certidão MUNICIPAL.")
+                    status_resultados[campo] = "OK"#CertidaoMunicipal().acessar_site(empresa['MUNICIPAL']['CAE'], empresa['MUNICIPAL']['EMPRESA'], empresa['CIDADE'])
 
-                    elif campo == 'FGTS':
-                        logging.info("Emitindo certidão FGTS.")
-                        status_resultados[campo] = CertidaoFgts().acessar_site(item['CNPJ'], item['Empresas'])
+                elif campo == 'FGTS':
+                    logging.info("Emitindo certidão FGTS.")
+                    status_resultados[campo] = CertidaoFgts().acessar_site(empresa['CNPJ'], empresa['EMPRESA'])
 
-                    elif campo == 'Certidão Sefaz':
-                        logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
-                        status_resultados[campo] = CertidaoEstadual().acessar_site(item['CNPJ'], item['Empresas'])
+                elif campo == 'SEFAZ':
+                    logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
+                    status_resultados[campo] = CertidaoEstadual().acessar_site(empresa['CNPJ'], empresa['EMPRESA'])
 
-                    elif campo == 'Fazendaria/Previdenciária':
-                        logging.info("Emitindo certidão RECEITA FEDERAL.")
-                        status_resultados[campo] = ApiCertidaoPgfn().emitir_certidao_pgfn(item['CNPJ'], item['Empresas'])
-                        
-                    elif campo == 'Status Processamento':
-                        logging.info("Marcando como processado.")
-                        status_resultados[campo] = "OK"
+                elif campo == 'RECEITA FEDERAL':
+                    logging.info("Emitindo certidão RECEITA FEDERAL.")
+                    status_resultados[campo] = ApiCertidaoPgfn().emitir_certidao_pgfn(empresa['CNPJ'], empresa['EMPRESA'])
+                    
+                elif campo == 'STATUS PROCESSAMENTO':
+                    logging.info("Marcando como processado.")
+                    status_resultados[campo] = "OK"
+        #atualiza fila
 
-            linha_planilha = linha_dados + idx
-            duplicador.escrever_status_linha(
-                linha=linha_planilha,
-                dicionario_status=status_resultados,
-                linha_titulo=7
-            )
-            logging.info(f"Status escrito na planilha para linha {linha_planilha}.")
+            # linha_planilha = linha_dados + idx
+            # duplicador.escrever_status_linha(
+            #     linha=linha_planilha,
+            #     dicionario_status=status_resultados,
+            #     linha_titulo=7
+            # )
+            #logging.info(f"Status escrito na planilha para linha {linha_planilha}.")
     except Exception as e:
-        logging.error(f"Erro ao processar empresa {item.get('Empresas')} - CNPJ: {item.get('CNPJ')}: {e}")
+        logging.error(f"Erro ao processar empresa {empresa.get('EMPRESA')} - CNPJ: {empresa.get('CNPJ')}: {e}")
