@@ -10696,3 +10696,66 @@ Stacktrace:
 08/09/2025 16:44:46 - EmissaoCertidao - INFO - [db_services.atualizar_empresa] Atualizando empresa com CNPJ: 44869041000194
 08/09/2025 16:44:49 - EmissaoCertidao - INFO - [genreciador_planilha.criar_aba_mensal] Criando aba mensal na planilha, se necessário.
 08/09/2025 16:44:49 - EmissaoCertidao - INFO - [genreciador_planilha.criar_aba_mensal] Aba 'Setembro 2025' já existe. Nenhuma ação tomada.
+15/09/2025 17:38:30 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+15/09/2025 17:38:30 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+15/09/2025 17:38:30 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+15/09/2025 17:38:30 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+15/09/2025 17:38:30 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+15/09/2025 17:38:30 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+15/09/2025 17:39:06 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa 2ARK Participações em Sociedades Ltda - CNPJ: 52915443000106
+15/09/2025 17:39:44 - EmissaoCertidao - INFO - [__main__.__init__] Marcando como processado.
+15/09/2025 17:39:46 - EmissaoCertidao - INFO - [db_services.atualizar_empresa] Atualizando empresa com CNPJ: 52915443000106
+15/09/2025 17:39:48 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Administradora União Ltda - Matriz - CNPJ: 06076586000154
+15/09/2025 17:40:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+15/09/2025 17:40:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+15/09/2025 17:40:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+15/09/2025 17:40:24 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+15/09/2025 17:40:25 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+15/09/2025 17:40:25 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+15/09/2025 17:41:02 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Administradora União Ltda - Matriz - CNPJ: 06076586000154
+15/09/2025 17:42:14 - EmissaoCertidao - INFO - [__main__.__init__] Marcando como processado.
+15/09/2025 17:42:16 - EmissaoCertidao - INFO - [db_services.atualizar_empresa] Atualizando empresa com CNPJ: 06076586000154
+15/09/2025 17:42:18 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Agropastoril Cachoeira do Lajes Ltda - CNPJ: 37884954000114
+15/09/2025 17:44:54 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+15/09/2025 17:44:54 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+15/09/2025 17:44:54 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+15/09/2025 17:44:54 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+15/09/2025 17:44:54 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+15/09/2025 17:44:54 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+15/09/2025 17:45:06 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Agropastoril Cachoeira do Lajes Ltda - CNPJ: 37884954000114
+15/09/2025 17:46:23 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+15/09/2025 17:46:23 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+15/09/2025 17:46:23 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+15/09/2025 17:46:23 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+15/09/2025 17:46:23 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+15/09/2025 17:46:23 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+15/09/2025 17:46:33 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Agropastoril Cachoeira do Lajes Ltda - CNPJ: 37884954000114
+15/09/2025 17:54:03 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+15/09/2025 17:54:03 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+15/09/2025 17:54:03 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+15/09/2025 17:54:03 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+15/09/2025 17:54:03 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+15/09/2025 17:54:03 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+15/09/2025 17:54:05 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Agropastoril Cachoeira do Lajes Ltda - CNPJ: 37884954000114
+15/09/2025 17:55:31 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+15/09/2025 17:55:31 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+15/09/2025 17:55:31 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+15/09/2025 17:55:31 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+15/09/2025 17:55:31 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+15/09/2025 17:55:31 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+15/09/2025 17:55:33 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Agropastoril Cachoeira do Lajes Ltda - CNPJ: 37884954000114
+15/09/2025 17:55:52 - EmissaoCertidao - INFO - [__main__.__init__] Emitindo certidão ESTADUAL (SEFAZ).
+15/09/2025 17:56:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+15/09/2025 17:56:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+15/09/2025 17:56:24 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+15/09/2025 17:56:24 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+15/09/2025 17:56:24 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+15/09/2025 17:56:24 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+15/09/2025 17:56:28 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Agropastoril Cachoeira do Lajes Ltda - CNPJ: 37884954000114
+15/09/2025 17:56:42 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Iniciando criação da estrutura de pastas para certidões.
+15/09/2025 17:56:42 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Negativas\Certidões 2025\09 2025'.
+15/09/2025 17:56:42 - EmissaoCertidao - INFO - [gerenciado_arquivo.criar_estrutura_pastas] Pastas de 09/2025 criadas com sucesso em 'C:\BOTS_RPA\Repositorio\Certidões Positivas\Certidões 2025\09 2025'.
+15/09/2025 17:56:42 - EmissaoCertidao - INFO - [__main__.__init__] Realizando leitura obejto empresas.json
+15/09/2025 17:56:42 - EmissaoCertidao - INFO - [db_services.inserir_empresas] Inserindo empresas no banco de dados, ignorando duplicatas.
+15/09/2025 17:56:42 - EmissaoCertidao - INFO - [db_services.buscar_pendentes] Buscando empresas pendentes no banco de dados.
+15/09/2025 17:56:42 - EmissaoCertidao - INFO - [__main__.__init__] Processando empresa Agropastoril Cachoeira do Lajes Ltda - CNPJ: 37884954000114

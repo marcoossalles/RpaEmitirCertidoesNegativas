@@ -11,7 +11,7 @@ from selenium.webdriver.common.by import By
 from models.gerenciado_arquivo import CriadorPastasCertidoes
 from models.genrenciador_processamento import GerenciadorProcessamento
 from models.ler_pdf import LerCertidoes
-from integrations.integracao_certidao_trabalhista import ApiCertidaoTrabalhista
+from integrations.integracao_receita_federal import ApiCertidaoPgfn
 from automation.captch import CaptchaSolver
 from manager_logs.logger_manager import Logger
 
@@ -121,10 +121,9 @@ class CertidaoReceitaFederal:
 
         except Exception as e:
             self.logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo, self.driver)
             self.fechar()
             self.logging.info(f"Vamos utilizar API para emitir a certidão")
-            #status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)
+            status_emissao_certidao = ApiCertidaoPgfn().emitir_certidao_pgfn(cnpj, nome_empresa)
             return status_emissao_certidao
         
     def fechar(self):

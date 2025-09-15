@@ -10,6 +10,7 @@ from automation.certidao_trabalhista import CertidaoTrabalhista
 from automation.certidao_fgts import CertidaoFgts
 from automation.certidao_estadual import CertidaoEstadual
 from automation.certidao_municipal import CertidaoMunicipal
+from automation.ceritdao_receita_federal import CertidaoReceitaFederal
 from integrations.integracao_receita_federal import ApiCertidaoPgfn
 from services.db_services import DbServices
 
@@ -97,7 +98,7 @@ class Main:
                         elif campo == 'receita_federal' and empresa['receita_federal'] not in lista_status:
                             logging.info("Emitindo certidão RECEITA FEDERAL.")
                             campos_verificacao.append(campo)
-                            status_resultados[campo] = ApiCertidaoPgfn().emitir_certidao_pgfn(empresa['cnpj'], empresa['empresa'])
+                            status_resultados[campo] = CertidaoReceitaFederal().acessar_site(empresa['cnpj'], empresa['empresa'])
                             db_services.atualiza_status(empresa['cnpj'],campo, status_resultados[campo])
 
                         elif campo == 'status_processamento':
