@@ -125,7 +125,7 @@ class CertidaoTrabalhista:
             self.fechar()
             self.logging.info(f"Vamos utilizar API para emitir a certidão")
             #status_emissao_certidao = ApiCertidaoTrabalhista().emitir_certidao_trabalhista(cnpj, nome_empresa)
-            return status_emissao_certidao
+            return e
         
     def fechar(self):
         """

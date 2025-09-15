@@ -48,14 +48,14 @@ class ApiCertidaoMunicipalGoiania:
                     + "; ".join(response_json.get("errors", []))
                 )
                 self.logging.warning(mensagem)
-                return None
+                return mensagem
 
         # Erros relacionados à conexão ou requisição HTTP
         except requests.exceptions.RequestException as e:
             self.logging.error(f"Erro na requisição: {e}")
-            return None
+            return e
 
         # Qualquer outro erro não previsto
         except Exception as e:
             self.logging.error(f"Erro inesperado: {e}")
-            return None
+            return e

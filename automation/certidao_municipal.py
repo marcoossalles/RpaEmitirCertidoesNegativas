@@ -104,11 +104,10 @@ class CertidaoMunicipal:
 
         except Exception as e:
             self.logging.error(f"Erro ao emitir certidão estadual via Web para o CNPJ {cnpj}: {e}")
-            #GerenciadorProcessamento().print_momento_erro(nome_empresa, tipo, self.driver)
             self.fechar()
             self.logging.info(f"Vamos utilizar API para emitir a certidão")
-            #status_emissao_certidao = ApiCertidaoMunicipalGoiania().emitir_certidao_municipal(cnpj, nome_empresa,cidade)
-            return None
+            status_emissao_certidao = ApiCertidaoMunicipalGoiania().emitir_certidao_municipal(cnpj, nome_empresa,cidade)
+            return status_emissao_certidao
 
     def fechar(self):
         """

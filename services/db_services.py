@@ -53,6 +53,18 @@ class DbServices:
                 ))
         self.conn.commit()
 
+    def atualiza_status(self, cnpj, campo, status):
+        if status == None:
+            status = 'NULL'
+        try:
+            self.logging.info(f"Atualizando status emissão CNPJ: {cnpj}")
+            query = f"UPDATE Empresas SET {campo} = ? WHERE cnpj = ?"
+            self.cursor.execute(query, (status, cnpj))
+            self.conn.commit()
+        except Exception as e:
+            self.logging.error(f"Erro ao atualizar status: {e}")
+            raise
+
     def atualizar_empresa(self, cnpj, dados: dict):
         self.logging.info(f"Atualizando empresa com CNPJ: {cnpj}")
 

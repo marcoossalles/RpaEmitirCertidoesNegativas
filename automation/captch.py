@@ -70,4 +70,4 @@ class CaptchaSolver:
 
         except Exception as e:
             self.logging.error(f"Erro: {e}")
-            return None
+            return e

@@ -5,7 +5,7 @@ from manager_logs.logger_manager import Logger
 
 class CriarAbaPlanilha:
     def __init__(self):
-        self.self.logging = Logger("EmissaoCertidao")
+        self.logging = Logger("EmissaoCertidao")
         self.caminho_arquivo = os.getenv('PASTA_PLANILHA_CNPJS')
         self.writer = pd.ExcelWriter(
             self.caminho_arquivo, 

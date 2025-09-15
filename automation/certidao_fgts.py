@@ -1,5 +1,7 @@
 import os
 import time
+import functools
+import time
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -16,6 +18,39 @@ from integrations.integracao_certidao_fgts import ApiCertidaoFgts
 from automation.captch import CaptchaSolver
 from models.genrenciador_processamento import GerenciadorProcessamento
 from manager_logs.logger_manager import Logger
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+
+def retry_on_selenium_error(max_retries=3, delay=2, exceptions=(NoSuchElementException)):
+    """
+    Decorador para reexecutar uma função em caso de erro do Selenium.
+    
+    Args:
+        max_retries (int): número máximo de tentativas.
+        delay (int | float): tempo (segundos) entre as tentativas.
+        exceptions (tuple): exceções que devem ser tratadas para retry.
+    """
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            attempt = 0
+            last_exception = None
+
+            while attempt < max_retries:
+                try:
+                    if attempt > 0:
+                        print(f"⚠ Tentativa {attempt+1}/{max_retries} para {func._name_}...")
+                    return func(*args, **kwargs)
+                except exceptions as e:
+                    last_exception = e
+                    attempt += 1
+                    (f"❌ Erro capturado em {func._name_}: {e}. Retentando em {delay}s...")
+                    time.sleep(delay)
+            
+            # se chegou aqui é porque todas as tentativas falharam
+            print(f"🚨 Função {func._name_} falhou após {max_retries} tentativas.")
+            raise last_exception
+        return wrapper
+    return decorator
 
 class CertidaoFgts:
     def __init__(self):
@@ -55,6 +90,7 @@ class CertidaoFgts:
 
         self.logging.info("Driver Chrome iniciado com sucesso para emissão FGTS.")
 
+    @retry_on_selenium_error(max_retries=5, delay=3)
     def acessar_site(self, cnpj, nome_empresa):
         """
         Acessa o site da Caixa, preenche o CNPJ e realiza o fluxo

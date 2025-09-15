@@ -7,4 +7,5 @@ dotenv
 requests
 PyAutoGUI
 pillow
+pandas
 sqlite3

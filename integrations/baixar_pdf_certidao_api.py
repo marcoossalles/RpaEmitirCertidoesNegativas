@@ -44,16 +44,16 @@ class BaixarCertidaoViaApi:
                 return "PENDENTE"
 
         # Trata erros de timeout na requisição
-        except requests.exceptions.Timeout:
+        except requests.exceptions.Timeout as e:
             self.logging.error("Tempo limite excedido ao tentar baixar o arquivo.")
-            return None
+            return e
         
         # Trata outros erros relacionados à requisição HTTP
         except requests.exceptions.RequestException as e:
             self.logging.error(f"Erro ao fazer requisição: {e}")
-            return None
+            return e
         
         # Trata qualquer outro erro inesperado
         except Exception as e:
             self.logging.error(f"Erro inesperado: {e}")
-            return None
+            return e

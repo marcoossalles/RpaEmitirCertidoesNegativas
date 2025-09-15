@@ -51,21 +51,21 @@ class ApiCertidaoEstadual:
                     + "; ".join(response_json.get("errors", []))
                 )
                 self.logging.warning(mensagem)
-                return None
+                return mensagem
 
         # Tratamento de erros específicos de timeout
-        except requests.exceptions.Timeout:
+        except requests.exceptions.Timeout as e:
             self.logging.error("Tempo limite excedido na requisição para emissão da certidão.")
-            return None
+            return e
         # Tratamento de erros relacionados a requisições HTTP
         except requests.exceptions.RequestException as e:
             self.logging.error(f"Erro na requisição: {e}")
-            return None
+            return e
         # Tratamento de erro ao interpretar o JSON
         except ValueError as e:
             self.logging.error(f"Erro ao interpretar JSON: {e}")
-            return None
+            return e
         # Tratamento de qualquer outro erro inesperado
         except Exception as e:
             self.logging.error(f"Erro inesperado: {e}")
-            return None
+            return e

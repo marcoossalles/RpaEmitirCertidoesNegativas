@@ -16,10 +16,11 @@ from services.db_services import DbServices
 
 class Main:
     def __init__(self):
+        lista_cidades_atuantes = os.getenv('DICIONARIO_CIDADES_ATUANTES')
         #Criação da estrutura de gerenciamento de processamento
         GerenciadorProcessamento()
 
-        logging = Logger("EmissaoCertidao", log_file ='.\\Task\\Task_20250905\\logs\\log.txt')
+        logging = Logger("EmissaoCertidao", log_file =f'.\\Task\\Task_20250908\\logs\\log.txt')
 
         #Criação da estrutura de pastas
         CriadorPastasCertidoes().criar_estrutura_pastas()
@@ -56,39 +57,51 @@ class Main:
 
         #Itera sobre os dados das EMPRESA
         for empresa in lista_empresa_db:
+            lista_status = ['OK', 'PENDENTE']
             try:
                 # status = empresa.get('Status')
                 # status_proc = empresa.get('Status Processamento')
 
-                if empresa['status'] != ['Suspenso', 'Paralizado']:
+                if empresa['status'] != ['Suspenso', 'Paralisado']:
                     logging.info(f"Processando empresa {empresa.get('empresa')} - CNPJ: {empresa.get('cnpj')}")
 
                     status_resultados = {}
+                    campos_verificacao = []
+                    chaves = list(empresa.keys())[5:]
 
-                    for campo in empresa:
-                        if campo == 'trabalhista':
+                    for campo in chaves:
+                        if campo == 'trabalhista' and empresa['trabalhista'] not in lista_status:
                             logging.info("Emitindo certidão TRABALHISTA.")
+                            campos_verificacao.append(campo)
                             status_resultados[campo] = CertidaoTrabalhista().acessar_site(empresa['cnpj'], empresa['empresa'])
+                            db_services.atualiza_status(empresa['cnpj'],campo, status_resultados[campo])
 
-                        elif campo == 'municipal_certidao' and empresa['cidade'] == 'Goiânia - GO':
+                        elif campo == 'municipal_certidao' and empresa['cidade'] == 'Goiânia - GO' and empresa['municipal_certidao'] not in lista_status:
                             logging.info("Emitindo certidão MUNICIPAL.")
+                            campos_verificacao.append(campo)
                             status_resultados[campo] = CertidaoMunicipal().acessar_site(empresa['municipal_cae'], empresa['empresa'], empresa['cidade'])
+                            db_services.atualiza_status(empresa['cnpj'],campo, status_resultados[campo])
 
-                        elif campo == 'fgts':
+                        elif campo == 'fgts' and empresa['fgts'] not in lista_status:
                             logging.info("Emitindo certidão FGTS.")
+                            campos_verificacao.append(campo)
                             status_resultados[campo] = CertidaoFgts().acessar_site(empresa['cnpj'], empresa['empresa'])
+                            db_services.atualiza_status(empresa['cnpj'],campo, status_resultados[campo])
 
-                        elif campo == 'estadual':
+                        elif campo == 'estadual' and empresa['cidade'] in lista_cidades_atuantes and empresa['estadual'] not in lista_status:
                             logging.info("Emitindo certidão ESTADUAL (SEFAZ).")
+                            campos_verificacao.append(campo)
                             status_resultados[campo] = CertidaoEstadual().acessar_site(empresa['cnpj'], empresa['empresa'])
+                            db_services.atualiza_status(empresa['cnpj'],campo, status_resultados[campo])
 
-                        elif campo == 'receita_federal':
+                        elif campo == 'receita_federal' and empresa['receita_federal'] not in lista_status:
                             logging.info("Emitindo certidão RECEITA FEDERAL.")
+                            campos_verificacao.append(campo)
                             status_resultados[campo] = ApiCertidaoPgfn().emitir_certidao_pgfn(empresa['cnpj'], empresa['empresa'])
-                            
+                            db_services.atualiza_status(empresa['cnpj'],campo, status_resultados[campo])
+
                         elif campo == 'status_processamento':
                             logging.info("Marcando como processado.")
-                            campos_verificacao = ['receita_federal', 'estadual', 'municipal_certidao', 'fgts', 'trabalhista']
                             
                             if any(status_resultados[c] == None for c in campos_verificacao):
                                 status_resultados[campo] = "PROCESSO PENDENTE"
